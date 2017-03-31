@@ -2,6 +2,6 @@
 $git pull
 
 //para subir cambios
-$git add.
+$git add .
 $git commit -m "algun mensaje"
 $git push origin master
