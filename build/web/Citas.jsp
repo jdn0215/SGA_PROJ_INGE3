@@ -52,23 +52,23 @@
                 
                 <div class="form-group">
                     <label for="CTexto">Recepcionista:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita">
+                    <input type ="text" name="CTexto" class="form-control" id = "recepcionistaCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Número de Proforma:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita">
+                    <input type ="text" name="CTexto" class="form-control" id = "proformaCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Garantía:</label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita">
+                    <input type ="text" name="CTexto" class="form-control" id = "garantiaCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Número de orden:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita">
+                    <input type ="text" name="CTexto" class="form-control" id = "numeroOrdenCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Tipo de trabajo:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita">
+                    <input type ="text" name="CTexto" class="form-control" id = "tipoCita">
                 </div>
                 <table>
                      
