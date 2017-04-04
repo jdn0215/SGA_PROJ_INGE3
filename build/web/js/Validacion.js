@@ -9,7 +9,7 @@
 const colorERROR="border: 1px solid #FF0000;";
 const colorOK="border: 1px solid #ccc;";
 class Validacion{
-    Constructor(input,errorMj,lambda,otro="",otro2=""){
+    constructor(input,errorMj,lambda,otro="",otro2=""){
         this.input = input;
         this.lambda=lambda;
         this.errorMj=errorMj;
@@ -20,15 +20,15 @@ class Validacion{
         return this.lambda() ? this.applyOk() : this.applyError();
     }
     applyError(){
-        let inp =  $("#"+this.input)[0];
+        var ipt = $("#"+this.input);
+        let inp = ipt[0];
         inp.style=colorERROR;
         if(this.otro !=="") $id(this.otro).style=colorERROR;
         if(this.otro2!=="") $id(this.otro2).style=colorERROR;
         inp.setAttribute("title","ERROR!");
         inp.setAttribute("data-content",this.errorMj);
-        $("#"+this.input).popover("show","swing",()=>
-             $("#"+this.input).hide(3000)
-        );
+        $("#"+this.input).popover("show");
+        setInterval(()=>$("#"+this.input).popover("destroy"),5000);
         return false;
     }
     applyOk(){
@@ -66,12 +66,14 @@ class Validator{
         return this;
     };
     validateArray(arr=[]){
-        this.result  = arr.reduce(e=>{
+        this.result  = arr.reduce((a,e)=>{
             if(e instanceof Validacion){
                 let res = e.result();
-                return this.result && res; 
+                if(res === false)
+                    this.message+= e.errorMj;
+                return a && res; 
             }
-        });
+        },true);
         return this;
     }
 };

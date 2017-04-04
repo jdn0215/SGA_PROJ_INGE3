@@ -10,7 +10,7 @@ const VALIDACIONES_CLIENTES = [
 
     new Validacion(
         "textNombre","Nombre no válido ",
-        ()=> $id("textNombre").value!=="" && $id("textNombre").value.length<51,    
+        ()=> $id("textNombre").value!=="" && $id("textNombre").value.length<51   
     ),
 
     new Validacion(
@@ -70,6 +70,6 @@ const VALIDACIONES_CLIENTES = [
     ),
     
     new Validacion(
-        "anno"," - año de nacimiento",annoFormat.test($id("anno").value)
+        "anno"," - año de nacimiento",()=>annoFormat.test($id("anno").value)
     )
 ];
