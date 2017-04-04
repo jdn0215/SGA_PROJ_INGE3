@@ -1,25 +1,11 @@
-/* global $id, IDFORMAT, edadFormat, TELFORMAT, mailFormat, annoFormat, Proxy, LBSCLNTS, $Proxy */
+/* global $id, IDFORMAT, edadFormat, TELFORMAT, mailFormat, annoFormat, Proxy, LBSCLNTS, $Proxy, VALIDACIONES_CLIENTES */
 
 var idCliente="";
 let vc;
-const validar=_=>
-    vc.validate("textNombre","Nombre",$id("textNombre").value!=="")
-      .validate($id("CF").checked ? "textCedula1" : "MtextID",
-                " - la identificación",
-                $id("CF").checked ? IDFORMAT.test(idCliente) : idCliente.length!==0,
-                $id("CF").checked?"textCedula2":"",
-                $id("CF").checked?"textCedula3":"")
-      .validate("textEdad"," - la edad",edadFormat.test($id("textEdad").value))                  
-      .validate("textCelular"," - numero de celular",TELFORMAT.test($id("textCelular").value))
-      .validate("textEmail"," - correo electronico",mailFormat.test($id("textEmail").value))
-      .validate("textProfesion"," - profesión",$id("textProfesion").value!=="")
-      .validate("_mes"," - mes de nacimiento",$id("_mes").selectedIndex!==0)
-      .validate("_dia"," - día de nacimiento",$id("_dia").selectedIndex!==0)
-      .validate("comboProv"," - provincia",$id("comboProv").selectedIndex!==0)
-      .validate("comboCant"," - canton",$id("comboCant").selectedIndex!==0)
-      .validate("comboDist"," - distrito",$id("comboDist").selectedIndex!==0)
-      .validate("anno"," - año de nacimiento",annoFormat.test($id("anno").value))   
-      .result;
+
+
+
+const validar=()=>vc.validateArray(VALIDACIONES_CLIENTES).result;
 
 
 const buildCliente=_=>{

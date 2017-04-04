@@ -228,33 +228,7 @@ const llenarMes=(mes="_mes",dia="_dia")=>{
 
 const tituloPag=(T)=> document.title=T;
 
-class Validator{
-    constructor(){
-        this.result=true;
-        this.message="";
-    }
-    validate(campo,error,estado,otro="",otro2=""){
-        if(estado===false){
-            this.result=false;
-            let inp=$id(campo);
-            inp.style="border: 1px solid #FF0000;";
-            this.message= this.message+error;
-            inp.setAttribute("title","ERROR!");
-            inp.setAttribute("data-content",error);
-            $("#"+campo).popover("show");
-            setInterval(()=>$("#"+campo).popover("destroy"),5000);
-            if(otro!=="") $id(otro).style="border: 1px solid #FF0000;";
-            if(otro2!=="") $id(otro2).style="border: 1px solid #FF0000;";  
-           
-        }else{
-            $id(campo).style="border: 1px solid #ccc;";
-            if(otro!=="") $id(otro).style="border: 1px solid #ccc;";
-            if(otro2!=="") $id(otro2).style="border: 1px solid #ccc;"; 
-        }
-       
-        return this;
-    };
-};
+
 
 const registrarError=(campo,error,estado,O,M,otro="",otro2="")=>{
     if(estado===false){
