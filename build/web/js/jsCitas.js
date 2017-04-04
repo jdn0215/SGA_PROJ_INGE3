@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -29,15 +29,8 @@ const addCita=()=>{
             );
     
 };
-const validarCita=()=>{
-  return validadorCita.validate("clienteCita","Cliente no existe  ",modoUpdate || CLIENTEBUSCADO!==null)
-          .validate("motocito","Seleccione una motocicleta  ",modoUpdate ||CLIENTEBUSCADO!==null&&motosDelClienteBuscado.length!==0)
-          .validate("EmpleadoCita","Seleccione un empleado  ",$id("EmpleadoCita").selectedIndex!==0)
-          .validate("_mesCitas","Seleccion un mes  ",$id("_mesCitas").selectedIndex!==0)
-          .validate("_diaCitas","Seleccion un día  ",$id("_diaCitas").selectedIndex!==0)
-          .validate("minCita","Seleccion un hora  ",$id("minCita").value!=="")
-          .result;
-};
+const validarCita=()=>validadorCita.validateArray(VALIDACIONES_CITAS).result;
+
 const construirCita=()=>{
     validadorCita=new Validator();
     validadorCita.message="Por favor verifique:<br/>";
@@ -45,6 +38,7 @@ const construirCita=()=>{
         mensaje(validadorCita.message,5,3);
         return false;
     }
+    return false;//hasta arreglar todo
     return new Cita(
             0,/*la bd luego le asignará un consecutivo*/
             modoUpdate?cut($("#clienteCita").val()):cut(CLIENTEBUSCADO.id),/*id del cliente*/

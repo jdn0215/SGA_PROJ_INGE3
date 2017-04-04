@@ -145,6 +145,7 @@
                 <div class="form-group">
                     <label for="CTexto">Mecánico asignado:<obligatorio>*</obligatorio></label>
                     <select id="EmpleadoCita"class="form-control" >
+                        <option value="-1">Ingrese una hora de ingreso y una hora prometida</option>
                     </select>
                 </div>
                 <div id="divSalidaCita" class="form-group noVisible">
@@ -154,13 +155,13 @@
                             <select name="dia" id="_diaCitas3"><option value="-1" ></option></select>
                             <select id="annoCita3"></select>
                         </GROUP>
-                </div>
+                
                 <div class="form-group">
                     <label>Hora de llamada:<obligatorio>*</obligatorio></label>
-                    <input class="TimeInput" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita">
+                    <input class="TimeInput" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita4">
                 </div>
                 
-
+                </div>
                 <div class="form-group">
                     <label> Observaciones:</label>
                     <textarea class="form-control" rows="5" id="motivosCita"></textarea>

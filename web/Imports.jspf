@@ -27,6 +27,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/popup.js"></script>
 <script type="text/javascript" src="js/validacionesClientes.js"></script>
+<script type="text/javascript" src="js/validacionesCitas.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <link href="Css/bootstrap-theme.min.css" rel="stylesheet">
