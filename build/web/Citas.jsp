@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="CTexto">Recepcionista:<obligatorio>*</obligatorio></label>
+                    <label for="CTexto">Recepcionista quien crea la cita:<obligatorio>*</obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control" id = "recepcionistaCita">
                 </div>
                 <div class="form-group">

@@ -29,9 +29,9 @@ const ingresar=u=>{
             
 };
 
-const logout=_=>{
+const logout=(state=true)=>{
     sessionStorage.removeItem("usuarioactual");
-    localStorage.setItem("legal",true);
+    localStorage.setItem("legal",state);
     document.location="index.jsp";
 };
 

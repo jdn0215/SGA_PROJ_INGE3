@@ -271,3 +271,7 @@ GROUP *,.TimeInput{
     border: 2px solid white;
 }
 
+#empleadoActual{
+    margin-left:61%;
+    color:#379C13;
+}

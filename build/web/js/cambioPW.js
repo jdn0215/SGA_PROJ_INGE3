@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy */
+/* global $id, $Proxy, cambioContrasennaOK, cambioContasennaErr */
 
 let nombreUsuario=null;
 let empleado=null;
@@ -72,11 +72,11 @@ const terminarConfirmacion=()=>{
       $Proxy.proxy($$("arg0",nombreUsuario,"arg1",cut(empleado.nombre),"arg2",empleado.correo),
                    "cambioPassword","usuario",res=>{
           if(res===1){
-              mensaje("La contraseña ha sido cambiada con éxito, revise su correo electronico para ver su nueva contraseña",6,0);
+              mensaje(cambioContrasennaOK,6,0);
               $("#buttonSubmitCambio")[0].style="display:none";
               $("#cancelCambio")[0].style="background-color:";
               $("#cancelCambio")[0].innerHTML="Regresar";
-          }else mensaje("No se ha logrado concluir con el cambio de contraseña, intente de nuevo",6,3);
+          }else mensaje(cambioContasennaErr,6,3);
       });  
     }else{
         mensaje("El correo ingresado no coincide con el registrado en el sistema ("+correoasterisco+")",6,3);

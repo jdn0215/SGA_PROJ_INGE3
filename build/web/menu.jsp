@@ -28,7 +28,9 @@
 						<p> &nbsp </p> &nbsp <img src="imgs/logo2.jpg" class="logo">
 						<width = "80%" id="encabezado2"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
 						&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp SGA <small > Sistema de Gestión Automotriz</small>
-					</h1>
+                                                <br/>
+                                                <small id="empleadoActual"></small>
+                                        </h1>
 				</div>
 			</div>           
         </div>

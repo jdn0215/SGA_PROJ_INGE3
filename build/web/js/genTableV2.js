@@ -1,4 +1,4 @@
-/* global $id, diaEscogido, diaEscogido, agenda */
+/* global $id, diaEscogido, diaEscogido, agenda, imgCheck, imgEquis */
 var auxtem;
 let resultadosClientes;
 const attCL=["id","nombre","correo","tel","tel2","ocupacion","nacimiento","zona"];
@@ -23,9 +23,6 @@ const HDRCT=["Cliente","Motocicleta","Empleado Asignado","Descripción","Estado 
 var CurrentHr=-1;
 const eventoTablaCita=e=>reconstruirCita(agenda.citas[agenda.diaEscogido].hash[e.target.idx]);
 const eventoCeldaCita=e=>mostrarTexto(e.target.id);
-
-const imgCheck="<img src='imgs/check.png' width='30%'>";
-const imgEquis="<img src='imgs/equis.png' width='30%'>";
 
 
 const atributos=type=>{
@@ -128,50 +125,61 @@ const createCell=(value,evnt=null,tgr="",idx=0,hdr=true,cN="")=>{
 
 const Cell=(dato,obj,type,idx)=>{
   switch(type){
-      case 1:
-            switch(dato){
-                case "nacimiento":
-                    return createCell(obj.nacimiento.getDate()+"-"+mes(obj.nacimiento.getMonth())+"-"+obj.nacimiento.getFullYear(),
-                               eventoTablaCliente,"click",idx,false);
-                case "zona": 
-                    return createCell(obj.zona.zona,eventoTablaCliente,"click",idx,false);  
-                default: return createCell(obj[dato],eventoTablaCliente,"click",idx,false);             
-            }//end switch2
-      case 2:
-            switch(dato){
-                case "placa":
-                    return createCell(obj[dato]===""?"-":obj[dato],eventoTablaMoto,"click",idx,false);
-                case "placaavg":
-                    return createCell(obj[dato]===""?"-":obj[dato],eventoTablaMoto,"click",idx,false);;
-                default:return createCell(obj[dato],eventoTablaMoto,"click",idx,false);
-            }//end switch3
-      case 3:
-            switch(dato){
-                case "isJefe":
-                    return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
-                case "isAsesor":
-                    return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
-                case "activo":
-                    return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
-                default: return createCell(obj[dato],eventoTablaEmpleado,"click",idx,false);;
-            }//endo switch 4
-      case 4:
-            switch(dato){
-                case "estado":
-                    let e=obj[dato];
-                    let text=(e===1?"Pendiente":e===2?"Cancelada":"Efectuada");
-                    let estado="celda"+text;
-                    return createCell(createTdSpan(text,estado),eventoTablaCita,"click",idx,false,estado);
-                case "fecha":
-                    return createCell(toText(obj[dato]),eventoTablaCita,"click",idx,false);
-                case "motivos":
-                    return createCell(textEllipsis(obj[dato],idx),eventoCeldaCita,"mouseover",idx,false);
-                default: return createCell(obj[dato],eventoTablaCita,"click",idx,false);
-            }
+      case 1: return cellCliente(dato,obj,idx);
+      case 2: return cellMoto(dato,obj,idx);
+      case 3: return cellEmpleado(dato,obj,idx);
+      case 4: return cellCitas(dato,obj,idx);
       default:return createCell(dato);
   }//end switch1 
   return null;
 };
+
+const cellCliente=(dato,obj,idx)=>{
+    switch(dato){
+        case "nacimiento":
+            return createCell(obj.nacimiento.getDate()+"-"+mes(obj.nacimiento.getMonth())+"-"+obj.nacimiento.getFullYear(),
+                       eventoTablaCliente,"click",idx,false);
+        case "zona": 
+            return createCell(obj.zona.zona,eventoTablaCliente,"click",idx,false);  
+        default: return createCell(obj[dato],eventoTablaCliente,"click",idx,false);             
+    }
+};
+const cellMoto=(dato,obj,idx)=>{
+    switch(dato){
+        case "placa":
+            return createCell(obj[dato]===""?"-":obj[dato],eventoTablaMoto,"click",idx,false);
+        case "placaavg":
+            return createCell(obj[dato]===""?"-":obj[dato],eventoTablaMoto,"click",idx,false);;
+        default:return createCell(obj[dato],eventoTablaMoto,"click",idx,false);
+    }
+};
+const cellEmpleado=(dato,obj,idx)=>{
+      switch(dato){
+        case "isJefe":
+            return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
+        case "isAsesor":
+            return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
+        case "activo":
+            return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
+        default: return createCell(obj[dato],eventoTablaEmpleado,"click",idx,false);;
+    }
+};
+const cellCitas=(dato,obj,idx)=>{
+    switch(dato){
+        case "estado":
+            let e=obj[dato];
+            let text=(e===1?"Pendiente":e===2?"Cancelada":"Efectuada");
+            let estado="celda"+text;
+            return createCell(createTdSpan(text,estado),eventoTablaCita,"click",idx,false,estado);
+        case "fecha":
+            return createCell(toText(obj[dato]),eventoTablaCita,"click",idx,false);
+        case "motivos":
+            return createCell(textEllipsis(obj[dato],idx),eventoCeldaCita,"mouseover",idx,false);
+        default: return createCell(obj[dato],eventoTablaCita,"click",idx,false);
+    }
+};
+
+
 
 const toText=(fecha)=>{
   let h=fecha.getHours(),m=fecha.getMinutes();

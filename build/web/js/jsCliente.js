@@ -1,4 +1,4 @@
-/* global $id, IDFORMAT, edadFormat, TELFORMAT, mailFormat, annoFormat, Proxy, LBSCLNTS, $Proxy, VALIDACIONES_CLIENTES */
+/* global $id, IDFORMAT, edadFormat, TELFORMAT, mailFormat, annoFormat, Proxy, LBSCLNTS, $Proxy, VALIDACIONES_CLIENTES, verifiqe, clienteNoAdd */
 
 var idCliente="";
 let vc;
@@ -13,9 +13,9 @@ const buildCliente=_=>{
         ($id("textCedula1").value)+"-"+($id("textCedula2").value)+"-"+($id("textCedula3").value)
         :$id("MtextID").value;
     vc=new Validator();
-    vc.message="Por favor verifique:<br/>";
+    vc.message=verifiqe;
     if(!validar()){
-       mensaje("Cliente no agregado "+vc.message,0,3);
+       mensaje(clienteNoAdd+vc.message,0,3);
        return false;
     }else{
        idCliente=getIdFrom();

@@ -1,4 +1,4 @@
-/* global $id */
+/* global $id, noVisible */
 const Aclientes=["_successC","_infoC","_warningC","_dangerC"];
 const Amotos=["_successM","_infoM","_warningM","_dangerM"];
 const Ausuarios=["_successU","_infoU","_warningU","_dangerU"];
@@ -11,7 +11,7 @@ const alerts=[Aclientes,Amotos,Ausuarios,ABusca,AIndex,ACitas,ACambio];
 
 const clearMensaje=_=>{
     alerts.forEach(e=>{ 
-                    try{e.forEach(ee=>$id(ee).className="noVisible");}
+                    try{e.forEach(ee=>$id(ee).className=noVisible);}
                     catch(e){}
                 }
             );
@@ -25,9 +25,8 @@ const mensaje=(mj,where,tipo=0)=>{
     alerts[where].forEach(
             (e,i)=> i===tipo?
                     ($id(e).className=states[i],$id(e).innerHTML=mj)
-                     :$id(e).className="noVisible"
+                     :$id(e).className=noVisible
      );
   //   window.scroll(0,0);
 };
-
 

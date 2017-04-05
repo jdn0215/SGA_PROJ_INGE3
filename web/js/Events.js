@@ -1,6 +1,8 @@
 /* global $id, DELETEEMPLEADO, HORASERVER, CLIENTEBUSCADO, $Proxy, cargarMotos, agenda, recuperarContrasenna */
 
 const events=()=>{
+    usuarioActual=retrieve("usuarioactual");
+    getEmpleado(usuarioActual.id);
     indexEvents();
     BusquedaEvents();
     ClientesEvents();
@@ -143,4 +145,14 @@ const citasEvents=()=>{
     $("#citaCancelada").change(()=>_div=$id("divSalidaCita").className="noVisible");
     $("#EnProceso").change(()=>_div=$id("divSalidaCita").className="noVisible");
 
+};
+const getEmpleado=(arg)=>{
+    $Proxy.proxy($$("arg0",arg),"buscaEmpleadoByUser","EMPLEADO",res=>{
+       if(res.length === 0){
+          // logout(false);
+       }else{
+           empleadoActual=res[0];
+           $("#empleadoActual")[0].innerHTML=cut(empleadoActual.nombre);
+       }
+   });  
 };
