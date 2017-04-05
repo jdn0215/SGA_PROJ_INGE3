@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -155,8 +155,15 @@ const reconstruirCita=(cita)=>{
    
     
 };
+
 const clearCitas=()=>{
-    
+    $id("citasReset1").click();//quitar el texto de los inputs
+    $id("citasReset2").click();//quitar el texto de los inputs
+    $("#form1Citas > div > input,#form1Citas > div > select").css("border",borderOK);//quitar borde rojo
+    FF();//quitar opciones de motos
+    $id("citaPendiente").click();
+    $("#form2Citas > div > group > select,#form2Citas > div > select,#form2Citas > div > input")
+            .css("border",borderOK);
 };
 
 const findEmpleado=e=>{
@@ -171,13 +178,16 @@ const findEmpleado=e=>{
   }
   return salida;
 };
-const cargarMotos=()=>{
-    let FF=()=>{
+
+const FF=()=>{
         motos=$id("motocito");
         motos.clear;  
         motos.length=1;
         motos.options[0].text="Ingrese la identificación del cliente";
-    };
+};
+
+const cargarMotos=()=>{
+    
     CLIENTEBUSCADO=retrieve("CLIENTEBUSCADO");
        if(CLIENTEBUSCADO===null){
         FF();

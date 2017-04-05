@@ -34,7 +34,7 @@
                        </div>
     <div class="row" id="citasWrapper">
 	<div class="col-md-6">
-            <form class="in-line " role="form">
+            <form class="in-line " role="form" id="form1Citas">
                 <div class="form-group">
                     <label><especificacion>*</especificacion><small>Campos obligatorios</small></label>
                 </div>
@@ -105,7 +105,7 @@
             </form>	
         </div>
         <div class="col-md-6">
-            <form class="in-line" role="form">
+            <form class="in-line" role="form" id="form2Citas">
                 <br/><br/>
                  
                 

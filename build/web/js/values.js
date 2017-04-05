@@ -11,7 +11,8 @@ const imgCheck="<img src='imgs/check.png' width='30%'>";
 const imgEquis="<img src='imgs/equis.png' width='30%'>";
 const verifiqe="Por favor verifique:<br/>";
 const clienteNoAdd="Cliente no agregado ";
-
+const borderERROR="1px solid #FF0000";
+const borderOK="1px solid #ccc";
 
 let usuarioActual=null;
 let empleadoActual=null;
