@@ -52,7 +52,7 @@
                 
                 <div class="form-group">
                     <label for="CTexto">Recepcionista quien crea la cita:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "recepcionistaCita">
+                    <input type ="text" name="CTexto" disabled class="form-control" id = "recepcionistaCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Número de Proforma:<obligatorio>*</obligatorio></label>
@@ -157,7 +157,7 @@
                         </GROUP>
                 
                 <div class="form-group">
-                    <label>Hora de llamada:<obligatorio>*</obligatorio></label>
+                    <label>Hora de la salida<obligatorio>*</obligatorio></label>
                     <input class="TimeInput" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita4">
                 </div>
                 
@@ -169,7 +169,7 @@
                 <input type="reset" class="noVisible" id="citasReset2"/>
                 <div class="form-group">
                     <label for="CTexto">Cantidad de días en el taller</label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita">
+                    <input type ="text" disabled name="CTexto" class="form-control" value="0" id = "clienteCita">
                 </div>
            </form>
         </div>

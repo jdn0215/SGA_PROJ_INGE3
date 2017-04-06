@@ -14,40 +14,29 @@ import java.util.Date;
  */
 
 public class Cita implements Serializable, Jsonable{
-    public enum Estados{
-        Pendiente(0),Cancelada(1),EnProceso(2),Entregada(3);
-        public int value;
-        Estados(int e){
-            value=e;
-        }
-    };
-    int proforma,orden;
+     //Pendiente(0),Cancelada(1),EnProceso(2),Entregada(3);
+
+    int proforma,orden,estado;
     String cliente,moto,recepcionista,garantia,tipoDeTrabajo,mecanico;
-    Date entrada,salida,prometida,llamada;
-    Estados estado;
+    Date entrada,salida,prometida;
     public Cita(int p){
         this.proforma=this.orden=p;
     }
      public Cita(String p){
         cliente=moto=recepcionista=garantia=tipoDeTrabajo=mecanico=p;
+    
+     }
+
+    public int getEstado() {
+        return estado;
     }
 
-    public Cita(int proforma, int orden, String cliente, String moto, String recepcionista, String garantia, String tipoDeTrabajo, String mecanico, Date entrada, Date salida, Date prometida, Date llamada, Estados estado) {
-        this.proforma = proforma;
-        this.orden = orden;
-        this.cliente = cliente;
-        this.moto = moto;
-        this.recepcionista = recepcionista;
-        this.garantia = garantia;
-        this.tipoDeTrabajo = tipoDeTrabajo;
-        this.mecanico = mecanico;
-        this.entrada = entrada;
-        this.salida = salida;
-        this.prometida = prometida;
-        this.llamada = llamada;
+    public void setEstado(int estado) {
         this.estado = estado;
     }
-    
+     
+     
+     
     public Cita(int proforma, int orden, String cliente, String moto, String recepcionista, String garantia, String tipoDeTrabajo, String mecanico, Date entrada, Date salida, Date prometida, Date llamada, int estado) {
         this.proforma = proforma;
         this.orden = orden;
@@ -60,14 +49,9 @@ public class Cita implements Serializable, Jsonable{
         this.entrada = entrada;
         this.salida = salida;
         this.prometida = prometida;
-        this.llamada = llamada;
-        switch(estado){
-            case 0: this.estado=Estados.Pendiente;break;
-            case 1: this.estado=Estados.Cancelada;break;
-            case 2: this.estado=Estados.EnProceso;break;
-            case 3: this.estado=Estados.Entregada;break;
-        }
+        this.estado = estado;
     }
+
 
     public Cita() {
         this.proforma = 0;
@@ -81,8 +65,7 @@ public class Cita implements Serializable, Jsonable{
         this.entrada = null;
         this.salida = null;
         this.prometida = null;
-        this.llamada = null;
-        this.estado = Estados.Cancelada;
+        this.estado = 1;
     }
 
     public int getProforma() {
@@ -173,22 +156,5 @@ public class Cita implements Serializable, Jsonable{
         this.prometida = prometida;
     }
 
-    public Date getLlamada() {
-        return llamada;
-    }
-
-    public void setLlamada(Date llamada) {
-        this.llamada = llamada;
-    }
-
-    public Estados getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estados estado) {
-        this.estado = estado;
-    }
-    
-    
-    
+       
 }

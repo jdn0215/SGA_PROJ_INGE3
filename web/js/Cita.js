@@ -2,7 +2,7 @@
 
 class Cita{
    constructor(proforma=0,orden=0,cliente="",moto="",recepcionista="",garantia="",tipoDeTrabajo="",
-                mecanico="",entrada=null,salida=null,prometida=null,llamada=null,estado=0){
+                mecanico="",entrada=null,salida=null,prometida=null,estado=0){
        this.proforma=proforma;
        this.cliente=cliente;
        this.orden=orden;
@@ -12,14 +12,15 @@ class Cita{
        this.tipoDeTrabajo=tipoDeTrabajo;
        this.mecanico=mecanico;
        this.entrada=entrada;
-       this.salida=salida;
+       if(salida!==0)
+        this.salida=salida;
+       else this.salida = new Date(entrada.getFullYear()-1,entrada.getMonth(),entrada.getDate());
        this.prometida=prometida;
-       this.llamada=llamada;
        this.estado=estado;
    }
    static from(p){
        return new Cita(p.proforma,p.orden,p.cliente,p.moto,p.recepcionista,p.garantia,p.tipoDeTrabajo,
-                p.mecanico,p.entrada,p.salida,p.prometida,p.llamada,p.estado);
+                p.mecanico,p.entrada,p.salida,p.prometida,p.estado);
    }
    static to(p){
       return{
@@ -35,7 +36,6 @@ class Cita{
         entrada  :p.entrada,
         salida   :p.salida,
         prometida:p.prometida,
-        llamada  :p.llamada,
         estado   :p.estado
       }; 
    }

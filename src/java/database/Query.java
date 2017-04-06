@@ -44,7 +44,8 @@ public enum Query{
      FDE("select * from FDE('%s');"),
     buscaEmpleadoByUser("select * from buscaEmpleadoByUser('%s');"),
     cambioPW("select * from cambioPW('%s','%s');"),
-    crearCita("select * from createCita('%s','%s','%s','%s',%d,'%s');"),
+    crearCita("select * from crearCita(%d,'%s','%s','%s','%s',%d,'%s','%s','%s','%s','%s',%d);"),
+    crearCita2("select * from crearCita(%d,'%s','%s','%s','%s',%d,'%s','%s','%s',null,'%s',%d);"),
     updateCita("select * from updateCita(%d,'%s','%s',%d);"),
     empleadosLibres("select * from empleadosLibres('%s','%s');");
 public final String query;

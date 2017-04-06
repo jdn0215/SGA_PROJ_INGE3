@@ -38,17 +38,29 @@ const construirCita=()=>{
         mensaje(validadorCita.message,5,3);
         return false;
     }
-    return false;//hasta arreglar todo
     return new Cita(
-            0,/*la bd luego le asignará un consecutivo*/
-            modoUpdate?cut($("#clienteCita").val()):cut(CLIENTEBUSCADO.id),/*id del cliente*/
-            modoUpdate?cut($("#motocito").text().split(": ")[1]):motosDelClienteBuscado[$id("motocito").selectedIndex].motor,/*motor de la moto*/
-            $id("EmpleadoCita").value.split(" -- ")[1],/**/
-            $("#motivosCita").val(),
-            $id("citaPendiente").checked?1:$id("citaCancelada").checked?2:3,
-            armarFecha()
+            $("#proformaCita").val(),
+            $("#numeroOrdenCita").val(),
+            $("#clienteCita").val(),
+            modoUpdate?cut($("#motocito").text().split(": ")[1]):motosDelClienteBuscado[$id("motocito").selectedIndex].motor,
+            $("#recepcionistaCita").val(),
+            $("#garantiaCita").val(),
+            $("#tipoCita").val(),
+            $("#EmpleadoCita").val().split('- ')[1],
+            armarFecha(),
+            !$id("citaCumplida").checked?0:armarFecha("annoCita3","_mesCitas3","_diaCitas3","minCita4"),
+            armarFecha("annoCita2","_mesCitas2","_diaCitas2","minCita2"),
+            estadoCita()
     );
 };
+
+const estadoCita=()=>
+    $id("citaPendiente").checked ? 0 :
+    $id("EnProceso").checked     ? 2 :
+    $id("citaCumplida").checked  ? 3 :
+                                   1 ;
+
+
 const armarFecha=(anho="annoCita",_mes="_mesCitas",_dia="_diaCitas",_min="minCita")=>{
     let anno=$("#"+anho).val();
     let mes=$id(_mes).selectedIndex-1;
@@ -152,7 +164,7 @@ const mostrarTexto=(idx)=>{
 
 
 const reconstruirCita=(cita)=>{
-   
+
     
 };
 
@@ -164,6 +176,7 @@ const clearCitas=()=>{
     $id("citaPendiente").click();
     $("#form2Citas > div > group > select,#form2Citas > div > select,#form2Citas > div > input")
             .css("border",borderOK);
+    $("#recepcionistaCita").val(cut(empleadoActual.idempleado));
 };
 
 const findEmpleado=e=>{
