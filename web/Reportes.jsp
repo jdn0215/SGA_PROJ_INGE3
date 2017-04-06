@@ -13,17 +13,37 @@
         <%@ include file="Imports.jspf" %>
     </head>
     <body>
-        <div id="Reportes">
+        <div class="container">
         <div class="row divider-vertical">
                     <div class="col-md-12">
                             <h3 class="text-center" id="empleadosTitulo">
-                                   Reporte de arreglos y gastos
+                                   Reporte de arreglos y gastos de motocicletas
                             </h3>
                     </div>
         </div>
             
             <div>
+                <button type="button" sytle="display:none;" class="btn btn-primary btn-lg active" style="background-color: #ff9900 " id="buttonCitasModificar">
+        +
+</button>
+            </div>
+            
+            <div>
                 <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Descripción
+                            </th>
+                            <th>
+                                Precio
+                            </th>
+                            <th>
+                                
+                            </th>
+                        </tr>
+                                               
+                    </thead>
                     
                 </table>
             </div>
