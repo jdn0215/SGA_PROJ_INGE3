@@ -144,12 +144,13 @@ const citasEvents=()=>{
     $("#citaPendiente").change(()=>_div=$id("divSalidaCita").className="noVisible");
     $("#citaCancelada").change(()=>_div=$id("divSalidaCita").className="noVisible");
     $("#EnProceso").change(()=>_div=$id("divSalidaCita").className="noVisible");
+    
 
 };
 const getEmpleado=(arg)=>{
     $Proxy.proxy($$("arg0",arg),"buscaEmpleadoByUser","EMPLEADO",res=>{
        if(res.length === 0){
-          // logout(false);
+       //  logout(false);
        }else{
            empleadoActual=res[0];
            $("#empleadoActual")[0].innerHTML=cut(empleadoActual.nombre);

@@ -195,6 +195,8 @@ public class servlet extends HttpServlet {
                        case "addCita":
                            json = request.getParameter("CITA");
                            cita = gson.fromJson(json,Cita.class);
+                           if(cita.getSalida().getYear()<cita.getEntrada().getYear())
+                               cita.setSalida(null);
                            json = gson.toJson(Modelo.AddCita(cita));
                            out.write(json);
                            break;
