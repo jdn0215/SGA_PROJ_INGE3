@@ -23,7 +23,7 @@
         </div>
             
             <div>
-                <table>
+                <table class="table table-bordered">
                     
                 </table>
             </div>
