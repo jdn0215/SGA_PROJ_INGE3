@@ -11,6 +11,7 @@ import Model.Empleado;
 import Model.Moto;
 import Model.Estado;
 import Model.Mensaje;
+import Model.Observacion;
 import Model.Usuario;
 import Model.Zona;
 import java.util.Date;
@@ -50,6 +51,7 @@ public class QueryController {
             case "Empleado": return buildQueryEmpleado((Empleado)o,query);
             case "Mensaje" : return buildQueryMensaje((Mensaje)o,query);
             case "Cita"    : return buildQueryCita((Cita)o,query);
+            case "Observacion": return buildQueryObservacion((Observacion)o,query);
             default: 
                 return "";
         }
@@ -185,5 +187,15 @@ public class QueryController {
                                              QueryController.DATE_TIME(c.getPrometida()));
         }
         return "";
+    }
+
+    private String buildQueryObservacion(Observacion o, Query q) {
+        switch(q.name()){
+            case "addObservacionCita":
+                return String.format(q.query,o.getProforma(),
+                                             QueryController.DATE_TIME(o.getFecha()),
+                                             o.getDetalle());
+            default:return "";
+        }
     }
 }

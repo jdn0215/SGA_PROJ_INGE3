@@ -74,15 +74,15 @@ public class Messenger {
     void sendMessage(Mensaje mj){
         try{
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(mj.getDestino()));
-             message.setSubject(mj.getAsunto());
-             message.setSentDate(new Date());
-             message.setText(mj.getMensaje());
+             message.setSubject(mj.getAsunto());//ajuste del asunto
+             message.setSentDate(new Date());//fecha de envio
+             message.setText(mj.getMensaje());//contenido del correo
 
              Transport tr = session.getTransport("smtp");
              tr.connect(p.get("servidorSMTP"), p.get(".userMail"),p.get("password"));
              message.saveChanges();   
-             tr.sendMessage(message, message.getAllRecipients());
-             tr.close();
+             tr.sendMessage(message, message.getAllRecipients());//envio del correo
+             tr.close();//cierre de conexión
              System.err.print("Mensaje: "+mj.getMensaje()+" enviado a "+mj.getDestino());
              Modelo.setMensaje(mj);//si no falla lo pone en true para luego ser borrado
         } catch (MessagingException ex) {

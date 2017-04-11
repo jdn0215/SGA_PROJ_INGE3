@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -17,7 +17,7 @@ const addCita=()=>{
     let nuevaCita=construirCita();
     if(nuevaCita===false)return;
     $Proxy.proxy(
-            $$("CITA",nuevaCita),/*parametros*/
+            $$("CITA",nuevaCita,"Obs",buildObservacion()),/*parametros*/
             "addCita",/*accion*/
             "Cita",/*tipo de dato que se va manejar*/
              res=>{
@@ -228,3 +228,32 @@ const cargarMotos=()=>{
            }
        );   
 };
+
+const buildObservacion=()=>{
+    $date();
+    return new Observacion(
+            $("#proformaCita").val(),
+            buildDetalle(),
+            HORASERVER
+        ); 
+};
+
+const buildDetalle=()=>{
+        let out = cut(empleadoActual.idempleado)+"  "+buildTextDate(HORASERVER)+" -> ";
+    if(!modoUpdate){
+        let detalle = $("#motivosCita").val();
+        if(detalle === ""){
+            out += ("Creación de la cita");
+        }else{
+            out += detalle;
+        }
+    }
+    return out;
+};
+
+const buildTextDate=d=>
+    buildDate(d.getDate())+"-"+mes(d.getMonth())+
+            "-"+d.getFullYear()+" "+buildDate(d.getHours())+":"+buildDate(d.getMinutes());
+
+
+const buildDate=d=>(d<10)?("0"+d):(d);
