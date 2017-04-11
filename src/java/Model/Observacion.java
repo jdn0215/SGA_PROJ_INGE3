@@ -7,19 +7,24 @@ package Model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.logging.Logger;
 
 /**
  *
  * @author jdani
  */
-public class ObservacionCita implements Serializable, Jsonable {
+public class Observacion implements Serializable, Jsonable{
     int proforma;
-    Date fecha;
     String detalle;
+    Date fecha;
 
-    public ObservacionCita(int proforma, Date fecha, String detalle) {
+    public Observacion(int proforma, String detalle, Date fecha) {
         this.proforma = proforma;
+        this.detalle = detalle;
         this.fecha = fecha;
+    }
+
+    public Observacion(String detalle) {
         this.detalle = detalle;
     }
 
@@ -31,14 +36,6 @@ public class ObservacionCita implements Serializable, Jsonable {
         this.proforma = proforma;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
     public String getDetalle() {
         return detalle;
     }
@@ -46,6 +43,14 @@ public class ObservacionCita implements Serializable, Jsonable {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
-    
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+   
     
 }

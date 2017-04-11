@@ -37,6 +37,10 @@ public class Modelo {
      return db.executeQuery(query.buildQuery(c,Query.FIC))==null ? 0 : 1;
     }
     
+    public static void addObservacion(Observacion o){
+        db.executeQuery(query.buildQuery(o, Query.addObservacionCita));
+    }
+    
     public static int AddCita(Cita c){
      return db.executeQuery(query.buildQuery(c,Query.crearCita))==null ? 0 : 1;
     }

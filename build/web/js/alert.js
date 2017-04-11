@@ -27,6 +27,6 @@ const mensaje=(mj,where,tipo=0)=>{
                     ($id(e).className=states[i],$id(e).innerHTML=mj)
                      :$id(e).className=noVisible
      );
-  //   window.scroll(0,0);
+     window.scroll(0,0);
 };
 

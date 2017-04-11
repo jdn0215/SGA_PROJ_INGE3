@@ -47,6 +47,7 @@ public class servlet extends HttpServlet {
                     .registerSubtype(Moto.class,"Moto")
                     .registerSubtype(Empleado.class,"Empleado")
                     .registerSubtype(Cita.class,"Cita")
+                    .registerSubtype(Observacion.class,"Observacion")
                    ;
                    //configuracion formato de fecha
                    Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("MM/dd/yyyy HH:mm").create();
@@ -54,6 +55,7 @@ public class servlet extends HttpServlet {
                    int i1,i2,dato2;
                    String accion = request.getParameter("action");
                    Moto moto;
+                   Observacion obs;
                    Cliente cliente;
                    Usuario user;
                    List<? extends Object>clientes;
@@ -197,8 +199,13 @@ public class servlet extends HttpServlet {
                            cita = gson.fromJson(json,Cita.class);
                            if(cita.getSalida().getYear()<cita.getEntrada().getYear())
                                cita.setSalida(null);
-                           json = gson.toJson(Modelo.AddCita(cita));
-                           out.write(json);
+                           int res =Modelo.AddCita(cita);
+                           if(res==1){
+                             json = request.getParameter("Obs");
+                             obs = gson.fromJson(json,Observacion.class);
+                             Modelo.addObservacion(obs);
+                           }
+                           out.write(gson.toJson(res));                           
                            break;
                        case "updateCita":
                            json = request.getParameter("CITA");

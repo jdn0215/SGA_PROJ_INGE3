@@ -22,6 +22,7 @@
 <script type="text/javascript" src="js/jsUsuario.js"></script>
 <script type="text/javascript" src="js/jsEmpleado.js"></script>
 <script type="text/javascript" src="js/Moto.js"></script>
+<script type="text/javascript" src="js/Observacion.js"></script>
 <script type="text/javascript" src="js/cambioPW.js"></script>
 <script type="text/javascript" src="js/genTableV2.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
