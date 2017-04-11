@@ -85,6 +85,7 @@
                         <jsp:include page="Agenda.jsp"/>
                         <jsp:include page="popup.jsp"/>
                         <jsp:include page="Config.jsp"/>
+                        <jsp:include page="Reportes.jsp"/>
                         
 			<!--- #CERRAR SESION#--->
 
