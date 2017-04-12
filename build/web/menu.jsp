@@ -61,11 +61,12 @@
                              <span class="glyphicon glyphicon-th-list"></span>Citas</a>
                         </li>
                         
+
                         <li>
-                            <a data-toogle="tab" class="grow OpcionIndex" id="opcReportes" href="#Reportes">
-                                <span class="glyphicon glyphicon-th-list">Reportes</span></a>
-                            
+                            <a data-toggle="tab" class="grow OpcionIndex" id="opcReportes" href="#Reportes">
+                             <span class="glyphicon glyphicon-th-list"></span>Reportes</a>
                         </li>
+                        
                         
                         <li><a data-toggle="tab" id="botonresultados" href="#Results" style="display:none"></a> </li>
                         

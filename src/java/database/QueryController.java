@@ -195,6 +195,8 @@ public class QueryController {
                         DATE_TIME(c.getSalida()),c.getMecanico(),
                         c.getEstado()
                        );
+            case "SCRD":
+                return String.format(q.query,QueryController.DATE(c.getEntrada()),QueryController.DATE(c.getPrometida()));
             case "empleadosLibres":
                 return String.format(q.query,QueryController.DATE_TIME(c.getEntrada()),
                                              QueryController.DATE_TIME(c.getPrometida()));
