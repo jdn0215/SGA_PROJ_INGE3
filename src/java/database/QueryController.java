@@ -10,6 +10,7 @@ import Model.Cliente;
 import Model.Empleado;
 import Model.Moto;
 import Model.Estado;
+import Model.Gasto;
 import Model.Mensaje;
 import Model.Observacion;
 import Model.Usuario;
@@ -52,11 +53,23 @@ public class QueryController {
             case "Mensaje" : return buildQueryMensaje((Mensaje)o,query);
             case "Cita"    : return buildQueryCita((Cita)o,query);
             case "Observacion": return buildQueryObservacion((Observacion)o,query);
+            case "Gasto": return buildQueryGasto((Gasto)o,query);
             default: 
                 return "";
         }
     }
     @SuppressWarnings ("null")
+    
+    String buildQueryGasto(Gasto g,Query query){
+        switch(query.name()){
+            case "rg_crearGastos":
+                return String.format(query.query,g.getProforma(),g.getDescripcion(),g.getPrecio(),g.getFecha(),g.getMotormoto());
+            case "rg_gastosdeproforma":
+                return String.format(query.query,g.getProforma());
+            default: return "";
+            
+        }
+    }    
     String buildQueryCliente(Cliente c,Query query){
        
         switch(query.name()){
