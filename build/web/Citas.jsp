@@ -31,7 +31,7 @@
                          <div class="noVisible" id="_dangerCitas">
                            <strong>Danger!</strong>
                          </div>
-                       </div>
+    </div>
     <div class="row" id="citasWrapper">
 	<div class="col-md-6">
             <form class="in-line " role="form" id="form1Citas">

@@ -223,6 +223,7 @@ const llenarMes=(mes="_mes",dia="_dia")=>{
             case 4: return tituloPag("CITAS"),clearCitas();
             case 5: return tituloPag("BÚSQUEDAS");
             case 6: return tituloPag("AGENDA"),agenda.reload();
+            case 7: return tituloPag("REPORTES");
         }
     };
 

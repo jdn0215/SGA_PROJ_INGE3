@@ -60,6 +60,13 @@
                         <li><a data-toggle="tab" class="grow OpcionIndex" id="opcCitas" href="#Citas">
                              <span class="glyphicon glyphicon-th-list"></span>Citas</a>
                         </li>
+                        
+                        <li>
+                            <a data-toogle="tab" class="grow OpcionIndex" id="opcReportes" href="#Reportes">
+                                <span class="glyphicon glyphicon-th-list">Reportes</span></a>
+                            
+                        </li>
+                        
                         <li><a data-toggle="tab" id="botonresultados" href="#Results" style="display:none"></a> </li>
                         
                          <li> <a data-toggle="tab" class="grow OpcionIndex" id="botonConfig" href="#Config"> 
@@ -92,6 +99,7 @@
                         <div id="logout" class="tab-pane fade"  value="enviar"></div>
 			
 		</div>
+    </div>
 </body>
 
 </html>

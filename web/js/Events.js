@@ -30,6 +30,7 @@ const indexEvents=()=>{
     $("#opcCitas").click(()=>cambioDeContexto(4));
     $("#opcAgenda").click(()=>cambioDeContexto(6));
     $("#opcBusqueda").click(()=>cambioDeContexto(5));
+    $("#opcReportes").click(()=>cambioDeContexto(7));
     $("#botonLogOut").click(()=>logout()); 
     cambioDeContexto(6);
    

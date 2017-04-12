@@ -5,53 +5,61 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reportes</title>
-        
-         <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico"/>
-          <%@ include file="Imports.jspf" %>
-        <title>Reporte de Gastos</title>
-    </head>
-    <body>
-        <div class="container">
-        <div class="row divider-vertical">
-                    <div class="col-md-12">
-                            <h3 class="text-center" id="empleadosTitulo">
-                                   Reporte de arreglos y gastos 
-                            </h3>
-                    </div>
-        </div>
-            
-            <div id="agregar" style="margin-right: 45px; margin-left: auto;">
-                <button type="button" sytle="display:none;" class="btn btn-primary btn-lg active" 
-                        style="background-color: #ff9900 " id="buttonCitasModificar">
-                     +
-             </button>
+
+<div id="Reportes" class="tab-pane fade">
+    
+ <div class="row">
+            <div class="col-md-12">
+                    <h3 class="text-center" id="tituloReportes">
+                           Reporte de arreglos y gastos 
+                    </h3>
             </div>
-            
-            <div>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th class="datagridtable">
-                                Descripción
-                            </th>
-                            <th class="datagridtable">
-                                Precio
-                            </th>
-                            <th>
-                                
-                            </th>
-                        </tr>
-                                               
-                    </thead>
-                    
-                </table>
-            </div>
-            
-       </div>
-    </body>
-</html>
+</div>
+    
+    <div class="container">
+                         <!---alert alert-success  --->
+                         <div class="noVisible" id="_successReportes">
+                           <strong>Success!</strong> 
+                         </div>
+                          <!---alert alert-info"  --->
+                         <div class="noVisible" id="_infoReportes">
+                           <strong>Info!</strong> 
+                         </div>
+                           <!---alert alert-warning  --->
+                         <div class="noVisible" id="_warningReportes">
+                           <strong>Warning!</strong> 
+                         </div>
+                            <!---alert alert-danger --->
+                         <div class="noVisible" id="_dangerReportes">
+                           <strong>Danger!</strong>
+                         </div>
+    </div>
+   
+    <div id="agregar" style="margin-right: 45px; margin-left: auto;">
+        <button type="button" sytle="display:none;" class="btn btn-primary btn-lg active" 
+                style="background-color: #ff9900 " id="buttonCitasModificar">
+             +
+     </button>
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="datagridtable">
+                        Descripción
+                    </th>
+                    <th class="datagridtable">
+                        Precio
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+
+            </thead>
+
+        </table>
+    </div>
+    
+</div>

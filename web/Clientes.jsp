@@ -32,6 +32,7 @@
                            <strong>Danger!</strong>
                          </div>
                        </div>
+    
     <div class="row">
 	<div class="col-md-6">
         <form class="in-line " role="form">
