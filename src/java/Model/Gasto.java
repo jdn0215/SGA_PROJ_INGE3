@@ -27,7 +27,7 @@ public class Gasto implements Serializable, Jsonable{
         this.motormoto = motormoto;
     }
 
-    
+    public Gasto(){}
     
     public int getProforma() {
         return proforma;

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.sql.Timestamp;
+import java.time.Instant;
 
 /**
  *
@@ -30,7 +31,8 @@ public class ClassController {
             case "Empleado": return toEmpleado(rs);
             case "Mensaje": return toMensaje(rs);
             case "Cita": return toCita(rs);
-         }
+            case "Gasto": return toGasto(rs);
+        }
         return null;
     }
     public List<? extends Object >toCollection(ResultSet rs,String t){
@@ -160,4 +162,17 @@ public class ClassController {
         Timestamp ts = java.sql.Timestamp.valueOf(tm);
         return new Date(ts.getTime());
     }
+    
+    private Gasto toGasto(ResultSet rs){
+        try{
+            return new Gasto(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getDate(4),rs.getString(5));
+        }
+        catch(SQLException ex){
+            Gasto g=new Gasto();
+            g.setDescripcion("Hubo un error en la conversión del dato");
+            return g;
+        }
+        
+    }
+    
 }

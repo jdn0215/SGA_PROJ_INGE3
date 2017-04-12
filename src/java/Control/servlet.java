@@ -48,6 +48,7 @@ public class servlet extends HttpServlet {
                     .registerSubtype(Empleado.class,"Empleado")
                     .registerSubtype(Cita.class,"Cita")
                     .registerSubtype(Observacion.class,"Observacion")
+                    .registerSubtype(Gasto.class,"Gasto")
                    ;
                    //configuracion formato de fecha
                    Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).setDateFormat("MM/dd/yyyy HH:mm").create();
@@ -58,6 +59,7 @@ public class servlet extends HttpServlet {
                    Observacion obs;
                    Cliente cliente;
                    Usuario user;
+                   Gasto g;
                    List<? extends Object>clientes;
                    List<? extends Object>txts;
                    Moto act;
