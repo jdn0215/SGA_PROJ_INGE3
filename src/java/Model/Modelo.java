@@ -216,7 +216,7 @@ public class Modelo {
     }
     
     public static List<? extends Object> todosLosGastos(String proforma){
-        ResultSet rs=db.executeQuery(query.buildQuery(proforma, Query.rg_gastosdeproforma));
+        ResultSet rs=db.executeQuery(Query.rg_gastosdeproforma.toString());
         return _class.toCollection(rs, Gasto.class.getSimpleName());
     }
     

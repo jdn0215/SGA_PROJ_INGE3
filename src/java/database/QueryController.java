@@ -64,7 +64,7 @@ public class QueryController {
         switch(query.name()){
             case "rg_crearGastos":
                 return String.format(query.query,g.getProforma(),g.getDescripcion(),FLOAT(g.getPrecio()),DATE(g.getFecha()),g.getMotormoto());
-            case "rg_gastosdeproforma":
+            case "rg_gastosDeProforma":
                 return String.format(query.query,g.getProforma());
             default: return "";
             
