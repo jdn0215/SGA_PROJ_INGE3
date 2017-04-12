@@ -10,8 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        
-        <title>Reportes</title>
+         <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico"/>
+          <%@ include file="Imports.jspf" %>
+        <title>Reporte de Gastos</title>
     </head>
     <body>
         <div class="container">
