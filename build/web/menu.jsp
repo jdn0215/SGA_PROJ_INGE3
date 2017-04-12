@@ -29,7 +29,7 @@
 						<width = "80%" id="encabezado2"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
 						&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp SGA <small > Sistema de Gestión Automotriz</small>
                                                 <br/>
-                                                <small id="empleadoActual"></small>
+                                                <h3 id="empleadoActual"></h3>
                                         </h1>
 				</div>
 			</div>           
