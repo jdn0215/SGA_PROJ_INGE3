@@ -9,8 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        
         <title>Reportes</title>
-        <%@ include file="Imports.jspf" %>
     </head>
     <body>
         <div class="container">
@@ -22,7 +23,7 @@
                     </div>
         </div>
             
-            <div>
+            <div id="agregar" style="margin-right: 45px; margin-left: auto;">
                 <button type="button" sytle="display:none;" class="btn btn-primary btn-lg active" 
                         style="background-color: #ff9900 " id="buttonCitasModificar">
                      +
@@ -33,10 +34,10 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>
+                            <th class="datagridtable">
                                 Descripción
                             </th>
-                            <th>
+                            <th class="datagridtable">
                                 Precio
                             </th>
                             <th>
