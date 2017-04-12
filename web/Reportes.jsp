@@ -6,9 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<div id="Reportes" class="tab-pane fade">
+<div id="Reportes" class="tab-pane fade" style="position:relative; margin-right: auto; margin-left: auto;">
     
- <div class="row">
+ <div class="row" >
             <div class="col-md-12">
                     <h3 class="text-center" id="tituloReportes">
                            Reporte de arreglos y gastos 
@@ -35,25 +35,33 @@
                          </div>
     </div>
    
-    <div id="agregar" style="margin-right: 45px; margin-left: auto;">
-        <button type="button" class="btn btn-primary btn-lg active" 
-                style="background-color: #ff9900 " id="buttonCitasModificar">
-             +
-     </button>
+    <div id="add" style="position:absolute; top: 75px; right:15px;">
+      <button type="button" class="btn btn-success btn-lg active" id="addGastos" 
+                                style="position:absolute; top: 5px; right: 25px; -webkit-border-radius: 2em;
+                                -moz-border-radius: 2em; border-radius: 2em;">
+                                <span class="glyphicon glyphicon-plus"></span>   
+                           </button>
     </div>
+    
 
-    <div>
-        <table class="table table-bordered">
+    <div id="tabreporte" >
+        <table class="table table-bordered" style="position:absolute; top: 135px;">
             <thead>
                 <tr>
-                    <th class="datagridtable">
+                    <th class="datagridtable" style="background-color: #20144c; color:#fff;">
                         Descripción
                     </th>
-                    <th class="datagridtable">
+                    <th class="datagridtable" style="background-color: #20144c; color:#fff;">
                         Precio
                     </th>
-                    <th>
-
+                    <th style="background-color: #20144c; color:#fff;">
+                        12/4/2017
+                    </th>
+                    <th style="background-color: #20144c; color:#fff;">
+                        Mecánico
+                    </th>
+                    <th style="background-color: #20144c;">
+                        
                     </th>
                 </tr>
 
