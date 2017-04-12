@@ -36,7 +36,7 @@
     </div>
    
     <div id="agregar" style="margin-right: 45px; margin-left: auto;">
-        <button type="button" sytle="display:none;" class="btn btn-primary btn-lg active" 
+        <button type="button" class="btn btn-primary btn-lg active" 
                 style="background-color: #ff9900 " id="buttonCitasModificar">
              +
      </button>
