@@ -226,7 +226,14 @@ public class servlet extends HttpServlet {
                            est=gson.fromJson(json,Estado.class);
                            json=gson.toJson(Modelo.addEstado(est));
                            out.write(json);
-                   }
+                           break;
+                       case "agregar gasto":
+                           json=request.getParameter("GASTO");
+                           g=gson.fromJson(json,Gasto.class);
+                           json=gson.toJson(Modelo.crearGastos(g));
+                           out.write(json);
+                           break;
+                       }
                 }catch(Exception e){
                     System.out.println(e);
                 }
