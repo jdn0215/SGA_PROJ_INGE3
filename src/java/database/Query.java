@@ -48,8 +48,9 @@ public enum Query{
     crearCita2("select * from crearCita(%d,'%s','%s','%s','%s',%d,'%s','%s','%s',null,'%s',%d);"),
     updateCita("select * from updateCita(%d,'%s','%s',%d);"),
     empleadosLibres("select * from empleadosLibres('%s','%s');"),
-    addObservacionCita("select * from addObservacionCita(%d,'%s','%s')");
-public final String query;
+    addObservacionCita("select * from addObservacionCita(%d,'%s','%s')"),
+    rg_crearGastos("select* from rg_crearGastos(%d,'%s',%f,'%s','%s')");
+    public final String query;
     Query(String a){
         query=a;
     }
