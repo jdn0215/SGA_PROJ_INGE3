@@ -155,7 +155,8 @@ public class servlet extends HttpServlet {
                            i1=Integer.parseInt(request.getParameter("ANNO"))-1900;
                            i2=Integer.parseInt(request.getParameter("MES"))-1;
                            Cita c=new Cita();
-                          // c.setFecha(new Date(i1,i2,1));
+                           c.setEntrada(new Date(i1,i2,1));
+                           c.setPrometida(new Date(i1,i2+1,1));
                            json=gson.toJson(Modelo.getcitasDelMes(c));
                            out.write(json);
                        break;

@@ -151,8 +151,20 @@ public class ClassController {
     }
     private Cita toCita(ResultSet rs){
         try{
+            String aux  = rs.getString(10);
             return new Cita(
-                    rs.getInt(1)/*id*/
+                    rs.getInt(1)/*proforma*/,
+                    rs.getInt(6)/*orden*/,
+                    rs.getString(2)/*cliente*/,
+                    rs.getString(3)/*moto*/,
+                    rs.getString(4)/*recepcionista*/,
+                    rs.getString(5)/*garantia*/,
+                    rs.getString(7)/*tipo*/,
+                    rs.getString(11)/*mecanico*/,
+                    toDate(rs.getString(8))/*entrada*/,
+                    aux!=null?toDate(aux):null,
+                    toDate(rs.getString(9))/*prometida*/,
+                    rs.getInt(12)/*mecanico*/
             );
         }catch (SQLException ex) {
             return new Cita("Ocurrió algún error en la carga de datos");

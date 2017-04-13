@@ -8,11 +8,12 @@
 class Agenda{
   constructor(tabla){
       this.tabla=$id(tabla);
+      this.citas=[];
+      this.hash =[];
       $date();
       this.date=new Date(HORASERVER);
       this.date.setDate(1);
       this.cambiarDeTabla(new Date(this.date));
-      this.citas=[];
       this.diaEscogido="";
   }
   reload(){
@@ -69,7 +70,8 @@ class Agenda{
       day.setAttribute("title","Click para más detalles de este día");
       day.addEventListener("click",e=>{
             this.diaEscogido=e.target.getAttribute("date_date");
-            clickDia(e.target);});
+            clickDia(e.target);}
+        );
       day.setAttribute("class",
             "fc-day fc-"+(
                     fecha.getDay()===0?"sun"
@@ -85,12 +87,15 @@ class Agenda{
                 :fecha.getDate()===HORASERVER.getDate()
                         &&fecha.getMonth()===HORASERVER.getMonth()
                         &&fecha.getFullYear()===HORASERVER.getFullYear()?" fc-today"
-                :""));
+                :"")
+        );
       day.setAttribute("date_date",fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate());
       day.setAttribute("id",fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate());
       day.appendChild(this.createWrapper(fecha));
+      if(!other)
+        this.hash[day.getAttribute("id")]={entradas:[],prometida:[],espera:[]};
       Array.from(day.getElementsByTagName("div")).forEach(e=>e.setAttribute("date_date",day.getAttribute("date_date")));
-     return day;
+      return day;
   }
   createWrapper(fecha){
       let div1=document.createElement("div"),
@@ -108,23 +113,29 @@ class Agenda{
      return div4;
   }
   createHashMapDates(citas){
-      if(this.citas.length!==0)
-          this.citas=[];
-      this.citas=citas.reduce(
-                (a,e)=>{
-                    let key=Agenda.createKey(e);
-                    if(!Array.isArray(a[key])){
-                        a[key]=[];
-                        a[key].hash=[];
-                    }
-                    a[key].hash[e.id]=(e);
-                    return a;
-                },[]
-            );
+      this.citas = citas;
+      this.citas.forEach(cita=>this.clasificar(cita));
   }
-  static createKey(cita){
-      let d=cita.fecha;
-      return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+  clasificar(cita){
+      let mesActual = cita.entrada.getMonth();
+      let fecha = cita.entrada;
+      this.annadir(cita,cita.entrada,1);
+      fecha = addDay(fecha);
+      while(fecha.getMonth() === mesActual && fecha.getDate() < cita.prometida.getDate()){
+          this.annadir(cita,fecha,3);
+          fecha = addDay(fecha);
+      }
+      this.annadir(cita,cita.prometida,2);
+  }
+  annadir(cita,fecha,tipo){
+      //this.hash[day.getAttribute("id")]={entradas:[],prometida:[],espera:[]};
+      let id = Agenda.createKey(fecha);
+      let dia = this.hash[id];
+      let clasificacion  =(tipo===1?dia.entradas:tipo===2?dia.prometida:dia.espera);
+      clasificacion[cita.proforma] = cita;
+  }
+  static createKey(d){
+        return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
   }
   getDates(){
     $Proxy.proxy(
@@ -132,30 +143,60 @@ class Agenda{
              "citasDelMes","CITAS",res=>{
                  if(!Array.isArray(res))
                     return;
-                 this.createHashMapDates(res);
-                 this.loadDates();
+                this.createHashMapDates(res);
+                this.loadDates();
              });
   }
   loadDates(){
-      for(let day in this.citas){
-          if(this.citas.hasOwnProperty(day))
-              this.marcarCasilla(
-                  $id(day),this.citas[day].hash.filter(e=>e).length
-              );
+      for(let day in this.hash){
+            if(0!== this.hash[day].entradas.concat(
+                    this.hash[day].prometida.concat(
+                    this.hash[day].espera))
+                   .filter(e=>e!==undefined)
+                   .length){
+                this.marcarCasilla(day);
+            }
       }
-      /*let days=$(".fc-day").toArray();
-       * puede requierir más iteraciones days.forEach( e=>{
-         let day=this.citas[e.id];
-         if(typeof day !== 'undefined' && day!==null){
-          this.marcarCasiilla(e,day.length);
-         }
-      });*/
   }
-  marcarCasilla(casilla,i){
+  
+   getCasilla(day){
+      if(!(day instanceof Date))
+          return;
+      return day.getFullYear()+"-"+(day.getMonth()+1)+"-"+day.getDate();
+    }
+  marcarCasilla(day){
+      let casilla = $id(day);
       let marca=$id("Marca"+casilla.id);
-      marca.innerHTML=i+" cita"+(i!==1?"s":"");
+      marca.appendChild(this.createRowCita(day));
       marca.className="fc_marca";
+      $('#row'+day+' > .fc_prometida')[0].innerHTML = this.hash[day].prometida.filter(e=>e!==undefined).length;
+      $('#row'+day+' > .fc_entradas')[0].innerHTML = this.hash[day].entradas.filter(e=>e!==undefined).length;
+      $('#row'+day+' > .fc_espera')[0].innerHTML = this.hash[day].espera.filter(e=>e!==undefined).length;
+
+    }
+  
+  createRowCita(id){
+      let div = document.createElement("div");
+      let tr=document.createElement("tr");
+      let td1 = document.createElement("td");
+      let td2 = document.createElement("td");
+      let td3 = document.createElement("td");
+      tr.setAttribute("id","row"+id);
+      tr.className = "fc_row";
+      td1.className = "fc_entradas fc_estado";
+      td2.className = "fc_espera fc_estado";
+      td3.className = "fc_prometida fc_estado";
+      td1.innerHTML=0;
+      td2.innerHTML=0;
+      td3.innerHTML=0;
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      div.appendChild(tr);
+      return div;
   }
+  
+  
   get(index){
       for(let i = 0;i<this.citas.length;i++){
           let c = this.citas[i];
@@ -166,4 +207,5 @@ class Agenda{
   }
 };
 
+const addDay=day=>new Date(day.getFullYear(),day.getMonth(),day.getDate()+1);
 

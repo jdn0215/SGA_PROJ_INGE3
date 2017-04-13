@@ -1,4 +1,28 @@
- .fc-header td {
+.fc_estado{
+   padding:2px;
+   margin:1px;
+   text-align: center;
+   font-weight:bold;
+   color:#555;
+   font-size:1em;
+}
+
+.fc_entradas{
+    background-color: #01DF01;
+    
+}
+.fc_espera{
+    background-color: #DBA901;
+}
+.fc_prometida{
+    background-color: #FA5858;
+}
+
+.fc_row{
+    width:100%;
+    display:inline;
+}
+.fc-header td {
     white-space: nowrap;
 }
 .fc-header-left {

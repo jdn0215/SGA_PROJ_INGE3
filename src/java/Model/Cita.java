@@ -37,7 +37,7 @@ public class Cita implements Serializable, Jsonable{
      
      
      
-    public Cita(int proforma, int orden, String cliente, String moto, String recepcionista, String garantia, String tipoDeTrabajo, String mecanico, Date entrada, Date salida, Date prometida, Date llamada, int estado) {
+    public Cita(int proforma, int orden, String cliente, String moto, String recepcionista, String garantia, String tipoDeTrabajo, String mecanico, Date entrada, Date salida, Date prometida, int estado) {
         this.proforma = proforma;
         this.orden = orden;
         this.cliente = cliente;

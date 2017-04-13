@@ -20,7 +20,7 @@ class Cita{
    }
    static from(p){
        return new Cita(p.proforma,p.orden,p.cliente,p.moto,p.recepcionista,p.garantia,p.tipoDeTrabajo,
-                p.mecanico,p.entrada,p.salida,p.prometida,p.estado);
+                p.mecanico,new Date(p.entrada),new Date(p.salida),new Date(p.prometida),p.estado);
    }
    static to(p){
       return{

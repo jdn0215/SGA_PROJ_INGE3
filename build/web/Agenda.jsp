@@ -14,6 +14,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="calendar fc fc-ltr">
+                            <div style="display:block; tab-size:13px">
+                                    <div class="fc_entradas fc_estado">Entradas al taller</div>
+                                    <div class="fc_espera fc_estado">Motocicletas en el taller</div>
+                                    <div class="fc_prometida fc_estado">Salidas esperadas</div>
+                            </div>
                             <table class="fc-header" style="width:100%; margin-left:29%;margin-right:27%;">
                                 <tbody>
                                     <tr>
