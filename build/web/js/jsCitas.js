@@ -63,8 +63,8 @@ const estadoCita=()=>
 
 const armarFecha=(anho="annoCita",_mes="_mesCitas",_dia="_diaCitas",_min="minCita")=>{
     let anno=$("#"+anho).val();
-    let mes=$id(_mes).selectedIndex-1;
-    let dia=$id(_dia).selectedIndex;
+    let mes=$id(_mes).value;
+    let dia=$id(_dia).value;
     let T=$id(_min).value.split(":");
     let hora=T[0];
     let min=T[1];
@@ -138,7 +138,7 @@ const clickDia=(casilla)=>{
     arr.sort((a,b)=>a.fecha.getTime()>b.fecha.getTime());
     Arraycitas=arr;
     crearTable(Array.isArray(arr)?arr:[],4);
-     $id("botonresultados").click();
+    
 };
 
 const mostrarTexto=(idx)=>{
@@ -257,3 +257,42 @@ const buildTextDate=d=>
 
 
 const buildDate=d=>(d<10)?("0"+d):(d);
+
+
+
+let flagEventoBarra=false;
+let fechaSeleccionada = "";
+const eventoCasilla=e=>{
+    if(flagEventoBarra){
+        flagEventoBarra=false;
+    }else{
+       fechaSeleccionada=e.target.getAttribute("date_date");
+       $("#opcCitas")[0].click();
+       buildDatos(fechaSeleccionada);
+    }
+};
+
+const buildDatos=date=>{
+    let datos = date.split("-");
+    $("#_mesCitas")[0].selectedIndex=datos[1]-HORASERVER.getMonth();
+    $("#_mesCitas").click();
+    while( $("#_diaCitas").val()!=="-1");
+    $("#_diaCitas")[0].selectedIndex=(parseInt(datos[2])+1)-(HORASERVER.getMonth()+1==datos[1]?HORASERVER.getDate():1);
+    if($("#annoCita").val()!==datos[0])
+        $("#annoCita")[0].selectedIndex=1;
+};
+
+const eventoBarra=e=>{
+    let dia =agenda.hash[e.target.id.split('_')[1]]; 
+    let citas = dia.entradas.concat(dia.prometida.concat(dia.espera)).filter(e=>e!==undefined);
+    citas = citas.sort(
+                (a,b)=> a.proforma > b.proforma
+            ).reduce((a,e,i)=>
+                (a.length===0 || a[a.length-1].proforma!==e.proforma)?
+                    a.concat(e)
+                    :a
+            ,[]);
+    crearTable(citas,4);
+    $id("botonresultados").click();
+    flagEventoBarra=true;
+};

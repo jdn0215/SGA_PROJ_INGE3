@@ -1,5 +1,9 @@
 /* global Proxy, $Proxy, agenda */
 
+
+
+
+
 const $date=()=>{
     $Proxy.proxy([],"Date","Date",res=>{
         if(res!==null)
@@ -85,29 +89,32 @@ const cut=a=>{
     },"");
 };
 
-const llenarDia=($mes="_mes",$dia="_dia")=>{
+const llenarDia=($mes="_mes",$dia="_dia",hs=null)=>{
 	let combo=$id($dia);
 	let mes=$id($mes);
 	let i=1;
 
-	if(mes.selectedIndex===0){
+	if(mes.value==="-1"){
 		combo.clear;
 		combo.length=1;
 		combo.options[0].text="seleccione un mes";
 	}
 	else{
-		combo.options[0].text="Día";
-		let top=0;
-		let sel=mes.selectedIndex;
-		(sel===1||sel===3||sel===4||sel===7||sel===8||sel===10||sel===12)?top=31:
-		(sel===2)?top=29:
-			     top=30;
-		combo.clear;
-		combo.length=top+1;
-		while(i<=top){
-			combo.options[i].value=i;
-			combo.options[i].text=i++;
-		}
+            let bajo = hs===null ? 0:hs.getMonth()== mes.value ? hs.getDate() : 0;
+            combo.options[0].text="Día";
+            let top=0;
+            let sel=parseInt(mes.value)+1;
+            (sel===1||sel===3||sel===7||sel===5||sel===8||sel===10||sel===12)?top=31:
+            (sel===2)?top=29:
+                         top=30;
+            combo.clear;
+            combo.length=(top+1)-bajo+(bajo===0?0:1);
+            while(i<=top){
+                if(bajo===0 || i>= bajo){
+                    combo.options[bajo===0?i:(i+1)-bajo].value=i;
+                    combo.options[bajo===0?i:(i+1)-bajo].text=i;
+                }i++;
+            }
 	}
 };
 
@@ -196,16 +203,18 @@ const levantar=_=>{
        
 };
     
-const llenarMes=(mes="_mes",dia="_dia")=>{
+const llenarMes=(mes="_mes",dia="_dia",topeBajo=0)=>{
 		let combo=$id(mes);
 		let combo2=$id(dia);
 		llenarDia(dia);
 		combo2.options.selectedIndex=0;
 		combo.clear;
-		combo.length=13;
+		combo.length=13-topeBajo;
 		meses.forEach((e,i)=>{
-                            combo.options[i+1].value=i;	
-                            combo.options[i+1].text=e;
+                        if(topeBajo===0 || i>=topeBajo){
+                            combo.options[i+1-topeBajo].value=i;	
+                            combo.options[i+1-topeBajo].text=e;
+                        }
 		});
 };
         

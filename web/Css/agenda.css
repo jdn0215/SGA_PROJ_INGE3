@@ -1,21 +1,22 @@
 .fc_estado{
-   padding:2px;
-   margin:1px;
    text-align: center;
    font-weight:bold;
    color:#555;
    font-size:1em;
+   border-left: solid #FFF 3px;
+   border-right:  solid #FFF 3px;
 }
 
+
 .fc_entradas{
-    background-color: #01DF01;
-    
+    background-color: rgba(88,250,88,.7); 
 }
 .fc_espera{
-    background-color: #DBA901;
+    background-color: rgba(243,247,129,.7); 
+    
 }
 .fc_prometida{
-    background-color: #FA5858;
+   background-color: rgba(46,154,254,.7); 
 }
 
 .fc_row{
@@ -3472,4 +3473,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbd4db', end
     font-size:1.2em;
     color:#000;
     background-color:rgba(0,0,0,.2);
+}
+
+.date_pasado:not(.fc-other-month){
+    background-color:#b92c28;
+    color:silver;
 }

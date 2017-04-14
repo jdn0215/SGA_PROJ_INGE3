@@ -111,14 +111,14 @@ const citasEvents=()=>{
         combo.options[0].text=currentYear;
         combo.options[1].text=(currentYear+1);
     };
-    llenarMes("_mesCitas","_diaCitas");
-    $("#_mesCitas").click(()=>llenarDia("_mesCitas","_diaCitas"));
+    llenarMes("_mesCitas","_diaCitas",HORASERVER.getMonth());
+    $("#_mesCitas").click(()=>llenarDia("_mesCitas","_diaCitas",HORASERVER));
     $id("_mesCitas").click();
-    llenarMes("_mesCitas2","_diaCitas2");
-    $("#_mesCitas2").click(()=>llenarDia("_mesCitas2","_diaCitas2"));
+    llenarMes("_mesCitas2","_diaCitas2",HORASERVER.getMonth());
+    $("#_mesCitas2").click(()=>llenarDia("_mesCitas2","_diaCitas2",HORASERVER));
     $id("_mesCitas2").click();
-    llenarMes("_mesCitas3","_diaCitas3");
-    $("#_mesCitas3").click(()=>llenarDia("_mesCitas3","_diaCitas3"));
+    llenarMes("_mesCitas3","_diaCitas3",HORASERVER.getMonth());
+    $("#_mesCitas3").click(()=>llenarDia("_mesCitas3","_diaCitas3",HORASERVER));
     $id("_mesCitas3").click();
     $("#clienteCita").keyup(()=>{
         existeCliente("tituloCitasCliente","clienteCita",5,cargarMotos);
@@ -133,8 +133,9 @@ const citasEvents=()=>{
     $("#_mesCitas2").change(()=>verificarDisponibilidad());
     $("#_diaCitas2").change(()=>verificarDisponibilidad());
     $("#_diaCitas").change(()=>verificarDisponibilidad());
-    $("#annoCita").change(()=>verificarDisponibilidad());
-    $("#annoCita2").change(()=>verificarDisponibilidad());
+    $("#annoCita").change(()=>{verificarDisponibilidad();setMesDia("annoCita","_mesCitas","_diaCitas");});
+    $("#annoCita2").change(()=>verificarDisponibilidad(),setMesDia("annoCita2","_mesCitas2","_diaCitas2"));
+    $("#annoCita3").change(()=>setMesDia("annoCita3","_mesCitas3","_diaCitas3"));
     $("#minCita").change(()=>verificarDisponibilidad());
     $("#minCita2").change(()=>verificarDisponibilidad());
     $("#citaCumplida").change(()=>{
@@ -157,4 +158,15 @@ const getEmpleado=(arg)=>{
            $("#empleadoActual")[0].innerHTML=cut(empleadoActual.nombre);
        }
    });  
+};
+
+
+const setMesDia=(a,b,c)=>{
+   if(HORASERVER.getFullYear() == $("#"+a).val()){
+        llenarMes(b,c,HORASERVER.getMonth());
+       $("#"+b).click(()=>llenarDia(b,c,HORASERVER));
+   } else{
+        llenarMes(b,c);
+       $("#"+b).click(()=>llenarDia(b,c));
+   } 
 };

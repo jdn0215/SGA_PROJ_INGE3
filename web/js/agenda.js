@@ -33,6 +33,7 @@ class Agenda{
   }
   cambiarDeTabla(fecha){
       this.diaEscogido="";
+      this.hash=[];
       addTitle("mesActualAgenda"," "+fillString(meses[fecha.getMonth()],9,' ')+" "+fecha.getFullYear()+"  ");
       let body=this.tabla.children[1];
       this.resetBody(body,fecha);
@@ -68,10 +69,6 @@ class Agenda{
       let day=document.createElement("td");
       day.index = fecha.id;
       day.setAttribute("title","Click para más detalles de este día");
-      day.addEventListener("click",e=>{
-            this.diaEscogido=e.target.getAttribute("date_date");
-            clickDia(e.target);}
-        );
       day.setAttribute("class",
             "fc-day fc-"+(
                     fecha.getDay()===0?"sun"
@@ -95,6 +92,12 @@ class Agenda{
       if(!other)
         this.hash[day.getAttribute("id")]={entradas:[],prometida:[],espera:[]};
       Array.from(day.getElementsByTagName("div")).forEach(e=>e.setAttribute("date_date",day.getAttribute("date_date")));
+      if(fecha.getFullYear()<HORASERVER.getFullYear() ||
+              fecha.getFullYear()===HORASERVER.getFullYear()&&fecha.getMonth()<HORASERVER.getMonth() ||
+              fecha.getFullYear()===HORASERVER.getFullYear()&&fecha.getMonth()===HORASERVER.getMonth()&&fecha.getDate()<HORASERVER.getDate()){
+              /*if la fecha ya paso*/
+              day.className+=" date_pasado";
+      }
       return day;
   }
   createWrapper(fecha){
@@ -103,7 +106,7 @@ class Agenda{
           div3=document.createElement("div"),
           div4=document.createElement("div");
       div1.style="position: relative; height: 30px;";
-      div1.setAttribute("id","Marca"+fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate());
+      div1.setAttribute("id","Marca_"+fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate());
       div2.className="fc-day-content";
       div3.className="fc-day-number";
       div3.innerHTML=fecha.getDate();
@@ -141,10 +144,11 @@ class Agenda{
     $Proxy.proxy(
             $$("ANNO",this.date.getFullYear(),"MES",this.date.getMonth()+1),
              "citasDelMes","CITAS",res=>{
-                 if(!Array.isArray(res))
-                    return;
-                this.createHashMapDates(res);
-                this.loadDates();
+                if(Array.isArray(res)){
+                    this.createHashMapDates(res);
+                    this.loadDates();
+                }
+                this.initEvents();
              });
   }
   loadDates(){
@@ -156,23 +160,26 @@ class Agenda{
                    .length){
                 this.marcarCasilla(day);
             }
-      }
+      }     
   }
   
-   getCasilla(day){
+  initEvents(){
+      $(".fc_marca").click(e=>eventoBarra(e));
+      $(".fc-day:not(.fc-other-month):not(.date_pasado)").click(e=>eventoCasilla(e));
+  }
+  getCasilla(day){
       if(!(day instanceof Date))
           return;
       return day.getFullYear()+"-"+(day.getMonth()+1)+"-"+day.getDate();
     }
   marcarCasilla(day){
       let casilla = $id(day);
-      let marca=$id("Marca"+casilla.id);
+      let marca=$id("Marca_"+casilla.id);
       marca.appendChild(this.createRowCita(day));
       marca.className="fc_marca";
-      $('#row'+day+' > .fc_prometida')[0].innerHTML = this.hash[day].prometida.filter(e=>e!==undefined).length;
-      $('#row'+day+' > .fc_entradas')[0].innerHTML = this.hash[day].entradas.filter(e=>e!==undefined).length;
-      $('#row'+day+' > .fc_espera')[0].innerHTML = this.hash[day].espera.filter(e=>e!==undefined).length;
-
+      $('#prometida_'+day)[0].innerHTML = this.hash[day].prometida.filter(e=>e!==undefined).length;
+      $('#entrada_'+day)[0].innerHTML = this.hash[day].entradas.filter(e=>e!==undefined).length;
+      $('#espera_'+day)[0].innerHTML = this.hash[day].espera.filter(e=>e!==undefined).length;
     }
   
   createRowCita(id){
@@ -181,11 +188,14 @@ class Agenda{
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
-      tr.setAttribute("id","row"+id);
+      tr.setAttribute("id","row_"+id);
       tr.className = "fc_row";
       td1.className = "fc_entradas fc_estado";
       td2.className = "fc_espera fc_estado";
       td3.className = "fc_prometida fc_estado";
+      td1.setAttribute("id","entrada_"+id);
+      td2.setAttribute("id","espera_"+id);
+      td3.setAttribute("id","prometida_"+id);
       td1.innerHTML=0;
       td2.innerHTML=0;
       td3.innerHTML=0;

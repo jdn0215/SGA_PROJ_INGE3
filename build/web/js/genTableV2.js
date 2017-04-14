@@ -1,4 +1,4 @@
-/* global $id, diaEscogido, diaEscogido, agenda, imgCheck, imgEquis */
+/* global $id, diaEscogido, diaEscogido, agenda, imgCheck, imgEquis, eventoCeldaCita */
 var auxtem;
 let resultadosClientes;
 const attCL=["id","nombre","correo","tel","tel2","ocupacion","nacimiento","zona"];
@@ -18,11 +18,9 @@ const eventoTablaEmpleado=e=>{
 };
 
 let Arraycitas;
-const attCT=["idCliente","moto","empleado","motivos","estado","fecha"];
-const HDRCT=["Cliente","Motocicleta","Empleado Asignado","Descripción","Estado de la cita","Hora"];
-var CurrentHr=-1;
-const eventoTablaCita=e=>reconstruirCita(agenda.citas[agenda.diaEscogido].hash[e.target.idx]);
-const eventoCeldaCita=e=>mostrarTexto(e.target.id);
+const attCT=["proforma","orden","cliente","moto","mecanico","estado"];
+const HDRCT=["Proforma","Orden","Cliente","Motocicleta","Mecánico","Estado de la cita"];
+const eventoTablaCita=e=>e;
 
 
 const atributos=type=>{
@@ -68,7 +66,7 @@ const createBody=(arr,ats,type)=>{
   let body=document.createElement("tbody");
   arr.forEach(
             (e,i)=>{
-                type===4?createAgendaSpan(body,e):0;
+               // type===4?createAgendaSpan(body,e):0;
                 body.appendChild(createRow(e,ats,i,type));
             }
         );
@@ -168,13 +166,11 @@ const cellCitas=(dato,obj,idx)=>{
     switch(dato){
         case "estado":
             let e=obj[dato];
-            let text=(e===1?"Pendiente":e===2?"Cancelada":"Efectuada");
+            let text=(e===0?("Pendiente"):e===2?("En taller"):e===3?("Entregada al cliente"):"Cancelada");
             let estado="celda"+text;
             return createCell(createTdSpan(text,estado),eventoTablaCita,"click",idx,false,estado);
         case "fecha":
             return createCell(toText(obj[dato]),eventoTablaCita,"click",idx,false);
-        case "motivos":
-            return createCell(textEllipsis(obj[dato],idx),eventoCeldaCita,"mouseover",idx,false);
         default: return createCell(obj[dato],eventoTablaCita,"click",idx,false);
     }
 };

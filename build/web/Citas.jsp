@@ -91,8 +91,8 @@
                            <label for="CTexto">Estado de la cita:&nbsp&nbsp</label>
                    <GROUP>
                             <input type ="radio" id = "citaPendiente" checked name="esatdoCita">&nbspPendiente&nbsp</input>
-                            <input type ="radio" id = "EnProceso"      name="esatdoCita">&nbspEn proceso&nbsp</input></br>
-                            <input type ="radio" id = "citaCumplida"  name="esatdoCita">&nbspEntregada&nbsp</input>
+                            <input type ="radio" id = "EnProceso"      name="esatdoCita">&nbspEn el taller&nbsp</input></br>
+                            <input type ="radio" id = "citaCumplida"  name="esatdoCita">&nbspEntregada al cliente&nbsp</input>
                             <input type ="radio" id = "citaCancelada" name="esatdoCita">&nbspCancelada&nbsp</input>
                             
                     </GROUP>        
