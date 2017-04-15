@@ -50,9 +50,9 @@ public enum Query{
     empleadosLibres("select * from empleadosLibres('%s','%s');"),
     addObservacionCita("select * from addObservacionCita(%d,'%s','%s')"),
     rg_crearGastos("select* from rg_crearGastos(%d,'%s',%f,'%s','%s')"),
-    rg_gastosdeproforma("select* from rg_gastosDeProforma('%s')"),
-    rg_todoslosgastos("select* from rg_todosLosGastos()");
-    
+    rg_gastosdeproforma("select* from rg_gastosDeProforma(%d)"),
+    rg_todoslosgastos("select* from rg_todosLosGastos()"),
+    rg_gastospormotocicleta("select* from rg_gastospormotocicleta('%s')");
     public final String query;
     Query(String a){
         query=a;

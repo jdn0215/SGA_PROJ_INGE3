@@ -206,20 +206,22 @@ public class Modelo {
         return _class.toCollection(rs,Empleado.class.getSimpleName());
     }
     
-    public static int crearGastos(Gasto g){
+    public static int rg_crearGastos(Gasto g){
         return db.executeUpdate(query.buildQuery(g,Query.rg_crearGastos));
     }
     
-    public static List<? extends Object> getGastosDeProforma(String proforma){
+    public static List<? extends Object> rg_getGastosDeProforma(String proforma){
         ResultSet rs=db.executeQuery(query.buildQuery(proforma, Query.rg_gastosdeproforma));
         return _class.toCollection(rs, Gasto.class.getSimpleName());
     }
     
-    public static List<? extends Object> todosLosGastos(String proforma){
-        ResultSet rs=db.executeQuery(Query.rg_gastosdeproforma.toString());
+    public static List<? extends Object> rg_todosLosGastos(){
+        ResultSet rs=db.executeQuery(Query.rg_todoslosgastos.toString());
         return _class.toCollection(rs, Gasto.class.getSimpleName());
     }
     
-    
-    
+    public static List<? extends Object> rg_gastospormotocicleta(String motormoto){
+        ResultSet rs=db.executeQuery(query.buildQuery(motormoto,Query.rg_gastospormotocicleta));
+        return _class.toCollection(rs,Gasto.class.getSimpleName());
+    }
 }
