@@ -178,6 +178,7 @@ public class ClassController {
     private Gasto toGasto(ResultSet rs){
         try{
             return new Gasto(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getDate(4),rs.getString(5));
+            //proforma,descripcion,precio,fecha,motormoto
         }
         catch(SQLException ex){
             Gasto g=new Gasto();
