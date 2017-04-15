@@ -77,7 +77,7 @@ public class Cliente implements Serializable, Jsonable{
     }
 
     public String getId() {
-        return id;
+        return id.toUpperCase();
     }
 
     public void setId(String id) {
@@ -85,7 +85,7 @@ public class Cliente implements Serializable, Jsonable{
     }
 
     public String getNombre() {
-        return nombre;
+        return nombre.toUpperCase();
     }
 
     public void setNombre(String nombre) {

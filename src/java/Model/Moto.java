@@ -53,7 +53,7 @@ public class Moto implements Serializable, Jsonable{
     
 
     public String getPlacaAvg() {
-        return placaavg;
+        return placaavg.toUpperCase();
     }
 
     public void setPlacaAvg(String placaavg) {
@@ -61,7 +61,7 @@ public class Moto implements Serializable, Jsonable{
     }
 
     public String getCliente() {
-        return cliente;
+        return cliente.toUpperCase();
     }
 
     public void setCliente(String cliente) {
@@ -85,7 +85,7 @@ public class Moto implements Serializable, Jsonable{
     }
 
     public String getMotor() {
-        return motor;
+        return motor.toUpperCase();
     }
 
     public void setMotor(String motor) {
@@ -93,7 +93,7 @@ public class Moto implements Serializable, Jsonable{
     }
 
     public String getChasis() {
-        return chasis;
+        return chasis.toUpperCase();
     }
 
     public void setChasis(String chasis) {
@@ -101,7 +101,7 @@ public class Moto implements Serializable, Jsonable{
     }
 
     public String getPlaca() {
-        return placa;
+        return placa.toUpperCase();
     }
 
     public void setPlaca(String placa) {

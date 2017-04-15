@@ -61,7 +61,7 @@ public class Empleado implements Serializable, Jsonable{
     }
 
     public String getIdempleado() {
-        return idempleado;
+        return idempleado.toUpperCase();
     }
 
     public void setIdempleado(String idempleado) {
@@ -69,7 +69,7 @@ public class Empleado implements Serializable, Jsonable{
     }
 
     public String getNombre() {
-        return nombre;
+        return nombre.toUpperCase();
     }
 
     public void setNombre(String nombre) {

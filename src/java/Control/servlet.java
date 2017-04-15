@@ -128,9 +128,9 @@ public class servlet extends HttpServlet {
                            dato=gson.fromJson(json,String.class);
                            dato2=gson.fromJson(json2, Integer.class);//representa el tipo de busqueda 2=clientes 1=motos 3=empleados
                            switch(dato2){
-                               case 2:  json=gson.toJson(Modelo.searchClientes(dato));break;
-                               case 3:  json=gson.toJson(Modelo.searchEmpleados(dato));break;
-                               default: json=gson.toJson(Modelo.buscarMoto(dato));
+                               case 2:  json=gson.toJson(Modelo.searchClientes(dato.toUpperCase()));break;
+                               case 3:  json=gson.toJson(Modelo.searchEmpleados(dato.toUpperCase()));break;
+                               default: json=gson.toJson(Modelo.buscarMoto(dato.toUpperCase()));
                            }
                            out.write(json);
                        break;
