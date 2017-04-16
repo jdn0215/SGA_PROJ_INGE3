@@ -60,7 +60,6 @@ const estadoCita=()=>
     $id("citaCumplida").checked  ? 3 :
                                    1 ;
 
-
 const armarFecha=(anho="annoCita",_mes="_mesCitas",_dia="_diaCitas",_min="minCita")=>{
     let anno=$("#"+anho).val();
     let mes=$id(_mes).value;
@@ -72,7 +71,6 @@ const armarFecha=(anho="annoCita",_mes="_mesCitas",_dia="_diaCitas",_min="minCit
         return false;
     return new Date(anno,mes,dia,hora,min);
 };
-
 const verificarDisponibilidad=(callback=null,val=null)=>{
      let combo=$("#EmpleadoCita")[0];
     combo.length=1;
@@ -114,7 +112,6 @@ const cargarEmpleados=(arr=[],busqueda=false)=>{
         combo.options[i+1].text=txt;
     });
 };
-
 const upDateCita=()=>{
     modoUpdate=true;
     let nuevaCita=construirCita();
@@ -133,7 +130,6 @@ const upDateCita=()=>{
             );
     modoUpdate=false;
 };
-
 const clickDia=(casilla)=>{
     let arr=agenda.citas[casilla.getAttribute("date_date")].hash.filter(e=>e);
     arr.sort((a,b)=>a.fecha.getTime()>b.fecha.getTime());
@@ -141,7 +137,6 @@ const clickDia=(casilla)=>{
     crearTable(Array.isArray(arr)?arr:[],4);
     
 };
-
 const mostrarTexto=(idx)=>{
     let d=$id("texto"+idx);
     if(d===null)return;
@@ -159,13 +154,7 @@ const mostrarTexto=(idx)=>{
       }
     },1000);*/
 };
-
-
-
-
-var aux;
 const reconstruirCita=(cita)=>{
-    aux = cita;
     if(!(cita instanceof Cita)) return ;
     $("#opcCitas").click();
     $(".citaDis").prop("disabled",true);
@@ -185,8 +174,21 @@ const reconstruirCita=(cita)=>{
     if(cita.salida != "Invalid Date")
        reArmarFecha(cita.salida,"annoCita2","_mesCitas3","_diaCitas3","minCita4");
    $("#tipoCita").val(cita.tipoDeTrabajo);
+   let a = moment(cita.entrada);
+   let b;
+    switch(cita.estado){
+       case 2:/*en proceso*/
+           b = moment(HORASERVER);
+           $("#diasEnTaller").val(b.diff(a,'days'));
+           break;
+       case 3:/*entregada al cliente*/
+           b = moment(cita.salida);
+           $("#diasEnTaller").val(b.diff(a,'days'));
+           break;
+        default:   $("#diasEnTaller").val(0);
+    }
+   
 };
-
 const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
     if(fecha === null || !(fecha instanceof Date))return;
     let st = setTimeout(()=>{
@@ -215,10 +217,6 @@ const reArmarEstado=estado=>{
     if(estado === 3 || estado === 1)
         $("[name='esatdoCita']").prop("disabled",true);
 };
-
-
-
-
 const buscaCita=id=>{
   $Proxy.proxy(
         $$("arg1",id),"buscaCitaProforma","CITA",res=>{
@@ -227,8 +225,6 @@ const buscaCita=id=>{
         }
     );  
 };
-
-
 const clearCitas=()=>{
     $id("citasReset1").click();//quitar el texto de los inputs
     $id("citasReset2").click();//quitar el texto de los inputs
@@ -240,8 +236,11 @@ const clearCitas=()=>{
     $("#recepcionistaCita").val(cut(empleadoActual.idempleado));
     $(".citaDis").prop("disabled",false);
     $("[name='esatdoCita']").prop("disabled",false);
+    $("#diasEnTaller").val('0');
+    let combo = $("#EmpleadoCita")[0];
+    combo.length = 1;
+    combo.options[0].text = "Ingrese una hora de ingreso y una hora prometida";
 };
-
 const findEmpleado=e=>{
   let select=$id("EmpleadoCita");
   let salida=0;
@@ -254,14 +253,12 @@ const findEmpleado=e=>{
   }
   return salida;
 };
-
 const FF=()=>{
         motos=$id("motocito");
         motos.clear;  
         motos.length=1;
         motos.options[0].text="Ingrese la identificación del cliente";
 };
-
 const cargarMotos=()=>{
     
     CLIENTEBUSCADO=retrieve("CLIENTEBUSCADO");
@@ -291,7 +288,6 @@ const cargarMotos=()=>{
            }
        );   
 };
-
 const buildObservacion=()=>{
     $date();
     return new Observacion(
@@ -300,7 +296,6 @@ const buildObservacion=()=>{
             HORASERVER
         ); 
 };
-
 const buildDetalle=()=>{
         let out = cut(empleadoActual.idempleado)+"  "+buildTextDate(HORASERVER)+" -> ";
     if(!modoUpdate){
@@ -313,16 +308,10 @@ const buildDetalle=()=>{
     }
     return out;
 };
-
 const buildTextDate=d=>
     buildDate(d.getDate())+"-"+mes(d.getMonth())+
             "-"+d.getFullYear()+" "+buildDate(d.getHours())+":"+buildDate(d.getMinutes());
-
-
 const buildDate=d=>(d<10)?("0"+d):(d);
-
-
-
 let flagEventoBarra=false;
 let fechaSeleccionada = "";
 const eventoCasilla=e=>{
@@ -334,7 +323,6 @@ const eventoCasilla=e=>{
        buildDatos(fechaSeleccionada);
     }
 };
-
 const buildDatos=date=>{
     let datos = date.split("-");
     $("#_mesCitas")[0].selectedIndex=datos[1]-HORASERVER.getMonth();
@@ -344,7 +332,6 @@ const buildDatos=date=>{
     if($("#annoCita").val()!==datos[0])
         $("#annoCita")[0].selectedIndex=1;
 };
-
 const eventoBarra=e=>{
     let dia =agenda.hash[e.target.id.split('_')[1]]; 
     let citas = dia.entradas.concat(dia.prometida.concat(dia.espera)).filter(e=>e!==undefined);

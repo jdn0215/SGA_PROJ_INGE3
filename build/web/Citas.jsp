@@ -169,7 +169,7 @@
                 <input type="reset" class="noVisible" id="citasReset2"/>
                 <div class="form-group">
                     <label for="CTexto">Cantidad de días en el taller</label>
-                    <input type ="text" disabled name="CTexto" class="form-control" value="0" id = "clienteCita">
+                    <input type ="text" disabled name="CTexto" class="form-control" value="0" id = "diasEnTaller">
                 </div>
            </form>
         </div>

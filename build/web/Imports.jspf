@@ -33,6 +33,7 @@
 <script type="text/javascript" src="js/validacionesMotos.js"></script>
 <script type="text/javascript" src="js/ValidacionesEmpleados.js"></script>
 <script type="text/javascript" src="js/validacionesMotoEstado.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
 <script type="text/javascript" src="js/zonas.js"></script>  
 <script type="text/javascript" src="js/values.js"></script>
 <script src="js/jquery.min.js"></script>
