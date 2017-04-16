@@ -1,7 +1,7 @@
 <%-- 
     Document   : Resultados
     Created on : Nov 5, 2016, 10:02:12 PM
-    Author     : HP2000
+    Author     : cmadrigal
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
