@@ -46,7 +46,6 @@ public enum Query{
     cambioPW("select * from cambioPW('%s','%s');"),
     crearCita("select * from crearCita(%d,'%s','%s','%s','%s',%d,'%s','%s','%s','%s','%s',%d);"),
     crearCita2("select * from crearCita(%d,'%s','%s','%s','%s',%d,'%s','%s','%s',null,'%s',%d);"),
-    updateCita("select * from updateCita(%d,'%s','%s',%d);"),
     empleadosLibres("select * from empleadosLibres('%s','%s');"),
     addObservacionCita("select * from addObservacionCita(%d,'%s','%s')"),
     rg_crearGastos("select* from rg_crearGastos(%d,'%s',%f,'%s','%s')"),
@@ -54,7 +53,10 @@ public enum Query{
     rg_todoslosgastos("select* from rg_todosLosGastos()"),
     rg_gastospormotocicleta("select* from rg_gastospormotocicleta('%s')"),
     buscaCitaProforma("select * from buscaCitaProforma(%d);"),
-    buscacita("select * from buscacita(%d,%s);");
+    buscacita("select * from buscacita(%d,%s);"),
+    buscaCitaObs("select * from buscaCitaObs(%d);"),
+    upDateCita("select * from upDateCita(%d,'%s','%s','%s','%s','%s','%s','%s','%s','%s',%d);"),
+    upDateCita2("select * from upDateCita(%d,'%s','%s','%s','%s','%s','%s','%s',null,'%s',%d);");
     public final String query;
     Query(String a){
         query=a;

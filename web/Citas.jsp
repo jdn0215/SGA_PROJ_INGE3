@@ -71,7 +71,7 @@
                     <input type ="text" name="CTexto" class="form-control" id = "tipoCita">
                 </div>
                 <table>
-                     
+                    <!--- 
                     <tr id="checkNotificaciones">
                         <th>
                            <label for="CTexto">Recibir notificaciones por correo:&nbsp</label>
@@ -85,7 +85,7 @@
                             </label>
                             </div>
                         </th>
-                    </tr>
+                    </tr>--->
                    <tr id="estadoCitaGrupo">
                         <th>
                            <label for="CTexto">Estado de la cita:&nbsp&nbsp</label>
@@ -113,15 +113,15 @@
                 <div class="form-group">
                         <label>Fecha de ingreso:<obligatorio>*</obligatorio></label><br/>
                         <GROUP>        
-                            <select name="mes" id="_mesCitas" ><option value="-1">MES</option></select>
-                            <select name="dia" id="_diaCitas" ><option value="-1" ></option></select>
-                            <select id="annoCita"></select>
+                            <select name="mes" id="_mesCitas" class="tc1" ><option value="-1">MES</option></select>
+                            <select name="dia" id="_diaCitas" class="tc1"><option value="-1" ></option></select>
+                            <select id="annoCita" class="tc1"></select>
                         </GROUP>
                 </div>
                 <div class="form-group">
                     
                     <label>Hora de ingreso:</label>
-                    <input class="TimeInput" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita">
+                    <input class="TimeInput tc1" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita">
                 </div>
                 
                 
@@ -129,14 +129,14 @@
                 <div class="form-group">
                         <label>Fecha de prometida:</label><br/>
                         <GROUP>        
-                            <select name="mes" id="_mesCitas2"><option value="-1">MES</option></select>
-                            <select name="dia" id="_diaCitas2"><option value="-1" ></option></select>
-                            <select id="annoCita2"></select>
+                            <select name="mes" id="_mesCitas2" class="tc2"><option value="-1">MES</option></select>
+                            <select name="dia" id="_diaCitas2" class="tc2"><option value="-1" ></option></select>
+                            <select id="annoCita2" class="tc2"></select>
                         </GROUP>
                 </div>
                  <div class="form-group">
                     <label>Hora Prometida:</label>
-                    <input class="TimeInput" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita2">
+                    <input class="TimeInput tc2" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita2">
                 </div>
                 
                 
@@ -151,20 +151,21 @@
                 <div id="divSalidaCita" class="form-group noVisible">
                         <label>Fecha de salida:</label><br/>
                         <GROUP>        
-                            <select name="mes" id="_mesCitas3"><option value="-1">MES</option></select>
-                            <select name="dia" id="_diaCitas3"><option value="-1" ></option></select>
-                            <select id="annoCita3"></select>
+                            <select name="mes" id="_mesCitas3" class="tc3"><option value="-1">MES</option></select>
+                            <select name="dia" id="_diaCitas3" class="tc3"><option value="-1" ></option></select>
+                            <select id="annoCita3" class="tc3"></select>
                         </GROUP>
                 
                 <div class="form-group">
                     <label>Hora de la salida<obligatorio>*</obligatorio></label>
-                    <input class="TimeInput" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita4">
+                    <input class="TimeInput tc3" style="width:40%" type="time"  maxlength=2  name="mn" placeholder="1-12:0-59 pm/am" id="minCita4">
                 </div>
                 
                 </div>
                 <div class="form-group">
                     <label> Observaciones:</label>
-                    <textarea class="form-control" rows="5" id="motivosCita"></textarea>
+                    <textarea class="form-control" rows="4" id="motivosCita"></textarea>
+                    <textarea class="form-control noVisible" rows="6" id="motivosCita2" readonly></textarea>
                 </div>
                 <input type="reset" class="noVisible" id="citasReset2"/>
                 <div class="form-group">
