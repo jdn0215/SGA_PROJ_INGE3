@@ -49,7 +49,7 @@ public class Modelo {
     }
     
     public static int addMoto(Moto m){
-        m.setPlaca(m.getPlaca().equals("")?"COMODIN"+m.getMotor():m.getPlaca());        
+        m.setPlaca(m.getPlaca().equals("")?"COMODIN":m.getPlaca());        
         return db.executeQuery(query.buildQuery(m,Query.FIM))==null ? verificaErrorMoto(m) : 1;
     }
     public static int addEstado(Estado e){       
@@ -236,11 +236,11 @@ public class Modelo {
         ResultSet rs=db.executeQuery(query.buildQuery(c,Query.buscacita));
         return _class.toCollection(rs,Cita.class.getSimpleName());
     }
-     public static Cita buscaCitaProforma(int arg){
+     public static List<? extends Object> buscaCitaProforma(int arg){
         Cita c = new Cita();
         c.setProforma(arg);
         ResultSet rs=db.executeQuery(query.buildQuery(c,Query.buscaCitaProforma));
-        return (Cita)_class.toObject(rs,Cita.class.getSimpleName());
+        return _class.toCollection(rs,Cita.class.getSimpleName());
     }
     
 }

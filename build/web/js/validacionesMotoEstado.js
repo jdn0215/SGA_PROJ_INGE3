@@ -1,3 +1,5 @@
+/* global $id */
+
 const VALIDACIONES_MOTO_ESTADO=[
     new Validacion(
       "textKm"," -Indique el kilometraje- ",
