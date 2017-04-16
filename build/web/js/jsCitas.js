@@ -210,8 +210,7 @@ const reconstruirCita=(cita)=>{
     $Proxy.proxy($$('arg1',cita.proforma),'buscaCitaObs','obs',res=>{
         if(Array.isArray(res)){
             $("#motivosCita2").val(
-                     res.sort((j,k)=>j.fecha<k.fecha)
-                        .reduce((ant,el)=>ant+=(el.detalle+'\n------------\n'),""
+                     res.reverse().reduce((ant,el)=>ant+=(el.detalle+'\n------------------------------\n'),""
                     ));
         }
     });
@@ -290,8 +289,7 @@ const clearCitas=()=>{
     $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
                         .prop("disabled",false);
     $("#motivosCita").show();               
-                
-
+    clearMensaje();        
 };
 const findEmpleado=e=>{
   let select=$id("EmpleadoCita");
@@ -422,7 +420,7 @@ const compararCita=(a,b)=>{
       mj+= ("cambio del mecánico de <<"+a.mecanico+">> a <<"+b.mecanico+">>\n");
   return mj===""?"No se realizó cambio alguno":mj;
 };
-const textDateFormat=d=> moment(d).toISOString().split('.')[0].replace('T',' ')
+const textDateFormat=d=> moment(d).toISOString().split('.')[0].replace(' ',' ')
 const estadoTexto=estado=>
                 estado === 0 ? "cita Pendiente":
                 estado === 2 ? "Motocicleta en el Taller"    :

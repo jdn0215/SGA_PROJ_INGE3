@@ -165,7 +165,7 @@
                 <div class="form-group">
                     <label> Observaciones:</label>
                     <textarea class="form-control" rows="4" id="motivosCita"></textarea>
-                    <textarea class="form-control noVisible" rows="6" id="motivosCita2" readonly></textarea>
+                    <textarea class="form-control noVisible" rows="6" id="motivosCita2" readonly  resize="horizontal"></textarea>
                 </div>
                 <input type="reset" class="noVisible" id="citasReset2"/>
                 <div class="form-group">
