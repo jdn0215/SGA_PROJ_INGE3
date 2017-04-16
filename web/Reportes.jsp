@@ -11,7 +11,7 @@
  <div class="row" >
             <div class="col-md-12">
                     <h3 class="text-center" id="tituloReportes">
-                           Reporte de arreglos y gastos 
+                           Reporte de arreglos y gastos por Cita
                     </h3>
             </div>
 </div>
@@ -71,12 +71,12 @@
                         Precio
                     </th>
                     <th class="datagridtable"  style="background-color: #20144c; color:#fff;">
-                        12/4/2017
+                        Fecha
                     </th>
                     <th class="datagridtable" style="background-color: #20144c; color:#fff;">
-                        Mecánico
+                        Quién registra
                     </th>
-                    <th class="datagridtable"  style="background-color: #20144c;">
+                    <th class="datagridtable"  style="background-color: #ff0011;">
                         
                     </th>
                 </tr>
@@ -84,19 +84,19 @@
             </thead>
             <tr>
                     <td class="datagridtable" >
-                        
+                        <input type="text" class="form-control" placeholder="ingrese detalle">
                     </td>
                     <td class="datagridtable" >
-                       
+                       <input type="number" class="form-control" placeholder="ingrese precio">
                     </td>
                     <td class="datagridtable" >
-                       
+                       <input type="text" class="form-control" placeholder="ingrese la fecha">
                     </td>
                     <td class="datagridtable" >
-                   
+                     <input type="text" class="form-control" placeholder="ingrese a quien regisra el reporte">
                     </td>
                     <td class="datagridtable" >
-                        <button type="button" class="btn btn-danger btn-md active" id="quitar">
+                        <button type="button" class="btn btn-danger btn-md active" id="quitar" title="remover fila">
                                 <span class="glyphicon glyphicon-remove"></span>   
                            </button>
                     </td>
@@ -119,8 +119,30 @@
                         
                     </td>
                 </tr>
+                <tr>
+                    <td class="datagridtable">
+                        
+                    </td>
+                    
+                    <td class="datagridtable" >
+                       <button type="button" class="btn btn-success btn-md active" id="guardar" title="guardar reporte">
+                               Guardar 
+                           </button>
+                    </td>
+                    <td class="datagridtable" >
+                   <button type="button" class="btn btn-warning btn-md active" id="cancelar" title="cancelar reporte">
+                               Cancelar 
+                           </button>
+                    </td>
+                    <td class="datagridtable" colspan="2">
+                        <button type="button" class="btn btn-success btn-md disabled"  id="printrep" title="iprimir reporte">
+                               Imprimir Reporte 
+                           </button>
+                    </td>
+                </tr>
 
         </table>
+        
     </div>
     
 </div>

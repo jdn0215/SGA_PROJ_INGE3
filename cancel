@@ -1,0 +1,428 @@
+[33mcommit db84f27d153bc5bf59db3e7fb94da30192108f60[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Sat Apr 15 22:45:15 2017 -0600
+
+    prueba para mario
+
+[33mcommit 8d4adad3de2ca42fd3906438442b26b7e9c134de[m
+Merge: 76ec59d 67058a6
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Sat Apr 15 22:40:14 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit 76ec59d2e0bddf2e54cbed3c108b3ef16ca70c19[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Sat Apr 15 22:38:42 2017 -0600
+
+    metiendole mas cosas a la ventana de reportes
+
+[33mcommit 67058a670db729a9e8f27b6841faf345e6fc36d5[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 21:57:38 2017 -0600
+
+    correcion en citas
+
+[33mcommit b3208cdbb6a5bf97898856c0788e90b245ad5b7b[m
+Merge: f846fa8 ec4c6b0
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 21:56:20 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit f846fa86262ff0fcfdb3c618d869c0f5e93f2fb5[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 21:56:15 2017 -0600
+
+    trabajando en tabla citas
+
+[33mcommit ec4c6b0db5ce025cb1591266157923d7c41b3c1e[m
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Sat Apr 15 21:53:58 2017 -0600
+
+    validaciones actualizadas
+
+[33mcommit 1ff5996828c4b914478ab6d8d78829d9c2af0529[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 21:31:31 2017 -0600
+
+    revision de validaciones
+
+[33mcommit 714c1b2158aa52cd1f4fe078268538306f32ad01[m
+Merge: 8d7b8ee 8fe7391
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Sat Apr 15 21:09:13 2017 -0600
+
+    validaciones listas
+
+[33mcommit 8fe73910f07a125c7675ff29deecd030c63a048c[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 20:58:45 2017 -0600
+
+    recontruyendo citas
+
+[33mcommit 8d7b8ee467a60247e2ae0ca9b48bb8c1dd6021d0[m
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Sat Apr 15 20:57:38 2017 -0600
+
+    validaciones en empleados, usuarios y estados
+
+[33mcommit 2342bd78a1c80fbf70a93bed6f939d68840312bc[m
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Sat Apr 15 20:48:30 2017 -0600
+
+    Validaciones de empleados, usuarios y estados listas
+
+[33mcommit 758fa9707a98321739e9d00fd65d6daf79436e1d[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 19:53:39 2017 -0600
+
+    arreglo de pulga cuando se guardaba moto sn placa
+
+[33mcommit e4a2b4488fd882ddb84378a585fe87d3c52bafbf[m
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Sat Apr 15 19:37:17 2017 -0600
+
+    Validaciones de Motos listas :)
+
+[33mcommit 448d9bb750f64c63656122dc8d1ec1a7e4f19f0a[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 18:56:32 2017 -0600
+
+    inicio de validaciones de motos
+
+[33mcommit 30fadd9d1dd5c83c22d1dacf3b0402be90438e15[m
+Merge: dd2b431 5b16439
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 15:53:23 2017 -0600
+
+    algo
+
+[33mcommit dd2b43122fb6b0956991af05df6671729cee46d0[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Sat Apr 15 15:48:25 2017 -0600
+
+    arreglando las busquedas
+
+[33mcommit 5b16439d8c60a25e1a14b02e9a0f86fe6c343f1d[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Sat Apr 15 13:22:52 2017 -0600
+
+    cambios a validaciones de clientes
+
+[33mcommit ce4de7baf3be523e77684a47c0edeaaa35fb9e44[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Sat Apr 15 12:51:36 2017 -0600
+
+    todo listo hasta el server
+
+[33mcommit d375d82c7443114c790e1d503368ba4f30bb9725[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Fri Apr 14 15:58:20 2017 -0600
+
+    eventos en agenda
+
+[33mcommit 01ac127489b6a38a2a657a78d2e2d31e7f508c66[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Thu Apr 13 17:14:16 2017 -0600
+
+    ya se muestran la citas en la agenda
+
+[33mcommit aeb4263beb38cfc556d1b5df52f911273734202c[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Wed Apr 12 12:29:47 2017 -0600
+
+    actualizacion de gasto y database
+
+[33mcommit 951a644f9110e3618ef525b9d3969c8fafdc435a[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Wed Apr 12 12:20:47 2017 -0600
+
+    cambios en imports, agregacion de js gasto y paso de info a js de estado
+
+[33mcommit f1f98e3fc7f9b352801c8a61a10a6bb01b5bf4c0[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Wed Apr 12 12:03:07 2017 -0600
+
+    ups pequeño error en llamado de funciones de bases de datos
+
+[33mcommit 9c7f64f7a0f48fece383d311449ec459eaaf373c[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Wed Apr 12 11:58:06 2017 -0600
+
+    actualizacion a query, agregacion de nueva plantilla para las citas en properties,cambios en query, classcontroller
+
+[33mcommit ff703d52d7ba80ad23d1bb4f7cabbe17284e2082[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Apr 12 02:22:53 2017 -0600
+
+    ahi le he ido metiendo varas la tabla ya tiene un color de fondo para probar y el boton de agregar ya tiene forma redondeada, aun no he metido los inputs para mostrar los datos de la proforma y motocicleta ni los botones de total eliminar o el de mandar a imprimir dicho reporte
+
+[33mcommit 41a99a34ae38b0e72ed86cb3ab9a24e2b9cae028[m
+Merge: 1a5d115 bfd8ada
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 23:00:22 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit 1a5d115ab15c38fc75dda684dfe260488f3bc14d[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 22:59:45 2017 -0600
+
+    reparacion magica de la barra de Reportes
+
+[33mcommit bfd8ada933ad33019bd09bcd895a31cff8af9a65[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 22:50:45 2017 -0600
+
+    algo
+
+[33mcommit 2580462d42b48cde489538dc273b91e9140ad87d[m
+Merge: 758a498 0f5d4a9
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 22:29:18 2017 -0600
+
+    no creo que este dejando hacer commits
+
+[33mcommit 758a498b1b3d772deaa03f97b05726fc7629b2f9[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 22:20:07 2017 -0600
+
+    algo sucede y no es un error que no muestra la pagina de reportes para poder verla
+
+[33mcommit 0f5d4a92bd62a94fcde7e7f932844290ae8c08e2[m
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Tue Apr 11 21:55:29 2017 -0600
+
+    Actualizando
+
+[33mcommit 874c6ab27fee6534cc939025c9529368f0f4ef34[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Tue Apr 11 20:55:27 2017 -0600
+
+    trabajo en el query
+
+[33mcommit ab99e775ad7948ca37f9e8efa0fe16f2323442e8[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Tue Apr 11 20:45:54 2017 -0600
+
+    querycontroller pequeño cambio
+
+[33mcommit 0dc9d5ff30b9994b224d6342a108b274e664c229[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Tue Apr 11 20:35:57 2017 -0600
+
+    creacion de clase Gasto
+
+[33mcommit 25e5f8770584b26b3e380d9b4c3e409534fdc20d[m
+Merge: 565e3a6 5e2b089
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 19:54:51 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+    
+    # Conflicts:
+    #       build/web/Reportes.jsp
+    #       web/Reportes.jsp
+
+[33mcommit 565e3a628d2a041874a55cfc786a4e42680f289c[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 19:52:32 2017 -0600
+
+    arreglando los imports
+
+[33mcommit 5e2b089c6f074875daa31307cdf2a92d97206534[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 19:15:30 2017 -0600
+
+    algo
+
+[33mcommit 18bb60c417c229d3107d76fe6a6fffde115dbeb6[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 19:06:40 2017 -0600
+
+    al pasarlo a la carpeta de repositorio no puedo ingresar con el usuario admin admin por lo que no puedo aun ver los cambios que estoy haciendo
+
+[33mcommit 2d25bffff17c89854f115dbf0e416b7b51d9b05a[m
+Merge: e7670a5 a2d7e39
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 15:36:22 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit e7670a540462067f21fb1cf284aec9203cdf80e5[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Tue Apr 11 15:34:36 2017 -0600
+
+    arreglando reportes seguire arreglando las tablas
+
+[33mcommit a2d7e39a0d05d36797d64c564f1cf2a3ebcc998c[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 14:15:43 2017 -0600
+
+    detalle en mensaje de error en citas
+
+[33mcommit b1a92b499888648aceb20d555bd625ff8424218e[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 14:13:08 2017 -0600
+
+    agregación de observaciones
+
+[33mcommit 8af6a1858cc186d0c9710316f7933a264e9b3b0b[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 11:58:31 2017 -0600
+
+    arreglando
+
+[33mcommit be6fb652082f668f0262e338f3b6baa9d66112da[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 11:55:22 2017 -0600
+
+    cambios malos
+
+[33mcommit 1964a66c02240cdd6a01fcf6f7dc75f69084c678[m
+Merge: dc47980 f95963d
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 11:07:57 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit dc479805b8eba1dcf0d68625f65328bc5ff79e09[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Tue Apr 11 11:07:38 2017 -0600
+
+    cambios en el messenger
+
+[33mcommit f95963d211f03413c2f4a93d020e7b60785c4587[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Apr 5 22:21:46 2017 -0600
+
+    interfaz para reportes
+
+[33mcommit 17baa01e57f65e8a2695d329496aa68e7f65cd0c[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Apr 5 22:11:45 2017 -0600
+
+    un mensaje privado si les llega lo que estoy haciendo por favor
+
+[33mcommit 3997624037877104080003e28c523cbde5b1d848[m
+Merge: 815cc58 11c88f5
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Apr 5 22:08:53 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit 815cc583c298c21c896e78d8bbe5a4820b9f0a56[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Apr 5 21:54:20 2017 -0600
+
+    a alguno le dio un problema con lo de que no existe la carpeta web inf?
+
+[33mcommit 11c88f583d17e85262af36e92935e1bc6711c43e[m
+Merge: 4334057 0faa5f6
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Apr 5 20:44:06 2017 -0600
+
+    Merge branch 'master' of https://github.com/jdn0215/SGA_PROJ_INGE3
+
+[33mcommit 43340572776b4fb8812a700de77c82229c38114c[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Apr 5 20:43:21 2017 -0600
+
+    agregacion de citas listo
+
+[33mcommit 0faa5f694e0f96835fa718a3f63f50d2d0b7e899[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Apr 5 20:06:28 2017 -0600
+
+    pagina de reportes
+
+[33mcommit f34900f9f808f813cf5575a90b33bed24068c8fd[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Apr 5 17:02:21 2017 -0600
+
+    limpeza de form de citas, listo
+
+[33mcommit 54a3b6f63f9e2cf5a2500d36e7ae0b547553fa90[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Apr 5 14:10:38 2017 -0600
+
+    empleado actual
+
+[33mcommit bf09405e8bcf5d1cd7b5246c7e28cb50d18b9885[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Mon Apr 3 22:58:32 2017 -0600
+
+    validaciones para citas listas
+
+[33mcommit 3a8c9b5d1f2c31e5d1ab6bbe18363f9d83973617[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Mon Apr 3 22:05:58 2017 -0600
+
+    arreglo de id's en citas.jsp e inicio de validaciones en citasjs.js
+
+[33mcommit 0665283273c58b49f5a9a34bb65f90f73e7b10f2[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Mon Apr 3 21:11:31 2017 -0600
+
+    arreglo en validaciones.3
+
+[33mcommit ae0360a2ac25285f74b39e2981f83645c1248143[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Mon Apr 3 20:58:03 2017 -0600
+
+    arreglo en validaciones
+
+[33mcommit d2ec962fcb46b94ea20fc1fb3369c48eea196d3b[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Mon Apr 3 20:57:46 2017 -0600
+
+    arreglo en validaciones
+
+[33mcommit e1b7f988729b08680800b28886a188252cc26eac[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Mon Apr 3 19:37:17 2017 -0600
+
+    quitando unas cosillas
+
+[33mcommit 32ae4a9674c82c6aa991394205fc2a705584a7d9[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Thu Mar 30 18:27:31 2017 -0600
+
+    corregi los pasos estaba mal el git add . decia git add.
+
+[33mcommit a103d66fe55298d665898d87bf9a6c30a1077c70[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Mar 29 18:50:57 2017 -0600
+
+    lista de pasos para GIT
+
+[33mcommit bf4dbc38fdc303d0ab504da4316c81190f1ca34f[m
+Author: cmadrigalq <cmadrigal.3192@gmail.com>
+Date:   Wed Mar 29 18:46:42 2017 -0600
+
+    Holiiii
+
+[33mcommit 3e523a7434a309a3c4f5781f1093f4bb59a016c3[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Mar 29 18:28:39 2017 -0600
+
+    prueba Daniel
+
+[33mcommit e9545cc4cc8c278abb0237892f85bf8ed3d94fac[m
+Author: luisrodriguezchaves1 <luigi05-3@hotmail.com>
+Date:   Wed Mar 29 18:20:07 2017 -0600
+
+    nuevo mensaje Luis
+
+[33mcommit 2d0bf76771f5515d954b00d298721987d7d8e92c[m
+Author: marioherrerac <steven.herrera.cr@gmail.com>
+Date:   Wed Mar 29 18:19:32 2017 -0600
+
+    les llego el cambio
+
+[33mcommit cb0d27fd01cdd106fdee4baa46d5b8d0fdb2773b[m
+Author: jdn0215 <jdn0213@gmail.com>
+Date:   Wed Mar 29 16:31:39 2017 -0600
+
+    first
