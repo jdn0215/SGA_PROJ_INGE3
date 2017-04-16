@@ -34,8 +34,24 @@
                            <strong>Danger!</strong>
                          </div>
     </div>
+    
+      
+     <div class="form-group" id="proforma" style="position:absolute; top: 65px; left:35px;">
+                        <h4 id="numproforma"></h4>
+                            <input type ="text" id="pfm" placeholder="#proforma" class="form-control"name="CTexto" >
+                    </div>
+    
+    <div class="form-group" id="idchofer" style="position:absolute; top: 65px; left:245px;">
+                        <h4 id="numproforma"></h4>
+                            <input type ="text" id="idchof" disabled placeholder="dueño" class="form-control"name="CTexto" >
+                    </div>
    
-    <div id="add" style="position:absolute; top: 75px; right:15px;">
+     <div class="form-group" id="motodes" style="position:absolute; top: 65px; left:475px;">
+                        <h4 id="mtd"></h4>
+                            <input type ="text" id="desm" disabled placeholder="motocicleta" class="form-control"name="CTexto" >
+                    </div>
+    
+    <div id="add" style="position:absolute; top: 65px; right:145px;">
       <button type="button" class="btn btn-success btn-lg active" id="addGastos" 
                                 style="position:absolute; top: 5px; right: 25px; -webkit-border-radius: 2em;
                                 -moz-border-radius: 2em; border-radius: 2em;">
@@ -54,18 +70,55 @@
                     <th class="datagridtable" style="background-color: #20144c; color:#fff;">
                         Precio
                     </th>
-                    <th style="background-color: #20144c; color:#fff;">
+                    <th class="datagridtable"  style="background-color: #20144c; color:#fff;">
                         12/4/2017
                     </th>
-                    <th style="background-color: #20144c; color:#fff;">
+                    <th class="datagridtable" style="background-color: #20144c; color:#fff;">
                         Mecánico
                     </th>
-                    <th style="background-color: #20144c;">
+                    <th class="datagridtable"  style="background-color: #20144c;">
                         
                     </th>
                 </tr>
 
             </thead>
+            <tr>
+                    <td class="datagridtable" >
+                        
+                    </td>
+                    <td class="datagridtable" >
+                       
+                    </td>
+                    <td class="datagridtable" >
+                       
+                    </td>
+                    <td class="datagridtable" >
+                   
+                    </td>
+                    <td class="datagridtable" >
+                        <button type="button" class="btn btn-danger btn-md active" id="quitar">
+                                <span class="glyphicon glyphicon-remove"></span>   
+                           </button>
+                    </td>
+                </tr>
+            
+                 <tr>
+                    <td class="datagridtable" >
+                        
+                    </td>
+                    <td class="datagridtable" title="total en repuestos">
+                       
+                    </td>
+                    <td class="datagridtable" >
+                       
+                    </td>
+                    <td class="datagridtable" >
+                   
+                    </td>
+                    <td class="datagridtable" >
+                        
+                    </td>
+                </tr>
 
         </table>
     </div>
