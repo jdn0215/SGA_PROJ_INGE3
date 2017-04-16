@@ -113,8 +113,8 @@
                 <div class="form-group">
                         <label>Fecha de ingreso:<obligatorio>*</obligatorio></label><br/>
                         <GROUP>        
-                            <select name="mes" id="_mesCitas" class="citaDis"><option value="-1">MES</option></select>
-                            <select name="dia" id="_diaCitas" class="citaDis"><option value="-1" ></option></select>
+                            <select name="mes" id="_mesCitas" ><option value="-1">MES</option></select>
+                            <select name="dia" id="_diaCitas"><option value="-1" ></option></select>
                             <select id="annoCita"></select>
                         </GROUP>
                 </div>

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -164,8 +164,49 @@ const mostrarTexto=(idx)=>{
 
 
 const reconstruirCita=(cita)=>{
-    
+    if(!(cita instanceof Cita)) return ;
+    $("#opcCitas").click();
+    $(".citaDis").prop("disabled",true);
+    $("#clienteCita").val(cut(cita.cliente));
+    $("#motocito")[0].options[0].text = "Motor: "+cut(cita.moto);
+    $("#proformaCita").val(cita.proforma);
+    $("#garantiaCita").val(cut(cita.garantia));
+    $("#numeroOrdenCita").val(cita.orden);
+    reArmarEstado(cita.estado);
+    reArmarFecha(cita.entrada,"annoCita","_mesCitas","_diaCitas","minCita");
+    reArmarFecha(cita.prometida,"annoCita2","_mesCitas2","_diaCitas2","minCita2");
+    reArmarFecha(cita.salida,"annoCita2","_mesCitas3","_diaCitas3","minCita4");
 };
+
+const reArmarFecha=(fecha,ano,mes,dia,hr)=>{
+    if(fecha === null || !(fecha instanceof Date))return;
+    let st = setTimeout(()=>{
+        while($("#"+ano)[0].options[0].text != fecha.getFullYear())
+            $("#"+ano)[0].selectedIndex=1;
+        $("#"+ano).click();
+        while($("#"+mes).val() != fecha.getMonth())
+            $("#"+mes).val(fecha.getMonth());
+        $("#"+mes).click();
+        while($("#"+dia).val() != fecha.getDate())
+            $("#"+dia).val(fecha.getDate());
+         $("#"+hr).val(buildDate(fecha.getHours())+":"+buildDate(fecha.getMinutes()));
+        clearTimeout(st);
+        
+    },300);
+};
+const reArmarEstado=estado=>{
+    
+    let campo = estado === 0 ? "citaPendiente":
+                estado === 2 ? "EnProceso"    :
+                estado === 3 ? "citaCumplida" :
+                               "citaCancelada";
+    $("#"+campo).prop("checked",true);
+    if(estado === 3 || estado === 1)
+        $("[name='esatdoCita']").prop("disabled",true);
+};
+
+
+
 
 const buscaCita=id=>{
   $Proxy.proxy(
