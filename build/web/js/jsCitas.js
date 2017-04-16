@@ -73,7 +73,7 @@ const armarFecha=(anho="annoCita",_mes="_mesCitas",_dia="_diaCitas",_min="minCit
     return new Date(anno,mes,dia,hora,min);
 };
 
-const verificarDisponibilidad=()=>{
+const verificarDisponibilidad=(callback=null,val=null)=>{
      let combo=$("#EmpleadoCita")[0];
     combo.length=1;
     combo.options[0].text="Seleccione una hora de entrada y una hora prometida";
@@ -85,10 +85,9 @@ const verificarDisponibilidad=()=>{
         return mensaje("La fecha de salida prometida no puede ser antes que la de entrada",5,2),
         hrsOk=false;
     hrsOk=true;
-    cargarEmpleadosLibres(horaEntrada,horaPrometida);
-    
+    cargarEmpleadosLibres(horaEntrada,horaPrometida,callback,val);
 };
-const cargarEmpleadosLibres=(date1,date2)=>{
+const cargarEmpleadosLibres=(date1,date2,callback=null,v=null)=>{
     if(!hrsOk)return;
     let ctemp=new Cita();
     ctemp.entrada=date1;
@@ -96,6 +95,8 @@ const cargarEmpleadosLibres=(date1,date2)=>{
     $Proxy.proxy($$("arg0",ctemp),"getEmpleadosLibres","Empleados",res=>{
         if(Array.isArray(res)){
             cargarEmpleados(res,true);
+            if(callback!==null)
+                callback(v);
         }
     });
 };
@@ -176,11 +177,14 @@ const reconstruirCita=(cita)=>{
     
     reArmarEstado(cita.estado);
     reArmarFecha(cita.entrada,"annoCita","_mesCitas","_diaCitas","minCita");
-    reArmarFecha(cita.prometida,"annoCita2","_mesCitas2","_diaCitas2","minCita2",cita=>{
-        verificarDisponibilidad();
+    reArmarFecha(cita.prometida,"annoCita2","_mesCitas2","_diaCitas2","minCita2",c=>{
+        verificarDisponibilidad(v=>{
+             $("#EmpleadoCita")[0].options[0].text="Mecánico asignado: "+v; 
+        },c.mecanico);     
     },cita);
     if(cita.salida != "Invalid Date")
        reArmarFecha(cita.salida,"annoCita2","_mesCitas3","_diaCitas3","minCita4");
+   $("#tipoCita").val(cita.tipoDeTrabajo);
 };
 
 const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
@@ -234,6 +238,8 @@ const clearCitas=()=>{
     $("#form2Citas > div > group > select,#form2Citas > div > select,#form2Citas > div > input")
             .css("border",borderOK);
     $("#recepcionistaCita").val(cut(empleadoActual.idempleado));
+    $(".citaDis").prop("disabled",false);
+    $("[name='esatdoCita']").prop("disabled",false);
 };
 
 const findEmpleado=e=>{
