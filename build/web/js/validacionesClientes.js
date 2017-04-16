@@ -1,9 +1,8 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    Document   : validacionesClientes
+    Created on : 15/03/2017, 9:26:17 PM
+    Author     : jdani
+*/
 /* global $id, idCliente, IDFORMAT, edadFormat, mailFormat, TELFORMAT, annoFormat */
 
 const VALIDACIONES_CLIENTES = [

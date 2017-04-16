@@ -1,7 +1,7 @@
 <%-- 
     Document   : login
     Created on : 12/10/2016, 01:46:52 PM
-    Author     : Luis
+    Author     : cmadrigal
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

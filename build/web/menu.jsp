@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 10-oct-2016, 23:29:45
-    Author     : Cynthia Madrigal
+    Author     : cmadrigal
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
