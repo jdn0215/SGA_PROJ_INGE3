@@ -1,4 +1,8 @@
-
+/* 
+    Document   : validacionesEmpleados
+    Created on : 15/04/2017, 9:26:17 PM
+    Author     : cmadrigal
+*/
 
 /* global $id, IDFORMAT, idCliente, mailFormat, TELFORMAT */
 

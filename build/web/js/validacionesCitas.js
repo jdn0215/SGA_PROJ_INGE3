@@ -1,8 +1,8 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    Document   : validacionesCitas
+    Created on : 16/03/2017, 9:26:17 AM
+    Author     : jdani
+*/
 
 
 /* global $id, CLIENTEBUSCADO, modoUpdate, motosDelClienteBuscado, annoFormat */
