@@ -162,8 +162,9 @@ const mostrarTexto=(idx)=>{
 
 
 
-
+var aux;
 const reconstruirCita=(cita)=>{
+    aux = cita;
     if(!(cita instanceof Cita)) return ;
     $("#opcCitas").click();
     $(".citaDis").prop("disabled",true);
@@ -172,13 +173,17 @@ const reconstruirCita=(cita)=>{
     $("#proformaCita").val(cita.proforma);
     $("#garantiaCita").val(cut(cita.garantia));
     $("#numeroOrdenCita").val(cita.orden);
+    
     reArmarEstado(cita.estado);
     reArmarFecha(cita.entrada,"annoCita","_mesCitas","_diaCitas","minCita");
-    reArmarFecha(cita.prometida,"annoCita2","_mesCitas2","_diaCitas2","minCita2");
-    reArmarFecha(cita.salida,"annoCita2","_mesCitas3","_diaCitas3","minCita4");
+    reArmarFecha(cita.prometida,"annoCita2","_mesCitas2","_diaCitas2","minCita2",cita=>{
+        verificarDisponibilidad();
+    },cita);
+    if(cita.salida != "Invalid Date")
+       reArmarFecha(cita.salida,"annoCita2","_mesCitas3","_diaCitas3","minCita4");
 };
 
-const reArmarFecha=(fecha,ano,mes,dia,hr)=>{
+const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
     if(fecha === null || !(fecha instanceof Date))return;
     let st = setTimeout(()=>{
         while($("#"+ano)[0].options[0].text != fecha.getFullYear())
@@ -190,6 +195,8 @@ const reArmarFecha=(fecha,ano,mes,dia,hr)=>{
         while($("#"+dia).val() != fecha.getDate())
             $("#"+dia).val(fecha.getDate());
          $("#"+hr).val(buildDate(fecha.getHours())+":"+buildDate(fecha.getMinutes()));
+        if(callback!==null)
+             callback(cita);
         clearTimeout(st);
         
     },300);
