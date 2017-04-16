@@ -250,7 +250,13 @@ public class servlet extends HttpServlet {
                            json=gson.toJson(Modelo.rg_gastospormotocicleta(motormoto));
                            out.write(json);
                            break;
-                       }
+                       case "buscaCitaProforma":
+                           json = request.getParameter("arg1");
+                           i1 = gson.fromJson(json, Integer.class);
+                           json = gson.toJson(Modelo.buscaCitaProforma(i1));
+                           out.write(json);
+                           break;
+        }
                        
                             
                 }catch(Exception e){

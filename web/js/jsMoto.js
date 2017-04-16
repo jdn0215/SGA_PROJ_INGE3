@@ -1,4 +1,4 @@
-/* global $id, annoFormat, Proxy, LBSMTS, clienteEncontrado, cut, $Proxy */
+/* global $id, annoFormat, Proxy, LBSMTS, clienteEncontrado, cut, $Proxy, VALIDACIONES_MOTOS */
 
 var idCliente="";
 let vm;
@@ -9,6 +9,8 @@ let Objmoto;
 
 const validarMoto=_=>{
     let CLIENTEBUSCADO=retrieve("CLIENTEBUSCADO");
+    return vm.validateArray(VALIDACIONES_MOTOS).result;
+    
     return vm.validate("textAnno"," - año",annoFormat.test($id("textAnno").value)?
                         parseInt($id("textAnno").value)>1900&&parseInt($id("textAnno").value)<=(new Date().getFullYear()+1)
                        :false)
@@ -18,6 +20,9 @@ const validarMoto=_=>{
     .validate("textChasis","- Chasis",$id("textChasis").value!=="")
     .result;
 };
+
+
+
 const reconstruirMoto=(m)=>{
     Objmoto=m;
     clearMoto();

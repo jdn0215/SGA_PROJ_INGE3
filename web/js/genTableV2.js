@@ -20,7 +20,7 @@ const eventoTablaEmpleado=e=>{
 let Arraycitas;
 const attCT=["proforma","orden","cliente","moto","mecanico","estado"];
 const HDRCT=["Proforma","Orden","Cliente","Motocicleta","Mecánico","Estado de la cita"];
-const eventoTablaCita=e=>e;
+const eventoTablaCita=e=>buscaCita(e.target.idx);
 
 
 const atributos=type=>{
@@ -126,7 +126,7 @@ const Cell=(dato,obj,type,idx)=>{
       case 1: return cellCliente(dato,obj,idx);
       case 2: return cellMoto(dato,obj,idx);
       case 3: return cellEmpleado(dato,obj,idx);
-      case 4: return cellCitas(dato,obj,idx);
+      case 4: return cellCitas(dato,obj,obj.proforma);
       default:return createCell(dato);
   }//end switch1 
   return null;

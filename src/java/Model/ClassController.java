@@ -167,6 +167,7 @@ public class ClassController {
                     rs.getInt(12)/*mecanico*/
             );
         }catch (SQLException ex) {
+             System.err.print(ex.getMessage());
             return new Cita("Ocurrió algún error en la carga de datos");
         }
     }

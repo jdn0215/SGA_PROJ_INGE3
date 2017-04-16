@@ -202,6 +202,13 @@ public class QueryController {
             case "empleadosLibres":
                 return String.format(q.query,QueryController.DATE_TIME(c.getEntrada()),
                                              QueryController.DATE_TIME(c.getPrometida()));
+            case "buscaCitaProforma":
+                return String.format(q.query,c.getProforma());
+            case "buscacita":
+                String arg1 = c.getCliente();
+                arg1 = arg1.equals("") ? arg1 : "%"+arg1+"%";
+                int arg2 = c.getProforma();
+                return String.format(q.query, arg2,arg1);
         }
         return "";
     }

@@ -224,4 +224,23 @@ public class Modelo {
         ResultSet rs=db.executeQuery(query.buildQuery(motormoto,Query.rg_gastospormotocicleta));
         return _class.toCollection(rs,Gasto.class.getSimpleName());
     }
+    public static List<? extends Object>buscacita(String arg){
+        Cita c = new Cita();
+        try{
+            int b = Integer.valueOf(arg);
+            c.setProforma(b);
+        }catch(NumberFormatException e){
+            c.setProforma(0);
+        }
+        c.setCliente(arg);
+        ResultSet rs=db.executeQuery(query.buildQuery(c,Query.buscacita));
+        return _class.toCollection(rs,Cita.class.getSimpleName());
+    }
+     public static Cita buscaCitaProforma(int arg){
+        Cita c = new Cita();
+        c.setProforma(arg);
+        ResultSet rs=db.executeQuery(query.buildQuery(c,Query.buscaCitaProforma));
+        return (Cita)_class.toObject(rs,Cita.class.getSimpleName());
+    }
+    
 }

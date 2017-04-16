@@ -52,7 +52,9 @@ public enum Query{
     rg_crearGastos("select* from rg_crearGastos(%d,'%s',%f,'%s','%s')"),
     rg_gastosdeproforma("select* from rg_gastosDeProforma(%d)"),
     rg_todoslosgastos("select* from rg_todosLosGastos()"),
-    rg_gastospormotocicleta("select* from rg_gastospormotocicleta('%s')");
+    rg_gastospormotocicleta("select* from rg_gastospormotocicleta('%s')"),
+    buscaCitaProforma("select * from buscaCitaProforma(%d);"),
+    buscacita("select * from buscacita(%d,%s);");
     public final String query;
     Query(String a){
         query=a;
