@@ -30,6 +30,10 @@
 <script type="text/javascript" src="js/popup.js"></script>
 <script type="text/javascript" src="js/validacionesCitas.js"></script>
 <script type="text/javascript" src="js/validacionesClientes.js"></script>
+<script type="text/javascript" src="js/validacionesMotos.js"></script>
+<script type="text/javascript" src="js/validacionesEmpleados.js"></script>
+<script type="text/javascript" src="js/validacionesUsuarios.js"></script>
+<script type="text/javascript" src="js/validacionesMotoEstado.js"></script>
 <script type="text/javascript" src="js/zonas.js"></script>  
 <script type="text/javascript" src="js/values.js"></script>
 <script src="js/jquery.min.js"></script>

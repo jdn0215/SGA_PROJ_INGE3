@@ -10,15 +10,6 @@ let Objmoto;
 const validarMoto=_=>{
     let CLIENTEBUSCADO=retrieve("CLIENTEBUSCADO");
     return vm.validateArray(VALIDACIONES_MOTOS).result;
-    
-    return vm.validate("textAnno"," - año",annoFormat.test($id("textAnno").value)?
-                        parseInt($id("textAnno").value)>1900&&parseInt($id("textAnno").value)<=(new Date().getFullYear()+1)
-                       :false)
-    .validate("MtextCedula","- identificacion de cliente no valida",CLIENTEBUSCADO!==null)
-    .validate("textModelo","- Modelo",$id("textModelo").value!=="")
-    .validate("textMotor","- Motor",$id("textMotor").value!=="")
-    .validate("textChasis","- Chasis",$id("textChasis").value!=="")
-    .result;
 };
 
 
