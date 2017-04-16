@@ -19,4 +19,6 @@ class Gasto{
             motormoto:g.motormoto
         };
     }
+    
+    //tararara hey tararar hey
 };
