@@ -162,16 +162,16 @@ const mostrarTexto=(idx)=>{
 
 
 
-var aux;
+
 const reconstruirCita=(cita)=>{
-    aux=cita;
+    
 };
 
 const buscaCita=id=>{
   $Proxy.proxy(
         $$("arg1",id),"buscaCitaProforma","CITA",res=>{
-            if(res instanceof Cita)
-                reconstruirCita(res);
+            if(res[0] instanceof Cita)
+                reconstruirCita(res[0]);
         }
     );  
 };

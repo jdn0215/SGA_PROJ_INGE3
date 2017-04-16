@@ -41,11 +41,11 @@
                 <div class="form-group">
                         <h4 id="tituloCitasCliente"></h4>
                     <label for="CTexto">Identificación del cliente<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "clienteCita"> 
+                    <input type ="text" name="CTexto" class="form-control citaDis" id = "clienteCita"> 
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Motocicleta<obligatorio>*</obligatorio></label>
-                    <select id="motocito"class="form-control" >
+                    <select id="motocito"class="form-control citaDis" >
                         <option value="-1">Ingrese la identificación del cliente:</option>
                     </select>
                 </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Número de Proforma:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "proformaCita">
+                    <input type ="text" name="CTexto" class="form-control citaDis" id = "proformaCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Garantía:</label>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Número de orden:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "numeroOrdenCita">
+                    <input type ="text" name="CTexto" class="form-control citaDis" id = "numeroOrdenCita">
                 </div>
                 <div class="form-group">
                     <label for="CTexto">Tipo de trabajo:<obligatorio>*</obligatorio></label>
@@ -113,8 +113,8 @@
                 <div class="form-group">
                         <label>Fecha de ingreso:<obligatorio>*</obligatorio></label><br/>
                         <GROUP>        
-                            <select name="mes" id="_mesCitas"><option value="-1">MES</option></select>
-                            <select name="dia" id="_diaCitas"><option value="-1" ></option></select>
+                            <select name="mes" id="_mesCitas" class="citaDis"><option value="-1">MES</option></select>
+                            <select name="dia" id="_diaCitas" class="citaDis"><option value="-1" ></option></select>
                             <select id="annoCita"></select>
                         </GROUP>
                 </div>

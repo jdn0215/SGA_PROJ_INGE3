@@ -7,10 +7,8 @@ let Objmoto;
 
 
 
-const validarMoto=_=>{
-    let CLIENTEBUSCADO=retrieve("CLIENTEBUSCADO");
-    return vm.validateArray(VALIDACIONES_MOTOS).result;
-};
+const validarMoto=_=> vm.validateArray(VALIDACIONES_MOTOS).result;
+
 
 
 
