@@ -120,13 +120,10 @@ const updateMoto=_=>{
 };
 
 
-const validarEstado=()=> 
-    vE.validate(
-        "textKm","Indique el kilometraje",
-        ($id("textKm").value!=="")&&
-        (!isNaN($id("textKm").value))&&
-        ($id("textKm").value>=0)
-).result;
+const validarEstado=()=>{
+    return vE.validateArray(VALIDACIONES_MOTO_ESTADO).result;
+};
+    
 
 const reconstruirEstado=(E)=>{
     //no necesario

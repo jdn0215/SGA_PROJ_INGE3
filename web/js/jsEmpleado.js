@@ -20,45 +20,13 @@ const DELETEEMPLEADO=()=>{
 };
 
 
-const validarEmpleado=_=>
-          ve.validate("textNombre2"," - nomnbre del empleado",$id("textNombre2").value!=="")
-            .validate($id("CF2").checked ? "textCedula12" : "MtextID2",
-                " - la identificación",
-                $id("CF2").checked ? IDFORMAT.test(idEmpleado) : idEmpleado.length!==0,
-                $id("CF2").checked?"textCedula22":"",
-                $id("CF2").checked?"textCedula32":"")
-            .validate("textCelular2"," - Numero de celular",TELFORMAT.test($id("textCelular2").value))
-            .validate("textEmail2"," - correo electronico",mailFormat.test($id("textEmail2").value))
-            .result;
+const validarEmpleado=_=>{
+    return ve.validateArray(VALIDACIONES_EMPLEADOS).result;
+};
 
 
 const validarUsuario=_=>{
-    let psw,psw2,aux,username=$id("textUsuario").value;
-    vu.validate("textUsuario","- el nombre de usuario",username!=="").result?
-        vu.validate("textUsuario","- el nombre de usuario debe ser una unica palabra (ej: usuario01)",username.split(' ').length===1):0;
-    aux=vu.result;
-    vu.result=true;
-    psw = vu.validate("textContrasena"
-               ," - Contraseña no valida (debe contener: entre 8 y 15 caracteres, utilice solo números y letras)"
-               ,passWordFormat.test($id("textContrasena").value)).result;
-    vu.result=true;
-    psw2 = vu.validate("textContrasena2","- La verificación de la contraseña no coincide"
-               ,($id("textContrasena").value===$id("textContrasena2").value)).result;
-    vu.result= aux&&psw&&psw2;
-    if(!psw2){
-        $id("textContrasena2").value="";
-        $id("textContrasena2").placeholder="\nLas contraseñas no coinciden";
-        ok=false;
-    }else{
-        if(!psw){
-            $id("textContrasena").value="";
-            $id("textContrasena2").value="";
-            $id("textContrasena2").placeholder="\Contraseña no valida";
-            ok=false;
-        }
-        
-    }
-    return vu.result;
+    return vu.validateArray(VALIDACIONES_USUARIOS).result;
  };
  
 const buildUsuario=_=>{
