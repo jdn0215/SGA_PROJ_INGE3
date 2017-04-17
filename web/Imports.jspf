@@ -24,6 +24,7 @@
 <script type="text/javascript" src="js/jsCitas.js"></script>
 <script type="text/javascript" src="js/jsCliente.js"></script>
 <script type="text/javascript" src="js/jsEmpleado.js"></script>
+<script type="text/javascript" src="js/jsGastos.js"></script>
 <script type="text/javascript" src="js/jsMoto.js"></script>
 <script type="text/javascript" src="js/jsUsuario.js"></script>
 <script type="text/javascript" src="js/props.js"></script>

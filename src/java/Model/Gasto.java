@@ -13,13 +13,15 @@ import java.sql.Date;
  * @author Luis
  */
 public class Gasto implements Serializable, Jsonable{
+    int idgasto;
     int proforma;
     String descripcion;
     float precio;
     Date fecha;
     String idmecanico;
 
-    public Gasto(int proforma, String descripcion, float precio, Date fecha, String idmecanico) {
+    public Gasto(int idgasto,int proforma, String descripcion, float precio, Date fecha, String idmecanico) {
+        this.idgasto=idgasto;
         this.proforma = proforma;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -28,6 +30,14 @@ public class Gasto implements Serializable, Jsonable{
     }
 
     public Gasto(){}
+
+    public int getIdgasto() {
+        return idgasto;
+    }
+
+    public void setIdgasto(int idgasto) {
+        this.idgasto = idgasto;
+    }
     
     public int getProforma() {
         return proforma;
