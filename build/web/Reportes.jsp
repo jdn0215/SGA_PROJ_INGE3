@@ -97,7 +97,7 @@
                        <input type="text" class="form-control" classextra="input_fechaG" id="input_fechaG" placeholder="Ingrese la fecha(dd-mm-aaaa)">
                     </td>
                     <td class="datagridtable" >
-                     <input type="text" class="form-control" classextra="input_quienG" id="input_quienG" placeholder="Ingrese el id del empleado que se registra">
+                     <input type="text" class="form-control" classextra="input_quienG" id="input_quienG" placeholder="Digite el id del empleado registrador">
                     </td>
                     <td class="datagridtable" >
                         <button type="button" class="btn btn-danger btn-md active" id="quitar" title="remover fila">
@@ -133,7 +133,7 @@
                     </td>
                     
                     <td class="datagridtable" >
-                       <button type="button" class="btn btn-success btn-md active" id="crearGasto" onClick="creargasto();" title="guardar reporte">
+                       <button type="button" class="btn btn-success btn-md active" id="crearGasto" onClick="agregarGasto();" title="guardar reporte">
                                Agregar cambios
                            </button>
                     </td>

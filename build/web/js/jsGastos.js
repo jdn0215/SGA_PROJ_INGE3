@@ -9,7 +9,10 @@ const agregarGasto=_=>{
     let idvacio=0;//para insertar no importar pero es necesario para agregarlo.
     let gasto=new Gasto(idvacio,proforma,detalle,precio,fecha,mecanico);
     $Proxy.proxy($$("GASTO",gasto),"agregarGasto","GASTO",gasto,re=>{
-        //aqui quedé lo siento de verdad, estoy hecho mierda
-    })
+        if(re===1)
+            alert("agregación exitosa");
+        else
+            alert("agregación fallida");
+    });
     
 };
