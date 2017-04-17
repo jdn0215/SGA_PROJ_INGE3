@@ -213,8 +213,15 @@ public class servlet extends HttpServlet {
                        case "updateCita":
                            json = request.getParameter("CITA");
                            cita = gson.fromJson(json,Cita.class);
-                           json = gson.toJson(Modelo.updateCita(cita));
-                           out.write(json);
+                           if(cita.getSalida().getYear()<cita.getEntrada().getYear())
+                               cita.setSalida(null);
+                           i1 =Modelo.updateCita(cita);
+                           if(i1==1){
+                             json = request.getParameter("OBSV");
+                             obs = gson.fromJson(json,Observacion.class);
+                             Modelo.addObservacion(obs);
+                           }
+                           out.write(gson.toJson(i1));            
                            break;
                        case "getEmpleadosLibres":
                            json =request.getParameter("arg0");
@@ -248,6 +255,12 @@ public class servlet extends HttpServlet {
                            json = request.getParameter("arg1");
                            i1 = gson.fromJson(json, Integer.class);
                            json = gson.toJson(Modelo.buscaCitaProforma(i1));
+                           out.write(json);
+                           break;
+                       case "buscaCitaObs":
+                           json = request.getParameter("arg1");
+                           i1 = gson.fromJson(json, Integer.class);
+                           json = gson.toJson(Modelo.buscaCitaObs(i1));
                            out.write(json);
                            break;
         }

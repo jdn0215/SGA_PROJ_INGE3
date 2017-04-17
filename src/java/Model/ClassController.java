@@ -32,6 +32,7 @@ public class ClassController {
             case "Mensaje": return toMensaje(rs);
             case "Cita": return toCita(rs);
             case "Gasto": return toGasto(rs);
+            case "Observacion": return toObservacion(rs);
         }
         return null;
     }
@@ -187,6 +188,19 @@ public class ClassController {
             return g;
         }
         
+    }
+
+    private Observacion toObservacion(ResultSet rs) {
+          try{
+           return new Observacion(
+                   rs.getInt(1),/*proforma*/
+                   rs.getString(3),/*detalle*/
+                   rs.getDate(2)/*fecha*/
+           );
+        }
+        catch(SQLException ex){
+            return new Observacion(0,"ERROR EN LECTURA DE DATOS",new Date());
+        }
     }
     
 }

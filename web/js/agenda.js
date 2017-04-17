@@ -105,7 +105,7 @@ class Agenda{
           div2=document.createElement("div"),
           div3=document.createElement("div"),
           div4=document.createElement("div");
-      div1.style="position: relative; height: 30px;";
+      div1.style="position: relative; height: 35px;";
       div1.setAttribute("id","Marca_"+fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate());
       div2.className="fc-day-content";
       div3.className="fc-day-number";

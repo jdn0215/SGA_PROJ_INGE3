@@ -12,7 +12,7 @@ class Observacion{
       this.fecha=fecha;
   }  
   static from(p){
-      return new Observacion(p.proforma,p.detalle,new Date(fecha));
+      return new Observacion(p.proforma,p.detalle,new Date(p.fecha));
   }
   static to(p){
       return{

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -13,6 +13,9 @@ var modoUpdate=false;
 let dateEntrada;
 let datePrometida;
 let hrsOk=false;
+var recepcionistaActual;
+var citaActual = null;
+
 const addCita=()=>{
     let nuevaCita=construirCita();
     if(nuevaCita===false)return;
@@ -31,22 +34,37 @@ const addCita=()=>{
 };
 const validarCita=()=>validadorCita.validateArray(VALIDACIONES_CITAS).result;
 
-const construirCita=()=>{
+const construirCita=(cita=null)=>{
     validadorCita=new Validator();
     validadorCita.message="Por favor verifique:<br/>";
     if(!validarCita()){
         mensaje(validadorCita.message,5,3);
         return false;
     }
+    if(!modoUpdate)
     return new Cita(
             $("#proformaCita").val(),
             $("#numeroOrdenCita").val(),
             $("#clienteCita").val(),
-            modoUpdate?cut($("#motocito").text().split(": ")[1]):motosDelClienteBuscado[$id("motocito").selectedIndex].motor,
-            $("#recepcionistaCita").val(),
+            motosDelClienteBuscado[$id("motocito").selectedIndex].motor,
+            recepcionistaActual,
             $("#garantiaCita").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita").val().split('- ')[1],
+            armarFecha(),
+            !$id("citaCumplida").checked?0:armarFecha("annoCita3","_mesCitas3","_diaCitas3","minCita4"),
+            armarFecha("annoCita2","_mesCitas2","_diaCitas2","minCita2"),
+            estadoCita()
+    );
+    return new Cita(
+            cita.proforma,
+            cita.orden,
+            cita.cliente,
+            cita.moto,
+            cita.recepcionista,
+            $("#garantiaCita").val(),
+            $("#tipoCita").val(),
+            $("#EmpleadoCita")[0].selectedIndex === 0 ? cita.mecanico :  $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
             !$id("citaCumplida").checked?0:armarFecha("annoCita3","_mesCitas3","_diaCitas3","minCita4"),
             armarFecha("annoCita2","_mesCitas2","_diaCitas2","minCita2"),
@@ -92,17 +110,17 @@ const cargarEmpleadosLibres=(date1,date2,callback=null,v=null)=>{
     ctemp.prometida=date2;
     $Proxy.proxy($$("arg0",ctemp),"getEmpleadosLibres","Empleados",res=>{
         if(Array.isArray(res)){
-            cargarEmpleados(res,true);
+            cargarEmpleados(res,true,callback===null);
             if(callback!==null)
                 callback(v);
         }
     });
 };
-const cargarEmpleados=(arr=[],busqueda=false)=>{
+const cargarEmpleados=(arr=[],busqueda=false,mj=true)=>{
     let combo=$("#EmpleadoCita")[0];
     combo.length=1;
     combo.options[0].text="Seleccione una hora de entrada y una hora prometida";
-    if(busqueda && arr.length===0){
+    if(mj && busqueda && arr.length===0){
         return mensaje("Ningún empleado se encuentra disponible en el lapso indicado",5,3);
     }
     combo.length=arr.length+1;
@@ -113,22 +131,21 @@ const cargarEmpleados=(arr=[],busqueda=false)=>{
     });
 };
 const upDateCita=()=>{
-    modoUpdate=true;
-    let nuevaCita=construirCita();
+    let nuevaCita=construirCita(citaActual);
+    aux=nuevaCita;
     if(nuevaCita===false)return;
-    nuevaCita.id=citaActual.id;
+    let obs = buildObservacion(citaActual,nuevaCita);
     $Proxy.proxy(
-            $$("CITA",nuevaCita),/*parametros*/
+            $$("CITA",nuevaCita,"OBSV",obs),/*parametros*/
             "updateCita",/*accion*/
             "Cita",/*tipo de dato que se va manejar*/
              res=>{
                  if(res===1){
                      clearCitas();
                      mensaje("Cita Actualizada con éxito",5,1);
+                    modoUpdate=false;
                  }else mensaje("Ocurrio algun error, intente de nuevo",5,4);
-             }       
-            );
-    modoUpdate=false;
+             });       
 };
 const clickDia=(casilla)=>{
     let arr=agenda.citas[casilla.getAttribute("date_date")].hash.filter(e=>e);
@@ -157,6 +174,8 @@ const mostrarTexto=(idx)=>{
 const reconstruirCita=(cita)=>{
     if(!(cita instanceof Cita)) return ;
     $("#opcCitas").click();
+    modoUpdate=true;
+    citaActual = cita;
     $(".citaDis").prop("disabled",true);
     $("#clienteCita").val(cut(cita.cliente));
     $("#motocito")[0].options[0].text = "Motor: "+cut(cita.moto);
@@ -187,7 +206,27 @@ const reconstruirCita=(cita)=>{
            break;
         default:   $("#diasEnTaller").val(0);
     }
-   
+    $("#motivosCita2")[0].className="form-control";
+    $Proxy.proxy($$('arg1',cita.proforma),'buscaCitaObs','obs',res=>{
+        if(Array.isArray(res)){
+            $("#motivosCita2").val(
+                     res.reverse().reduce((ant,el)=>ant+=(el.detalle+'\n------------------------------\n'),""
+                    ));
+        }
+    });
+    $("#recepcionistaCita").val(cut(cita.recepcionista));
+    $("#buttonGuardarCita").hide();
+    $("#buttonCitasModificar").show();
+    switch(cita.estado){
+        case 3:
+        case 1:    
+                $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
+                        .prop("disabled",true);
+                 $("#buttonCitasModificar").hide();
+                 $("#motivosCita").hide();   
+                 break;
+        case 2: $(".tc2,.tc1,#citaPendiente").prop("disabled",true);break;
+    }
 };
 const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
     if(fecha === null || !(fecha instanceof Date))return;
@@ -226,6 +265,8 @@ const buscaCita=id=>{
     );  
 };
 const clearCitas=()=>{
+    modoUpdate=false;
+    citaActual = null;
     $id("citasReset1").click();//quitar el texto de los inputs
     $id("citasReset2").click();//quitar el texto de los inputs
     $("#form1Citas > div > input,#form1Citas > div > select").css("border",borderOK);//quitar borde rojo
@@ -234,12 +275,21 @@ const clearCitas=()=>{
     $("#form2Citas > div > group > select,#form2Citas > div > select,#form2Citas > div > input")
             .css("border",borderOK);
     $("#recepcionistaCita").val(cut(empleadoActual.idempleado));
+    recepcionistaActual = empleadoActual.idempleado;
     $(".citaDis").prop("disabled",false);
     $("[name='esatdoCita']").prop("disabled",false);
     $("#diasEnTaller").val('0');
     let combo = $("#EmpleadoCita")[0];
     combo.length = 1;
     combo.options[0].text = "Ingrese una hora de ingreso y una hora prometida";
+    $("#motivosCita2").val("");
+     $("#motivosCita2")[0].className="noVisible";
+     $("#buttonGuardarCita").show();
+    $("#buttonCitasModificar").hide();
+    $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
+                        .prop("disabled",false);
+    $("#motivosCita").show();               
+    clearMensaje();        
 };
 const findEmpleado=e=>{
   let select=$id("EmpleadoCita");
@@ -288,16 +338,17 @@ const cargarMotos=()=>{
            }
        );   
 };
-const buildObservacion=()=>{
+const buildObservacion=(a=null,b=null)=>{
     $date();
+    
     return new Observacion(
             $("#proformaCita").val(),
-            buildDetalle(),
+            buildDetalle(a,b),
             HORASERVER
         ); 
 };
-const buildDetalle=()=>{
-        let out = cut(empleadoActual.idempleado)+"  "+buildTextDate(HORASERVER)+" -> ";
+const buildDetalle=(a=null,b=null)=>{
+    let out = cut(empleadoActual.idempleado)+"  "+buildTextDate(HORASERVER)+" -> ";
     if(!modoUpdate){
         let detalle = $("#motivosCita").val();
         if(detalle === ""){
@@ -305,6 +356,8 @@ const buildDetalle=()=>{
         }else{
             out += detalle;
         }
+    }else{
+        out += $("#motivosCita").val()+'\n'+compararCita(a,b);
     }
     return out;
 };
@@ -346,3 +399,33 @@ const eventoBarra=e=>{
     $id("botonresultados").click();
     flagEventoBarra=true;
 };
+const compararCita=(a,b)=>{
+  //let mj = "no se realizó cambio alguno."
+  let mj="";
+  if(a.garantia !== b.garantia)
+      mj+= ("cambio de la ganatía de <<"+a.garantia+">> a <<"+b.garantia+">>\n");
+  if(a.tipoDeTrabajo !== b.tipoDeTrabajo)
+      mj+= ("cambio del tipo de trabajo de <<"+a.tipoDeTrabajo+">> a <<"+b.tipoDeTrabajo+">>\n");
+  if(a.estado !== b.estado)
+       mj+= ("cambio del estado de la cita de <<"+estadoTexto(a.estado)+">> a <<"+estadoTexto(b.estado)+">>\n");
+  if(a.entrada.getTime() !== b.entrada.getTime()) 
+    mj+= ("cambio de la fecha de ingreso de <<"+textDateFormat(a.entrada)+">> a <<"+textDateFormat(b.entrada)+">>\n");
+  if(a.prometida.getTime() !== b.prometida.getTime()) 
+    mj+= ("cambio de la fecha prometida de <<"+textDateFormat(a.prometida)+">> a <<"+textDateFormat(b.prometida)+">>\n");
+  if(     (b.salida.getFullYear()>=b.entrada.getFullYear())
+          &&((b.salida!= 'Invalid Date' && a.salida!= 'Invalid Date'&& a.salida.getTime() !== b.salida.getTime())
+          ||(b.salida!= 'Invalid Date' && a.salida == 'Invalid Date'))) 
+    mj+= ("cambio de la fecha de salida  a <<"+textDateFormat(b.salida)+">>\n");
+  if(a.mecanico !== b.mecanico)
+      mj+= ("cambio del mecánico de <<"+a.mecanico+">> a <<"+b.mecanico+">>\n");
+  return mj===""?"No se realizó cambio alguno":mj;
+};
+const textDateFormat=d=> moment(d).toISOString().split('.')[0].replace(' ',' ')
+const estadoTexto=estado=>
+                estado === 0 ? "cita Pendiente":
+                estado === 2 ? "Motocicleta en el Taller"    :
+                estado === 3 ? "Motocicleta entregada al Cliente" :
+                               "Cita Cancelada";
+
+
+

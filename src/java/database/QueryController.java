@@ -207,6 +207,21 @@ public class QueryController {
                 arg1 = arg1.equals("") ? arg1 : "%"+arg1+"%";
                 int arg2 = c.getProforma();
                 return String.format(q.query, arg2,arg1);
+            case "upDateCita":
+                if(c.getSalida() == null)
+                    return String.format(Query.upDateCita2.query,c.getProforma(),c.getCliente(),
+                        c.getMoto(),c.getRecepcionista(),c.getGarantia(),
+                        c.getTipoDeTrabajo(),DATE_TIME(c.getEntrada()),
+                        DATE_TIME(c.getPrometida()),c.getMecanico(),c.getEstado()
+                       );
+                else 
+                    return String.format(q.query,c.getProforma(),c.getCliente(),
+                        c.getMoto(),c.getRecepcionista(),c.getGarantia(),
+                        c.getTipoDeTrabajo(),DATE_TIME(c.getEntrada()),
+                        DATE_TIME(c.getPrometida()),
+                        DATE_TIME(c.getSalida()),c.getMecanico(),
+                        c.getEstado()
+                       );
         }
         return "";
     }
@@ -217,6 +232,8 @@ public class QueryController {
                 return String.format(q.query,o.getProforma(),
                                              QueryController.DATE_TIME(o.getFecha()),
                                              o.getDetalle());
+            case "buscaCitaObs":
+                return String.format(q.query, o.getProforma());
             default:return "";
         }
     }

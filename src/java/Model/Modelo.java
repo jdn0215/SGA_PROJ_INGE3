@@ -45,7 +45,7 @@ public class Modelo {
      return db.executeQuery(query.buildQuery(c,Query.crearCita))==null ? 0 : 1;
     }
     public static int updateCita(Cita c){
-     return db.executeQuery(query.buildQuery(c,Query.updateCita))==null ? 0 : 1;
+     return db.executeQuery(query.buildQuery(c,Query.upDateCita))==null ? 0 : 1;
     }
     
     public static int addMoto(Moto m){
@@ -238,6 +238,11 @@ public class Modelo {
         c.setProforma(arg);
         ResultSet rs=db.executeQuery(query.buildQuery(c,Query.buscaCitaProforma));
         return _class.toCollection(rs,Cita.class.getSimpleName());
+    }
+    public static List<? extends Object> buscaCitaObs(int arg){
+        Observacion o  = new Observacion(arg,"",null);
+        ResultSet rs=db.executeQuery(query.buildQuery(o,Query.buscaCitaObs));
+        return _class.toCollection(rs,Observacion.class.getSimpleName());
     }
     
 }
