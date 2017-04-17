@@ -17,14 +17,14 @@ public class Gasto implements Serializable, Jsonable{
     String descripcion;
     float precio;
     Date fecha;
-    String motormoto;
+    String idmecanico;
 
-    public Gasto(int proforma, String descripcion, float precio, Date fecha, String motormoto) {
+    public Gasto(int proforma, String descripcion, float precio, Date fecha, String idmecanico) {
         this.proforma = proforma;
         this.descripcion = descripcion;
         this.precio = precio;
         this.fecha = fecha;
-        this.motormoto = motormoto;
+        this.idmecanico = idmecanico;
     }
 
     public Gasto(){}
@@ -61,12 +61,12 @@ public class Gasto implements Serializable, Jsonable{
         this.fecha = fecha;
     }
 
-    public String getMotormoto() {
-        return motormoto;
+    public String getIdMecanico() {
+        return idmecanico;
     }
 
-    public void setMotormoto(String motormoto) {
-        this.motormoto = motormoto;
+    public void setIdMecanico(String idmecanico) {
+        this.idmecanico = idmecanico;
     }
     
     

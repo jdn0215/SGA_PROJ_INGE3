@@ -220,10 +220,7 @@ public class Modelo {
         return _class.toCollection(rs, Gasto.class.getSimpleName());
     }
     
-    public static List<? extends Object> rg_gastospormotocicleta(String motormoto){
-        ResultSet rs=db.executeQuery(query.buildQuery(motormoto,Query.rg_gastospormotocicleta));
-        return _class.toCollection(rs,Gasto.class.getSimpleName());
-    }
+ 
     public static List<? extends Object>buscacita(String arg){
         Cita c = new Cita();
         try{

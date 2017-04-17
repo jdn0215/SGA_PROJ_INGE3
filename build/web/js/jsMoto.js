@@ -123,11 +123,6 @@ const validarEstado=()=>{
 };
     
 
-const reconstruirEstado=(E)=>{
-    //no necesario
-};
-
-
 const buildEstado=_=>{
     vE=new Validator();
     vE.message="Por favor verifique:<br/>";

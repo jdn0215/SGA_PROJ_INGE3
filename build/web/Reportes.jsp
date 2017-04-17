@@ -65,6 +65,9 @@
             <thead>
                 <tr>
                     <th class="datagridtable" style="background-color: #20144c; color:#fff;">
+                        #
+                    </th>
+                    <th class="datagridtable" style="background-color: #20144c; color:#fff;">
                         Descripción
                     </th>
                     <th class="datagridtable" style="background-color: #20144c; color:#fff;">
@@ -83,17 +86,18 @@
 
             </thead>
             <tr>
+                    <td>
                     <td class="datagridtable" >
-                        <input type="text" class="form-control" placeholder="ingrese detalle">
+                        <input type="text" class="form-control" classextra="input_detalleG" id="input_detalleG" placeholder="Ingrese detalle">
                     </td>
                     <td class="datagridtable" >
-                       <input type="number" class="form-control" placeholder="ingrese precio">
+                       <input type="number" class="form-control" classextra="input_precioG" id="input_precioG" placeholder="Ingrese precio">
                     </td>
                     <td class="datagridtable" >
-                       <input type="text" class="form-control" placeholder="ingrese la fecha">
+                       <input type="text" class="form-control" classextra="input_fechaG" id="input_fechaG" placeholder="Ingrese la fecha(dd-mm-aaaa)">
                     </td>
                     <td class="datagridtable" >
-                     <input type="text" class="form-control" placeholder="ingrese a quien regisra el reporte">
+                     <input type="text" class="form-control" classextra="input_quienG" id="input_quienG" placeholder="Ingrese el id del empleado que se registra">
                     </td>
                     <td class="datagridtable" >
                         <button type="button" class="btn btn-danger btn-md active" id="quitar" title="remover fila">
@@ -101,8 +105,9 @@
                            </button>
                     </td>
                 </tr>
-            
+           
                  <tr>
+                     
                     <td class="datagridtable" >
                         
                     </td>
@@ -120,13 +125,16 @@
                     </td>
                 </tr>
                 <tr>
+                    
+                </tr>
+                <tr>
                     <td class="datagridtable">
                         
                     </td>
                     
                     <td class="datagridtable" >
-                       <button type="button" class="btn btn-success btn-md active" id="guardar" title="guardar reporte">
-                               Guardar 
+                       <button type="button" class="btn btn-success btn-md active" id="crearGasto" onClick="creargasto();" title="guardar reporte">
+                               Agregar cambios
                            </button>
                     </td>
                     <td class="datagridtable" >
@@ -135,7 +143,7 @@
                            </button>
                     </td>
                     <td class="datagridtable" colspan="2">
-                        <button type="button" class="btn btn-success btn-md disabled"  id="printrep" title="iprimir reporte">
+                        <button type="button" class="btn btn-success btn-md disabled"  id="printrep" title="imprimir reporte">
                                Imprimir Reporte 
                            </button>
                     </td>

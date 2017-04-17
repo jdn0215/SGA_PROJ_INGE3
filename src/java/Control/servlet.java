@@ -244,12 +244,6 @@ public class servlet extends HttpServlet {
                             json=gson.toJson(Modelo.rg_todosLosGastos());
                             out.write(json);
                             break;
-                       case "gastospormotocicleta":
-                           json=request.getParameter("MOTORMOTO");
-                           String motormoto=gson.fromJson(json, String.class);
-                           json=gson.toJson(Modelo.rg_gastospormotocicleta(motormoto));
-                           out.write(json);
-                           break;
                        case "buscaCitaProforma":
                            json = request.getParameter("arg1");
                            i1 = gson.fromJson(json, Integer.class);

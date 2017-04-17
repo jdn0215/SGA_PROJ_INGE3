@@ -13,8 +13,10 @@
                 <select id="opcionesDeBusqueda" class="form-control" style="font-weight:bold;">
                     <option id="opcionesDeBusqueda0" value="0">Seleccione un criterio de búsqueda </option>
                     <option id="opcionesDeBusqueda1" value="1">Buscar clientes por nombre o por identificación (no usar guiones)</option>
-                    <option id="opcionesDeBusqueda2" value="2">Buscar motocileta por nombre o número de motor, chasis, placa o identificación del cliente</option>
+                    <option id="opcionesDeBusqueda2" value="2">Buscar motocicleta por nombre o número de motor, chasis, placa o identificación del cliente</option>
                     <option id="opcionesDeBusqueda3" value="3">Buscar empleado por identificación o nombre</option>
+                    <option id="opcionesDeBusqueda4" value="4">Buscar cita utilizando el número de proforma</option>
+                    
                 </select>    
                 
                 
@@ -45,6 +47,14 @@
                     </td>
                     <td width="25%">
                         <br><button type="button" width="5em" id="buttonBuscaEmpleados" style="padding: 5px; margin-bottom:3%; text-align:center; background-color: #20144c;" class="btn btn-info btn-lg active">&nbspBuscar empleados&nbsp</button></br>    
+                    </td>
+               </tr>
+               <tr id="BCITATR" style="display:none">
+                    <td width="30%" style="text-align: left; padding-right: 1em;">
+                        <input type ="text"  id="BTextCita" placeholder="Ingrese el número de proforma de la cita" class="form-control"name="CTexto" >
+                    </td>
+                    <td width="25%">
+                        <br><button type="button" width="5em" id="buttonBuscaCita" style="padding: 5px; margin-bottom:3%; text-align:center; background-color: #20144c;" class="btn btn-info btn-lg active">&nbspBuscar Citas&nbsp</button></br>    
                     </td>
                </tr>
              </tbody>
