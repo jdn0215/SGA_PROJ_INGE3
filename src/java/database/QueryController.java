@@ -204,7 +204,7 @@ public class QueryController {
                 return String.format(q.query,c.getProforma());
             case "buscacita":
                 String arg1 = c.getCliente();
-                arg1 = arg1.equals("") ? arg1 : "%"+arg1+"%";
+                arg1 = arg1.equals("") ? "''" : "'%"+arg1.toUpperCase()+"%'";
                 int arg2 = c.getProforma();
                 return String.format(q.query, arg2,arg1);
             case "upDateCita":

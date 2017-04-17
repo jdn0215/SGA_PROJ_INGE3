@@ -54,7 +54,7 @@ public class Cita implements Serializable, Jsonable{
 
 
     public Cita() {
-        this.proforma = 0;
+        this.proforma = -1;
         this.orden = 0;
         this.cliente = "";
         this.moto = "";

@@ -102,7 +102,7 @@ public class ClassController {
                     rs.getInt(3),/*anno*/
                     rs.getString(4),/*motor*/
                     rs.getString(5),/*chasis*/
-                    rs.getString(6).equals("COMODIN") ? "" : rs.getString(6),/*placa*/
+                    rs.getString(6).equals("COMODIN"+rs.getString(4)) ? "" : rs.getString(6),/*placa*/
                     rs.getString(7)/*avg*/
             );
         } catch (SQLException ex) {

@@ -1,4 +1,4 @@
-/* global Proxy, $id, $Proxy */
+    /* global Proxy, $id, $Proxy */
 
 const loginconenter=_=>{
     if (event.keyCode===13)

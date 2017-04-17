@@ -263,6 +263,12 @@ public class servlet extends HttpServlet {
                            json = gson.toJson(Modelo.buscaCitaObs(i1));
                            out.write(json);
                            break;
+                       case "buscaCita":
+                           json = request.getParameter("arg1");
+                           json=json.replace("\"","");
+                           json = gson.toJson(Modelo.buscacita(json));
+                           out.write(json);
+                           break;
         }
                        
                             

@@ -265,6 +265,7 @@ const buscaCita=id=>{
     );  
 };
 const clearCitas=()=>{
+    $id("tituloCitasCliente").innerHTML="";
     modoUpdate=false;
     citaActual = null;
     $id("citasReset1").click();//quitar el texto de los inputs
@@ -428,4 +429,14 @@ const estadoTexto=estado=>
                                "Cita Cancelada";
 
 
-
+const buscaCitaAccion=()=>{
+  let arg = $("#TexArgtCita").val();
+  $Proxy.proxy($$("arg1",arg),"buscaCita","CITA",res=>{
+        if(!Array.isArray(res)||res.length===0){
+              mensaje("No hay resultados",3,1);
+        }else{
+            $id("botonresultados").click();
+            crearTable(res,4);
+        };
+  });
+};

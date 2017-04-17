@@ -49,7 +49,7 @@ public class Modelo {
     }
     
     public static int addMoto(Moto m){
-        m.setPlaca(m.getPlaca().equals("")?"COMODIN":m.getPlaca());        
+        m.setPlaca(m.getPlaca().equals("")?"COMODIN"+m.getMotor():m.getPlaca());        
         return db.executeQuery(query.buildQuery(m,Query.FIM))==null ? verificaErrorMoto(m) : 1;
     }
     public static int addEstado(Estado e){       
@@ -227,7 +227,7 @@ public class Modelo {
             int b = Integer.valueOf(arg);
             c.setProforma(b);
         }catch(NumberFormatException e){
-            c.setProforma(0);
+            c.setProforma(-1);
         }
         c.setCliente(arg);
         ResultSet rs=db.executeQuery(query.buildQuery(c,Query.buscacita));

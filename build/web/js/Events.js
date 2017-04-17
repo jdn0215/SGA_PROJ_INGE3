@@ -9,10 +9,10 @@ const events=()=>{
     EmpleadosEvents();
     MotosEvents();
     citasEvents();
-   /* $( window ).bind( 'beforeunload',()=>{
+   $( window ).bind( 'beforeunload',()=>{
           logout();
         return false;
-    });*/
+    });
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
 };
@@ -39,10 +39,11 @@ const BusquedaEvents=()=>{
     $("#BTextCliente").keypress(()=>buscarClienteConEnter());
     $("#buttonBuscarc").click(()=>buscarCliente());
     $("#buttonBuscarM").click(()=>buscarMoto());
-    $("#buttonBuscaEmpleados").click(()=>buscarEmpleados()); 
+    $("#buttonBuscaEmpleados").click(()=>buscarEmpleados());
+    $("#buttonBuscaCita").click(()=>buscaCitaAccion());
     $("#opcionesDeBusqueda").change(()=>{
         let index=$id("opcionesDeBusqueda").selectedIndex;
-        let opcs=["#BCLIENTETR","#BMOTOTR","#BEMPLEADOTR"];
+        let opcs=["#BCLIENTETR","#BMOTOTR","#BEMPLEADOTR","#BCITATR"];
         opcs.forEach(e=>$(e).fadeOut("slow"));
         index!==0 ?$(opcs[index-1]).fadeIn("slow"):0; 
         
@@ -150,9 +151,12 @@ const citasEvents=()=>{
 
 };
 const getEmpleado=(arg)=>{
+    if(arg === null || arg === undefined){
+        logout(false);
+    }
     $Proxy.proxy($$("arg0",arg),"buscaEmpleadoByUser","EMPLEADO",res=>{
        if(res.length === 0){
-       //  logout(false);
+       logout(false);
        }else{
            empleadoActual=res[0];
            $("#empleadoActual")[0].innerHTML=cut(empleadoActual.nombre);
