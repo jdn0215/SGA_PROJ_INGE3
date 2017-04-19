@@ -1,18 +1,19 @@
-/* global $id, diaEscogido, diaEscogido, agenda, imgCheck, imgEquis, eventoCeldaCita */
+/* global $id, diaEscogido, diaEscogido, agenda, imgCheck, imgEquis, eventoCeldaCita, usuarioActual */
 var auxtem;
 let resultadosClientes;
-const attCL=["id","nombre","correo","tel","tel2","ocupacion","nacimiento","zona"];
-const HDRCL=["Identificación","Nombre","Correo electrónico","teléfono ","Celular","Ocupación","Fecha de Nacimiento","Residencia"];
+let usuario=retrieve("usuarioactual");
+const attCL=["id","nombre","edad","correo","tel","tel2","ocupacion","nacimiento","zona","btn-update"];
+const HDRCL=["Identificación","Nombre","Edad","Correo electrónico","teléfono ","Celular","Ocupación","Fecha de Nacimiento","Residencia","Modificar registro"];
 const eventoTablaCliente=e=>reconstruir(resultadosClientes[e.target.idx]);
 
 let resultadosMotos;
-const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg"];
-const HDRMT=["Cliente","Modelo","Año","Motor","Chasis","Placa","AVG"];
+const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg","btn-update"];
+const HDRMT=["Cliente","Modelo","Año","Motor","Chasis","Placa","AVG","Modificar registro"];
 const eventoTablaMoto=e=>reconstruirMoto(resultadosMotos[e.target.idx]);
 
 let resultadoEmpleados;
-const attEM=["idempleado","nombre","isJefe","isAsesor","correo","telefono","activo"];
-const HDREM=["Indetificación","Nombre","Jefe de Taller","Asesor","Correo electrónico","teléfono","Activo"];
+const attEM=["idempleado","nombre","isJefe","isAsesor","correo","telefono","activo","btn-update"];
+const HDREM=["Indetificación","Nombre","Jefe de Taller","Asesor","Correo electrónico","teléfono","Activo",usuario.isAdmin?"Modificar Registro":"Ver Registro"];
 const eventoTablaEmpleado=e=>{
     reconstruirEmpleado(resultadoEmpleados[e.target.idx]);
 };
@@ -104,20 +105,24 @@ const createRow=(obj,ats,idx,type)=>{
     return row;
 };
 
-const createCell=(value,evnt=null,tgr="",idx=0,hdr=true,cN="")=>{
+const createCell=(value,evnt=null,tgr="",idx=0,hdr=true,cN="",btn=false)=>{
     let cell=document.createElement(hdr?"th":"td");
     if(value===imgCheck||value===imgEquis){
         cell.setAttribute("width","10%");
     }
-    if(typeof value==="object"){
-        cell.appendChild(value);
-    }
-    else cell.innerHTML=value;
-    if(evnt!==null){
-        cell.idx=idx;
-        cell.addEventListener(tgr,evnt);
+    if(!btn){
+        if(typeof value==="object" ){
+            cell.appendChild(value);
+        }
+        else cell.innerHTML=value;
+        if(evnt!==null){
+            cell.idx=idx;
+            cell.addEventListener(tgr,evnt);
+        }
     }
     cell.className=cN;
+    if(btn)
+        cell.appendChild(updateBtn(evnt,idx,value));
     return cell;
 };
 
@@ -132,34 +137,42 @@ const Cell=(dato,obj,type,idx)=>{
   return null;
 };
 
+
+//const createCell=(value,evnt=null,tgr="",idx=0,hdr=true,cN="",btn=false)=>{
 const cellCliente=(dato,obj,idx)=>{
     switch(dato){
         case "nacimiento":
             return createCell(obj.nacimiento.getDate()+"-"+mes(obj.nacimiento.getMonth())+"-"+obj.nacimiento.getFullYear(),
-                       eventoTablaCliente,"click",idx,false);
+                       null,"click",idx,false);
         case "zona": 
-            return createCell(obj.zona.zona,eventoTablaCliente,"click",idx,false);  
-        default: return createCell(obj[dato],eventoTablaCliente,"click",idx,false);             
+            return createCell(obj.zona.zona,null,"click",idx,false);
+        case "btn-update":
+            return createCell("Modificar",eventoTablaCliente,"click",idx,false,"",true);
+        default: return createCell(obj[dato],null,"click",idx,false);             
     }
 };
 const cellMoto=(dato,obj,idx)=>{
     switch(dato){
         case "placa":
-            return createCell(obj[dato]===""?"-":obj[dato],eventoTablaMoto,"click",idx,false);
+            return createCell(obj[dato]===""?"-":obj[dato],null,"click",idx,false);
         case "placaavg":
-            return createCell(obj[dato]===""?"-":obj[dato],eventoTablaMoto,"click",idx,false);;
-        default:return createCell(obj[dato],eventoTablaMoto,"click",idx,false);
+            return createCell(obj[dato]===""?"-":obj[dato],null,"click",idx,false);
+        case "btn-update":
+            return createCell("Modificar",eventoTablaMoto,"click",idx,false,"",true);    
+        default:return createCell(obj[dato],null,"click",idx,false);
     }
 };
 const cellEmpleado=(dato,obj,idx)=>{
       switch(dato){
         case "isJefe":
-            return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
+            return createCell(obj[dato]?imgCheck:imgEquis,null,"click",idx,false);
         case "isAsesor":
-            return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
+            return createCell(obj[dato]?imgCheck:imgEquis,null,"click",idx,false);
         case "activo":
-            return createCell(obj[dato]?imgCheck:imgEquis,eventoTablaEmpleado,"click",idx,false);
-        default: return createCell(obj[dato],eventoTablaEmpleado,"click",idx,false);;
+            return createCell(obj[dato]?imgCheck:imgEquis,null,"click",idx,false);
+        case "btn-update":
+            return createCell(usuarioActual.isAdmin?"Modificar":"Ver",eventoTablaEmpleado,"click",idx,false,"",true);
+        default: return createCell(obj[dato],null,"click",idx,false);;
     }
 };
 const cellCitas=(dato,obj,idx)=>{
@@ -202,4 +215,14 @@ const textEllipsis=(T,idx)=>{
         });
     }
     return text;
+};
+
+const updateBtn=(f,index,txt)=>{
+   let bt = document.createElement("button");
+   bt.className="btn btn-warning";
+   bt.id=index;
+   bt.idx = index;
+   bt.innerHTML=txt;
+   $(bt).click(e=>f(e));
+   return bt;
 };

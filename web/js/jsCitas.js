@@ -17,6 +17,7 @@ var recepcionistaActual;
 var citaActual = null;
 
 const addCita=()=>{
+    validacion();
     let nuevaCita=construirCita();
     if(nuevaCita===false)return;
     $Proxy.proxy(
@@ -131,6 +132,7 @@ const cargarEmpleados=(arr=[],busqueda=false,mj=true)=>{
     });
 };
 const upDateCita=()=>{
+    validacion();
     let nuevaCita=construirCita(citaActual);
     aux=nuevaCita;
     if(nuevaCita===false)return;
@@ -430,6 +432,7 @@ const estadoTexto=estado=>
 
 
 const buscaCitaAccion=()=>{
+  validacion();
   let arg = $("#TexArgtCita").val();
   $Proxy.proxy($$("arg1",arg),"buscaCita","CITA",res=>{
         if(!Array.isArray(res)||res.length===0){

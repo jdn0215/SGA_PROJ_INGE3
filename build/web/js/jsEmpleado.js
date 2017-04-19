@@ -146,6 +146,7 @@ const clearEmpleados=_=>{
 
 
 const addEmpleado=_=>{
+    validacion();
     empleado=buildEmpleado();
     if(empleado===false)
         return mensaje("Empleado no agregado "+ve.message,2,3);
@@ -164,6 +165,7 @@ const addEmpleado=_=>{
 };
 
 const addUsuario=_=>{
+    validacion();
     let usuario=buildUsuario();
     if(usuario===false)
         return mensaje("Empleado no agregado "+vu.message,2,3);
@@ -218,6 +220,7 @@ const idEmpleadoJump=_=>{
 
 
 const buscarEmpleados=()=>{
+    validacion();
     $Proxy.proxy($$("DATO",$id("BTextEmpleado").value,"TIPO",3),"busqueda","EMPLEADO",fun=res=>{
          if(res.length!==0){
             resultadoEmpleados=null;

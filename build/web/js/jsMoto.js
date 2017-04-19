@@ -91,6 +91,7 @@ const buildMoto=_=>{
     clienteEncontrado=false;
 };
 const addMoto=_=>{
+    validacion();
     let moto=buildMoto();
     if(moto===false)return;
     $Proxy.proxy($$("MOTO",moto),"addMoto","MOTO",function(re){
@@ -106,6 +107,7 @@ const addMoto=_=>{
     });
 };
 const updateMoto=_=>{
+    validacion();
     let moto=buildMoto();
     return moto!==false?
         $Proxy.proxy($$("MOTO",moto),"updateMoto","MOTO",function(re){
@@ -172,6 +174,7 @@ const limpiarEspaciosEstado=()=>{
 
 
 const addEstado=()=>{
+    validacion();
     let estado=buildEstado();
     if(estado!==false)
     $Proxy.proxy($$("ESTADO",estado),"saveEstado","ESTADO",fun=res=>{
@@ -190,6 +193,7 @@ const buscarMotoConEnter=_=>{
 };
 
 const buscarMoto=_=>{
+    validacion();
     $Proxy.proxy($$("DATO",$id("BTextMoto").value,"TIPO",1),"busqueda","MOTO",fun=res=>{
          if(res.length!==0){
             resultadosMotos=null;

@@ -132,6 +132,7 @@ const reconstruir=c=>{
 };
 
 const motosDelCliente=()=>{
+    validacion();
     $id("BTextMoto").value=getIdFrom();
     $id("buttonBuscarM").click();
     $id("opcBusqueda").click();
@@ -147,6 +148,7 @@ const buscar=()=>{
     
 };
 const updateCliente=()=>{
+    validacion();
     let cliente=buildCliente();
     if(cliente===false)return;
     $Proxy.proxy($$("CLIENTE",cliente),"updateCliente","CLIENTE",re=>{
@@ -155,6 +157,7 @@ const updateCliente=()=>{
   
 };
 const addCliente=_=>{
+    validacion();
     var cliente=buildCliente();
     if(cliente===false)return;
     $Proxy.proxy($$("CLIENTE",cliente),"addCliente","CLIENTE",re=>{
@@ -165,6 +168,7 @@ const addCliente=_=>{
 
 
 const buscarClienteConEnter=_=>{
+    validacion();
     if(event.keyCode===13)
     buscarCliente($id("BTextCliente").value);    
 };
@@ -197,6 +201,7 @@ const idJump=_=>{
 
 
 const buscarCliente=dato=>{
+    validacion();
     let _$=$id("BTextCliente").value;
     $Proxy.proxy($$("DATO",_$,"TIPO",2),"busqueda","CLIENTE",fun=res=>{
         if(res.length!==0){

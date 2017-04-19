@@ -6,6 +6,7 @@
 /* global $Proxy, $id */
 
 const popUp=(hdr,f,mj)=>{
+    validacion();
      $id("popHDR").innerHTML=hdr;
     $id("popMj").innerHTML=mj;
     $("#popbuttonSubmit").click(()=>{

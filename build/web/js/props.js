@@ -1,4 +1,4 @@
-/* global Proxy, $Proxy, agenda */
+/* global Proxy, $Proxy, agenda, usuarioActual */
 
 
 
@@ -288,7 +288,9 @@ const validacion=()=>{
                 document.location="index.jsp"; 
              }else{
                  if(usuario.isAdmin!==res.isAdmin
-                    ||usuario.empleado!==cut(res.empleado)){
+                    ||usuario.empleado!==cut(res.empleado)
+                    ||usuarioActual.isAdmin!==res.isAdmin
+                    ||usuarioActual.empleado!==cut(res.empleado)){
                         localStorage.setItem("legal",false);
                         document.location="index.jsp"; 
                     }

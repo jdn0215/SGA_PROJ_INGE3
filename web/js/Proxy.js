@@ -22,6 +22,7 @@ class $Proxy{
         let prms=parametros.reduce((a,e)=>(a=a+"&"+e.arg+"="+JSON.stringify(e.value,replacer)),"CLASS="+tipo);
         AJAX_req.send(prms); 
     }
+
     
 };
 
