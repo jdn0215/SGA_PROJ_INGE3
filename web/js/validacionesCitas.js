@@ -35,7 +35,7 @@ const VALIDACIONES_CITAS = [
     
     new Validacion(
         "numeroOrdenCita","número de orden  ",
-        ()=> $id("numeroOrdenCita").value!=="" && !isNaN($id("numeroOrdenCita").value)  
+        ()=> $id("citaPendiente").checked?true:$id("numeroOrdenCita").value!=="" && !isNaN($id("numeroOrdenCita").value)  
     ),
     
     new Validacion(
@@ -79,7 +79,7 @@ const VALIDACIONES_CITAS = [
     ),
     
     new Validacion(
-        "minCita4"," - ingrese la hora de la llamada ",
+        "minCita4"," - ingrese la hora de la entrega ",
         ()=> !modoUpdate ? true : !$id("citaCumplida").checked?true: $id("minCita4").value!==""
     )
 ];

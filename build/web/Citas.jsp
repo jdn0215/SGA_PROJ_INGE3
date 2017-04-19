@@ -55,7 +55,7 @@
                     <input type ="text" name="CTexto" disabled class="form-control" id = "recepcionistaCita">
                 </div>
                 <div class="form-group">
-                    <label for="CTexto">Número de Proforma:<obligatorio>*</obligatorio></label>
+                    <label for="CTexto">Número de Orden<obligatorio>*</obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "proformaCita">
                 </div>
                 <div class="form-group">
@@ -63,7 +63,7 @@
                     <input type ="text" name="CTexto" class="form-control" id = "garantiaCita">
                 </div>
                 <div class="form-group">
-                    <label for="CTexto">Número de orden:<obligatorio>*</obligatorio></label>
+                    <label for="CTexto">Número de Proforma<obligatorio>*</obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "numeroOrdenCita">
                 </div>
                 <div class="form-group">

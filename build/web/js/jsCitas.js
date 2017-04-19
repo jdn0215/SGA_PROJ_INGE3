@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment, usuarioAcual, usuarioActual */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -183,7 +183,10 @@ const reconstruirCita=(cita)=>{
     $("#motocito")[0].options[0].text = "Motor: "+cut(cita.moto);
     $("#proformaCita").val(cita.proforma);
     $("#garantiaCita").val(cut(cita.garantia));
-    $("#numeroOrdenCita").val(cita.orden);
+    if(cita.orden === 0){
+        $("#numeroOrdenCita").val();
+        $("#numeroOrdenCita").prop("disabled",false);
+    }else $("#numeroOrdenCita").val(cita.orden);
     
     reArmarEstado(cita.estado);
     reArmarFecha(cita.entrada,"annoCita","_mesCitas","_diaCitas","minCita");
@@ -192,8 +195,10 @@ const reconstruirCita=(cita)=>{
              $("#EmpleadoCita")[0].options[0].text="Mecánico asignado: "+v; 
         },c.mecanico);     
     },cita);
-    if(cita.salida != "Invalid Date")
+    if(cita.salida != "Invalid Date"){
+        $("#divSalidaCita").show();
        reArmarFecha(cita.salida,"annoCita2","_mesCitas3","_diaCitas3","minCita4");
+   }
    $("#tipoCita").val(cita.tipoDeTrabajo);
    let a = moment(cita.entrada);
    let b;
@@ -221,17 +226,26 @@ const reconstruirCita=(cita)=>{
     $("#buttonCitasModificar").show();
     switch(cita.estado){
         case 3:
-        case 1:    
-                $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
-                        .prop("disabled",true);
+        case 1:  disabled_enabled(true);
                  $("#buttonCitasModificar").hide();
                  $("#motivosCita").hide();   
                  break;
         case 2: $(".tc2,.tc1,#citaPendiente").prop("disabled",true);break;
     }
+    if(!usuarioActual.isAdmin){
+        disabled_enabled(true);
+         $("#buttonCitasModificar").hide();
+         $("#motivosCita").hide();   
+    }  
+};
+
+const disabled_enabled=e=>{
+    $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
+                        .prop("disabled",e);
 };
 const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
     if(fecha === null || !(fecha instanceof Date))return;
+    llenarMes(mes,dia,fecha.getMonth());
     let st = setTimeout(()=>{
         while($("#"+ano)[0].options[0].text != fecha.getFullYear())
             $("#"+ano)[0].selectedIndex=1;
@@ -239,6 +253,7 @@ const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
         while($("#"+mes).val() != fecha.getMonth())
             $("#"+mes).val(fecha.getMonth());
         $("#"+mes).click();
+        llenarDia(mes,dia,fecha)
         while($("#"+dia).val() != fecha.getDate())
             $("#"+dia).val(fecha.getDate());
          $("#"+hr).val(buildDate(fecha.getHours())+":"+buildDate(fecha.getMinutes()));
@@ -289,9 +304,9 @@ const clearCitas=()=>{
      $("#motivosCita2")[0].className="noVisible";
      $("#buttonGuardarCita").show();
     $("#buttonCitasModificar").hide();
-    $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
-                        .prop("disabled",false);
-    $("#motivosCita").show();               
+    disabled_enabled(false);  
+    $("#motivosCita").show();
+    $("#divSalidaCita").hide();
     clearMensaje();        
 };
 const findEmpleado=e=>{

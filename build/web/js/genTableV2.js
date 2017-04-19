@@ -19,8 +19,8 @@ const eventoTablaEmpleado=e=>{
 };
 
 let Arraycitas;
-const attCT=["proforma","orden","cliente","moto","mecanico","estado"];
-const HDRCT=["Proforma","Orden","Cliente","Motocicleta","Mecánico","Estado de la cita"];
+const attCT=["proforma","orden","cliente","moto"       ,"garantia","tipoDeTrabajo" ,"mecanico","entrada"           ,"salida"           ,"prometida"      ,"estado"];
+const HDRCT=["Orden","Proforma","Cliente","Motocicleta","Garantía","Tipo de Tranajo","Mecánico","Entrada al taller","Salida del Taller","Fecha prometida","Estado de la cita"];
 const eventoTablaCita=e=>buscaCita(e.target.idx);
 
 
@@ -106,6 +106,7 @@ const createRow=(obj,ats,idx,type)=>{
 };
 
 const createCell=(value,evnt=null,tgr="",idx=0,hdr=true,cN="",btn=false)=>{
+    value = value===""?"-":value;
     let cell=document.createElement(hdr?"th":"td");
     if(value===imgCheck||value===imgEquis){
         cell.setAttribute("width","10%");
@@ -142,7 +143,7 @@ const Cell=(dato,obj,type,idx)=>{
 const cellCliente=(dato,obj,idx)=>{
     switch(dato){
         case "nacimiento":
-            return createCell(obj.nacimiento.getDate()+"-"+mes(obj.nacimiento.getMonth())+"-"+obj.nacimiento.getFullYear(),
+            return createCell(DateMonthYear(obj.nacimiento),
                        null,"click",idx,false);
         case "zona": 
             return createCell(obj.zona.zona,null,"click",idx,false);
@@ -182,17 +183,24 @@ const cellCitas=(dato,obj,idx)=>{
             let text=(e===0?("Pendiente"):e===2?("En taller"):e===3?("Entregada al cliente"):"Cancelada");
             let estado="celda"+text;
             return createCell(createTdSpan(text,estado),eventoTablaCita,"click",idx,false,estado);
-        case "fecha":
+        case "entrada":
+        case "salida":
+        case "prometida":    
             return createCell(toText(obj[dato]),eventoTablaCita,"click",idx,false);
+        case "orden":
+            return createCell(obj[dato]===0?"-":obj[dato],eventoTablaCita,"click",idx,false);
         default: return createCell(obj[dato],eventoTablaCita,"click",idx,false);
     }
 };
 
-
+const DateMonthYear=d=>
+    d.getDate()+"-"+mes(d.getMonth())+"-"+d.getFullYear();
 
 const toText=(fecha)=>{
+   if(fecha == 'Invalid Date')
+       return "-";
   let h=fecha.getHours(),m=fecha.getMinutes();
-  return (h>12?h-12:h)+":"+((m<10?"0":"")+m)+" "+(h>=12?"pm":"am");
+  return DateMonthYear(fecha)+" "+(h>12?h-12:h)+":"+((m<10?"0":"")+m)+" "+(h>=12?"pm":"am");
 };
 const textEllipsis=(T,idx)=>{
     
