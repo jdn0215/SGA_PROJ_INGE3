@@ -472,6 +472,7 @@ const observacionesPopOver=e=>{
           $("#btnVerObs")[0].innerHTML="Ver";
         $("#btnVerObs").popover("destroy");
         $("#btnVerObs")[0].id="";
+        return observacionesPopOver(e);
     }
     $Proxy.proxy($$('arg1',e.target.idx),'buscaCitaObs','obs',res=>{
         if(Array.isArray(res)){
@@ -489,23 +490,21 @@ const prepararPopOver=(e,obs)=>{
     bt.setAttribute("title","Observaciones");
     bt.setAttribute("data-placement","left");
      bt.setAttribute("data-html","true");
-    bt.setAttribute("data-content",viewObs); 
+    bt.setAttribute("data-content",ponerObservaciones(obs)); 
     $(bt).popover("show");
-    ponerObservaciones(obs)
 };
 
 const ponerObservaciones=obs=>{
-    while($("#viewObs")=== undefined);
-    $("#viewObs").val(
-        obs.reverse().reduce((ant,el)=>ant+=(el.detalle+'\n------------------------------\n'),""
-    ));
+    let txt = viewObs;
+    let obss =obs.reverse().reduce((ant,el)=>ant+=(el.detalle+'\n------------------------------\n'),"");
+    return txt.replace("$",obss);
 };
 
 
 
 const viewObs=`
     <div id="obs-content">
-            <textarea id="viewObs"readOnly rows="6" cols="30" style="background:#FFF" ></textarea>
+            <textarea id="viewObs"readOnly rows="6" cols="30" style="background:#FFF" >$</textarea>
     </div>
 `;
 
