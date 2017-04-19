@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment, usuarioAcual, usuarioActual */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment, usuarioAcual, usuarioActual, id */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -15,6 +15,7 @@ let datePrometida;
 let hrsOk=false;
 var recepcionistaActual;
 var citaActual = null;
+
 
 const addCita=()=>{
     validacion();
@@ -358,7 +359,6 @@ const cargarMotos=()=>{
 };
 const buildObservacion=(a=null,b=null)=>{
     $date();
-    
     return new Observacion(
             $("#proformaCita").val(),
             buildDetalle(a,b),
@@ -366,13 +366,13 @@ const buildObservacion=(a=null,b=null)=>{
         ); 
 };
 const buildDetalle=(a=null,b=null)=>{
-    let out = cut(empleadoActual.idempleado)+"  "+buildTextDate(HORASERVER)+" -> ";
+    let out = "Quien realizo la accion: "+cut(empleadoActual.idempleado)+"\nA que Hora: "+buildTextDate(HORASERVER)+"->\n";
     if(!modoUpdate){
         let detalle = $("#motivosCita").val();
         if(detalle === ""){
             out += ("Creación de la cita");
         }else{
-            out += detalle;
+            out += ("Creación de la cita\n"+detalle);
         }
     }else{
         out += $("#motivosCita").val()+'\n'+compararCita(a,b);
@@ -458,3 +458,43 @@ const buscaCitaAccion=()=>{
         };
   });
 };
+
+const observacionesPopOver=e=>{
+    if($("#btnVerObs")[0] !== undefined){
+        $("#btnVerObs").popover("destroy");
+        $("#btnVerObs")[0].id="";
+    }
+    $Proxy.proxy($$('arg1',e.target.idx),'buscaCitaObs','obs',res=>{
+        if(Array.isArray(res)){
+                prepararPopOver(e,res);
+            }
+    });
+    
+};
+const prepararPopOver=(e,obs)=>{
+    let bt = e.target;
+    bt.setAttribute("id","btnVerObs");
+    bt.setAttribute("data-toggle","popover");
+    bt.setAttribute("title","Observaciones");
+    bt.setAttribute("data-placement","left");
+     bt.setAttribute("data-html","true");
+    bt.setAttribute("data-content",viewObs); 
+    $(bt).popover("show");
+    ponerObservaciones(obs)
+};
+
+const ponerObservaciones=obs=>{
+    while($("#viewObs")=== undefined);
+    $("#viewObs").val(
+        obs.reverse().reduce((ant,el)=>ant+=(el.detalle+'\n------------------------------\n'),""
+    ));
+};
+
+
+
+const viewObs=`
+    <div id="obs-content">
+            <textarea id="viewObs"readOnly rows="6" cols="30" style="background:#FFF" ></textarea>
+    </div>
+`;
+

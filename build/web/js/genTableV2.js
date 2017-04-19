@@ -19,9 +19,10 @@ const eventoTablaEmpleado=e=>{
 };
 
 let Arraycitas;
-const attCT=["proforma","orden","cliente","moto"       ,"garantia","tipoDeTrabajo" ,"mecanico","entrada"           ,"salida"           ,"prometida"      ,"estado"];
-const HDRCT=["Orden","Proforma","Cliente","Motocicleta","Garantía","Tipo de Tranajo","Mecánico","Entrada al taller","Salida del Taller","Fecha prometida","Estado de la cita"];
+const attCT=["proforma","orden","cliente","moto"       ,"garantia","tipoDeTrabajo" ,"mecanico","entrada"           ,"salida"           ,"prometida"      ,"estado","btn-ver" ,    "btn-update"];
+const HDRCT=["Orden","Proforma","Cliente","Motocicleta","Garantía","Tipo de Tranajo","Mecánico","Entrada al taller","Salida del Taller","Fecha prometida","Estado de la cita","Observaciones" ,usuario.isAdmin?"Modificar Registro":"Ver Registro"];
 const eventoTablaCita=e=>buscaCita(e.target.idx);
+const eventoObservacionVer=e=>observacionesPopOver(e);
 
 
 const atributos=type=>{
@@ -182,14 +183,18 @@ const cellCitas=(dato,obj,idx)=>{
             let e=obj[dato];
             let text=(e===0?("Pendiente"):e===2?("En taller"):e===3?("Entregada al cliente"):"Cancelada");
             let estado="celda"+text;
-            return createCell(createTdSpan(text,estado),eventoTablaCita,"click",idx,false,estado);
+            return createCell(createTdSpan(text,estado),null,"click",idx,false,estado);
         case "entrada":
         case "salida":
         case "prometida":    
-            return createCell(toText(obj[dato]),eventoTablaCita,"click",idx,false);
+            return createCell(toText(obj[dato]),null,"click",idx,false);
         case "orden":
-            return createCell(obj[dato]===0?"-":obj[dato],eventoTablaCita,"click",idx,false);
-        default: return createCell(obj[dato],eventoTablaCita,"click",idx,false);
+            return createCell(obj[dato]===0?"-":obj[dato],null,"click",idx,false);
+         case "btn-update":
+            return createCell(usuarioActual.isAdmin?"Modificar":"Ver",eventoTablaCita,"click",idx,false,"",true);
+          case "btn-ver":
+            return createCell("Ver",eventoObservacionVer,"click",idx,false,"",true);
+        default: return createCell(obj[dato],null,"click",idx,false);
     }
 };
 

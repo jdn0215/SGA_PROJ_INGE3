@@ -5,7 +5,9 @@ class Cita{
                 mecanico="",entrada=null,salida=null,prometida=null,estado=0){
        this.proforma=proforma;
        this.cliente=cliente;
-       this.orden=orden;
+        if(orden==="")
+           this.orden=0;
+       else this.orden=proforma;
        this.moto=moto;
        this.recepcionista=recepcionista;
        this.garantia=garantia;
