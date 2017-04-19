@@ -460,7 +460,16 @@ const buscaCitaAccion=()=>{
 };
 
 const observacionesPopOver=e=>{
+    if(e.target.id==="btnVerObs"){
+       e.target.className="btn btn-warning";
+       e.target.innerHTML="Ver";
+       $("#btnVerObs").popover("destroy");
+       $("#btnVerObs")[0].id="";
+       return;
+    }
     if($("#btnVerObs")[0] !== undefined){
+         $("#btnVerObs")[0].className="btn btn-warning";
+          $("#btnVerObs")[0].innerHTML="Ver";
         $("#btnVerObs").popover("destroy");
         $("#btnVerObs")[0].id="";
     }
@@ -473,6 +482,8 @@ const observacionesPopOver=e=>{
 };
 const prepararPopOver=(e,obs)=>{
     let bt = e.target;
+    bt.className="btn btn-danger";
+    bt.innerHTML="Cerrar";
     bt.setAttribute("id","btnVerObs");
     bt.setAttribute("data-toggle","popover");
     bt.setAttribute("title","Observaciones");
