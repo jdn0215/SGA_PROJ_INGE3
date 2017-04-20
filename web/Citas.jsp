@@ -59,9 +59,15 @@
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "proformaCita">
                 </div>
                 <div class="form-group">
+                <label> Garantia<obligatorio>*</obligatorio></label>
+                    <Select name="Ga" id="comboGarantia"><Option Selected value="Garantia">Garantia</Select>
+                </div>
+                <!--
+                <div class="form-group">
                     <label for="CTexto">Garantía:</label>
                     <input type ="text" name="CTexto" class="form-control" id = "garantiaCita">
                 </div>
+                <-->
                 <div class="form-group">
                     <label for="CTexto">Número de Proforma<obligatorio>*</obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "numeroOrdenCita">
