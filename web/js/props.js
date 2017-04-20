@@ -225,7 +225,8 @@ const llenarMes=(mes="_mes",dia="_dia",topeBajo=0)=>{
         alert("algo no implementado aun, linea 280 del index")
     }*/
     const cambioDeContexto=nuevo=>{
-        $(".OpcDinamica").hide('fast')
+        $(".OpcDinamica").hide('fast');
+        $($("#formulariosBt")[0].childNodes[2]).replaceWith("Formularios");
         switch(nuevo){
             case 1: return tituloPag("CLIENTES"),clearClientes();
             case 2: return tituloPag("MOTOCILETAS"),clearMoto();

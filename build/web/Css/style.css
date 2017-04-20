@@ -279,3 +279,7 @@ GROUP *,.TimeInput{
 #tituloMotos{
     color:#819FF7;
 }
+
+#formulariosBt{
+    cursor: pointer;
+}

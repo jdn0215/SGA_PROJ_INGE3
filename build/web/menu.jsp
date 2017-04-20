@@ -50,11 +50,11 @@
                                 <span class="glyphicon glyphicon-list-alt"></span>Formularios</a>
                         </li>    
 
-                            <li class=><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCliente" href="#Clients">
+                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCliente" href="#Clients">
                                     <span class="glyphicon glyphicon-user"></span>Clientes</a>
                                 </li>
 
-                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcMoto" href="#Moto">
+                                <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcMoto" href="#Moto">
                                  <span class="glyphicon glyphicon-wrench"></span>Motocicletas</a>
                             </li>
 

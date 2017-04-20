@@ -10,19 +10,21 @@ const events=()=>{
     EmpleadosEvents();
     MotosEvents();
     citasEvents();
-   $( window ).bind( 'beforeunload',()=>{
+  /* $( window ).bind( 'beforeunload',()=>{
           logout();
         return false;
-    });
+    });*/
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
     $("#formulariosBt").click(()=>{
         if($(".OpcDinamica").is(':hidden')){
-           $(".OpcDinamica").show('fast');    
+           $(".OpcDinamica").show('fast'); 
+           $($("#formulariosBt")[0].childNodes[2]).replaceWith("Ocultar Formularios");
             if(!usuarioActual.isAdmin)
                 $("#opcEmpleado").hide();
         }else{
-            $(".OpcDinamica").hide('fast'); 
+            $(".OpcDinamica").hide('fast');
+            $($("#formulariosBt")[0].childNodes[2]).replaceWith("Formularios");
         }
     });
     if(!usuarioActual.isAdmin){
@@ -32,6 +34,22 @@ const events=()=>{
         $("#buttonCitasModificar").remove("#buttonCitasModificar");
         
     }
+    $(".OpcDinamica").mouseover(e=>{
+        switch(e.target.id){
+            case "opcCliente": return $($("#opcCliente")[0].childNodes[2]).replaceWith("Registrar un nuevo cliente");
+            case "opcMoto": return $($("#opcMoto")[0].childNodes[2]).replaceWith("Registrar un nuevo motocicleta");
+            case "opcEmpleado": return $($("#opcEmpleado")[0].childNodes[2]).replaceWith("Registrar a un empleado");
+            case "opcCitas": return $($("#opcCitas")[0].childNodes[2]).replaceWith("Registrar una cita nueva");    
+        }
+    });
+    $(".OpcDinamica").mouseleave(e=>{
+        switch(e.target.id){
+            case "opcCliente": return $($("#opcCliente")[0].childNodes[2]).replaceWith("Clientes");
+            case "opcMoto": return $($("#opcMoto")[0].childNodes[2]).replaceWith("Motocicletas");
+            case "opcEmpleado": return $($("#opcEmpleado")[0].childNodes[2]).replaceWith("Empleados");
+            case "opcCitas": return $($("#opcCitas")[0].childNodes[2]).replaceWith("Citas");    
+        }
+    });
 };
 
 const calendarEvents=()=>{
@@ -41,6 +59,11 @@ const calendarEvents=()=>{
 
 
 const indexEvents=()=>{
+    
+    $(".OpcDinamica").mouseover(e=>{
+       
+    });
+    
     $("#opcCliente").click(()=>cambioDeContexto(1));
     $("#opcMoto").click(()=>cambioDeContexto(2));
     $("#opcEmpleado").click(()=>cambioDeContexto(3));
