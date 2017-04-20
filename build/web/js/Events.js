@@ -10,19 +10,28 @@ const events=()=>{
     EmpleadosEvents();
     MotosEvents();
     citasEvents();
-   /*$( window ).bind( 'beforeunload',()=>{
+   $( window ).bind( 'beforeunload',()=>{
           logout();
         return false;
-    });*/
+    });
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
     $("#formulariosBt").click(()=>{
         if($(".OpcDinamica").is(':hidden')){
-           $(".OpcDinamica").show('fast');     
+           $(".OpcDinamica").show('fast');    
+            if(!usuarioActual.isAdmin)
+                $("#opcEmpleado").hide();
         }else{
             $(".OpcDinamica").hide('fast'); 
         }
     });
+    if(!usuarioActual.isAdmin){
+        $("#buttonGuardarEmpleado").remove("#buttonGuardarEmpleado");
+        $("#buttonUpDateEmpleado").remove("#buttonUpDateEmpleado");
+        $("#buttonDeleteEmpleado").remove("#buttonDeleteEmpleado");
+        $("#buttonCitasModificar").remove("#buttonCitasModificar");
+        
+    }
 };
 
 const calendarEvents=()=>{
