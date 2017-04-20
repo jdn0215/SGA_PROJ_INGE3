@@ -44,35 +44,30 @@
                         <li><a data-toggle="tab" class="grow OpcionIndex" id="opcBusqueda" href="#Search">
                                 <span class="glyphicon glyphicon-search"></span>Búsqueda</a>
                             </li>
-                        
-                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcCliente" href="#Clients">
-                                <span class="glyphicon glyphicon-user"></span>Clientes</a>
-                            </li>
-                        
-                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcMoto" href="#Moto">
-                             <span class="glyphicon glyphicon-wrench"></span>Motocicletas</a>
-                        </li>
-                        
-                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcEmpleado" href="#Employee">
-                            <span class="glyphicon glyphicon-lock"></span>Empleados</a>
-                        </li>
-                        
-                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcCitas" href="#Citas">
-                             <span class="glyphicon glyphicon-th-list"></span>Citas</a>
-                        </li>
-                        
-
+                            
                         <li>
-                            <a data-toggle="tab" class="grow OpcionIndex" id="opcReportes" href="#Reportes">
-                             <span class="glyphicon glyphicon-th-list"></span>Reportes</a>
-                        </li>
-                        
-                        
+                            <a data-toggle="tab" class="grow OpcionIndex" id="formulariosBt">
+                                <span class="glyphicon glyphicon-list-alt"></span>Formularios</a>
+                        </li>    
+
+                            <li class=><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCliente" href="#Clients">
+                                    <span class="glyphicon glyphicon-user"></span>Clientes</a>
+                                </li>
+
+                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcMoto" href="#Moto">
+                                 <span class="glyphicon glyphicon-wrench"></span>Motocicletas</a>
+                            </li>
+
+                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcEmpleado" href="#Employee">
+                                <span class="glyphicon glyphicon-lock"></span>Empleados</a>
+                            </li>
+
+                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCitas" href="#Citas">
+                                 <span class="glyphicon glyphicon-th-list"></span>Citas</a>
+                            </li>
+
                         <li><a data-toggle="tab" id="botonresultados" href="#Results" style="display:none"></a> </li>
                         
-                         <li> <a data-toggle="tab" class="grow OpcionIndex" id="botonConfig" href="#Config"> 
-                                <span class="glyphicon glyphicon-cog"></span>Configuración</a>
-                        </li>
                         
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -92,8 +87,6 @@
                         <jsp:include page="Citas.jsp"/>
                         <jsp:include page="Agenda.jsp"/>
                         <jsp:include page="popup.jsp"/>
-                        <jsp:include page="Config.jsp"/>
-                        <jsp:include page="Reportes.jsp"/>
                         
 			<!--- #CERRAR SESION#--->
 

@@ -1,6 +1,7 @@
 /* global $id, DELETEEMPLEADO, HORASERVER, CLIENTEBUSCADO, $Proxy, cargarMotos, agenda, recuperarContrasenna */
 
 const events=()=>{
+    $(".OpcDinamica").hide();
     usuarioActual=retrieve("usuarioactual");
     getEmpleado(usuarioActual.id);
     indexEvents();
@@ -15,6 +16,13 @@ const events=()=>{
     });*/
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
+    $("#formulariosBt").click(()=>{
+        if($(".OpcDinamica").is(':hidden')){
+           $(".OpcDinamica").show('fast');     
+        }else{
+            $(".OpcDinamica").hide('fast'); 
+        }
+    });
 };
 
 const calendarEvents=()=>{

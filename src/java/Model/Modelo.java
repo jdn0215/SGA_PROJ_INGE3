@@ -205,21 +205,6 @@ public class Modelo {
         ResultSet rs = db.executeQuery(query.buildQuery(c, Query.empleadosLibres));
         return _class.toCollection(rs,Empleado.class.getSimpleName());
     }
-    
-    public static int rg_crearGastos(Gasto g){
-        return db.executeUpdate(query.buildQuery(g,Query.rg_crearGastos));
-    }
-    
-    public static List<? extends Object> rg_getGastosDeProforma(String proforma){
-        ResultSet rs=db.executeQuery(query.buildQuery(proforma, Query.rg_gastosdeproforma));
-        return _class.toCollection(rs, Gasto.class.getSimpleName());
-    }
-    
-    public static List<? extends Object> rg_todosLosGastos(){
-        ResultSet rs=db.executeQuery(Query.rg_todoslosgastos.toString());
-        return _class.toCollection(rs, Gasto.class.getSimpleName());
-    }
-    
  
     public static List<? extends Object>buscacita(String arg){
         Cita c = new Cita();

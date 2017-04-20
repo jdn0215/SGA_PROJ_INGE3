@@ -235,22 +235,6 @@ public class servlet extends HttpServlet {
                            json=gson.toJson(Modelo.addEstado(est));
                            out.write(json);
                            break;
-                       case "agregarGasto":
-                           json=request.getParameter("GASTO");
-                           g=gson.fromJson(json,Gasto.class);
-                           json=gson.toJson(Modelo.rg_crearGastos(g));
-                           out.write(json);
-                           break;
-                       case "gastosDeProforma":
-                           json=request.getParameter("PROFORMA");
-                           String pro=gson.fromJson(json,String.class);
-                           json=gson.toJson(Modelo.rg_getGastosDeProforma(pro));
-                           out.write(json);
-                           break;
-                       case "todoslosgastos":
-                            json=gson.toJson(Modelo.rg_todosLosGastos());
-                            out.write(json);
-                            break;
                        case "buscaCitaProforma":
                            json = request.getParameter("arg1");
                            i1 = gson.fromJson(json, Integer.class);
