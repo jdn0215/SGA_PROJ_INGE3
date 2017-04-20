@@ -10,47 +10,59 @@
             <center>
                
                 <!---opciones del combo box --->
-                <select id="opcionesDeBusqueda" class="form-control" style="font-weight:bold;">
-                    <option id="opcionesDeBusqueda0" value="0">Seleccione un criterio de búsqueda </option>
-                    <option id="opcionesDeBusqueda1" value="1">Buscar clientes por nombre o por identificación (no usar guiones)</option>
-                    <option id="opcionesDeBusqueda2" value="2">Buscar motocicleta número de motor, chasis, placa o identificación del cliente</option>
-                    <option id="opcionesDeBusqueda3" value="3">Buscar empleado por identificación o nombre</option>
-                    <option id="opcionesDeBusqueda4" value="4">Busqueda de citas</option>
-                </select>    
+  
                 
-                
-                
-                
-                
+                               
+        <nav class="navbar navbar-nav">
+                <div class="container-fluid">
+                    <ul id="navbar" class="nav navbar-nav">
+                         <li>
+                             <button id="opcionesDeBusqueda1" class="btn btnBusq btn-default" value="0">Buscar Clientes</button>      
+                        </li>
+                         <li>
+                             <button id="opcionesDeBusqueda2" class="btn btnBusq btn-default" value="0">Buscar Motocicletas</button>      
+                        </li>
+                         <li>
+                             <button id="opcionesDeBusqueda3" class="btn btnBusq btn-default" value="0">Buscar Buscar Empleados</button>      
+                        </li>
+                         <li>
+                             <button id="opcionesDeBusqueda4" class="btn btnBusq btn-default" value="0">Buscar Citas</button>      
+                        </li>
+                    </ul>
+                </div>
+        </nav>        
             <table style="width:85%" style="display: block;" >
                 <tbody >
-                <tr id="BCLIENTETR" style="display:none">
+                <th>
+                   <p id="aclaracionBusqueda"></p> 
+                </th>
+                <tr id="BCLIENTETR" class="opcBusq" >
                     <td width="30%" style="text-align: left; padding-right: 1em;">
-                        <input type ="text" name="CTexto"  id="BTextCliente" placeholder="Ingrese la identificación (sin guiones) o nombre del cliente" class="form-control">
+                        <input type ="text" name="CTexto"  id="BTextCliente" placeholder="Ingrese la identificación (sin guiones) o nombre del cliente" class="form-control inputBusq">
                     </td>
                     <td width="25%">
                         <br><button type="button" width="5em" id="buttonBuscarc" style="padding: 5px; margin-bottom:3%; text-align:center; background-color: #20144c;" class="btn btn-info btn-lg active">&nbsp&nbsp&nbspBuscar clientes&nbsp&nbsp&nbsp&nbsp</button></br>    
                     </td>
                 </tr>
-                <tr id="BMOTOTR" style="display:none">
+                <tr id="BMOTOTR" class="opcBusq">
                     <td width="30%" style="text-align: left; padding-right: 1em;">
-                        <input type ="text"  id="BTextMoto" placeholder="Ingrese el número de motor, chasis, placa, o identificacion del dueño" class="form-control"name="CTexto" >
+                        <input type ="text"  id="BTextMoto" placeholder="Ingrese el número de motor, chasis, placa, o identificacion del dueño" class="form-control inputBusq"name="CTexto" >
                     </td>
                     <td width="25%">
                         <br><button type="button" width="5em" id="buttonBuscarM" style="padding: 5px; margin-bottom:3%; text-align:center; background-color: #20144c;" class="btn btn-info btn-lg active">Buscar motocicletas</button></br>    
                     </td>
                </tr>
-               <tr id="BEMPLEADOTR" style="display:none">
+               <tr id="BEMPLEADOTR"class="opcBusq" >
                     <td width="30%" style="text-align: left; padding-right: 1em;">
-                        <input type ="text"  id="BTextEmpleado" placeholder="Ingrese la identificación o nombre del empleado" class="form-control"name="CTexto" >
+                        <input type ="text"  id="BTextEmpleado" placeholder="Ingrese la identificación o nombre del empleado" class="form-control inputBusq"name="CTexto" >
                     </td>
                     <td width="25%">
                         <br><button type="button" width="5em" id="buttonBuscaEmpleados" style="padding: 5px; margin-bottom:3%; text-align:center; background-color: #20144c;" class="btn btn-info btn-lg active">&nbspBuscar empleados&nbsp</button></br>    
                     </td>
                </tr>
-               <tr id="BCITATR" style="display:none">
+               <tr id="BCITATR" class="opcBusq" >
                     <td width="30%" style="text-align: left; padding-right: 1em;">
-                        <input type ="text"  id="TexArgtCita" placeholder="Ingrese el número de proforma,# orden,# motor, o identificacion del cliente" class="form-control"name="CTexto" >
+                        <input type ="text"  id="TexArgtCita" placeholder="Ingrese el número de proforma,# orden,# motor, o identificacion del cliente" class="form-control inputBusq"name="CTexto" >
                     </td>
                     <td width="25%">
                         <br><button type="button" width="5em" id="buttonBuscaCita" style="padding: 5px; margin-bottom:3%; text-align:center; background-color: #20144c;" class="btn btn-info btn-lg active">&nbspBuscar Citas&nbsp</button></br>    

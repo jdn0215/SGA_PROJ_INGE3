@@ -76,19 +76,30 @@ const indexEvents=()=>{
    
 };
 const BusquedaEvents=()=>{
+    $(".btnBusq").click(e=>{
+        $(".opcBusq").hide();
+        $(".inputBusq").val("");
+        switch(e.target.id){
+            case "opcionesDeBusqueda1":
+                $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por la identificación del cliente o por el nombre."));
+                return $("#BCLIENTETR").show("fast");
+            case "opcionesDeBusqueda2":
+                  $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por el número de chasis, motor,placa, placa temporal o identificación del cliente."));
+                return $("#BMOTOTR").show("fast");
+            case "opcionesDeBusqueda3":
+                  $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por la identificación del empleado o por el nombre."));
+                 return $("#BEMPLEADOTR").show("fast");
+            case "opcionesDeBusqueda4":
+                  $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por el número de proforma o de orden, la identificación del cliente, o el número de motor de la motocicleta."));
+                return $("#BCITATR").show("fast");
+        }
+    });
+    $(".opcBusq").hide();
     $("#BTextCliente").keypress(()=>buscarClienteConEnter());
     $("#buttonBuscarc").click(()=>buscarCliente());
     $("#buttonBuscarM").click(()=>buscarMoto());
     $("#buttonBuscaEmpleados").click(()=>buscarEmpleados());
-    $("#buttonBuscaCita").click(()=>buscaCitaAccion());
-    $("#opcionesDeBusqueda").change(()=>{
-        let index=$id("opcionesDeBusqueda").selectedIndex;
-        let opcs=["#BCLIENTETR","#BMOTOTR","#BEMPLEADOTR","#BCITATR"];
-        opcs.forEach(e=>$(e).fadeOut("slow"));
-        index!==0 ?$(opcs[index-1]).fadeIn("slow"):0; 
-        
-    });
-    
+    $("#buttonBuscaCita").click(()=>buscaCitaAccion());    
 };
 const ClientesEvents=()=>{
     $("#CF").click(()=>cambioId());
