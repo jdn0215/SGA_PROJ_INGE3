@@ -5,19 +5,22 @@
 --%>
 <!--
 EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
+
 <div class="btn-group">
-  <button type="button" class="btn btn-default">1</button>
-  <button type="button" class="btn btn-default">2</button>
+  <button type="button" class="btn btn-default">Ver agenda</button>
+  <button type="button" class="btn btn-default">Busquedas</button>
  
   <div class="btn-group">
     <button type="button" class="btn btn-default dropdown-toggle"
             data-toggle="dropdown">
-      Botón Desplegable
+            Formularios
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li><a href="#">Enlace #1</a></li>
-      <li><a href="#">Enlace #2</a></li>
+      <li><a href="#">Agregar cliente nuevo</a></li>
+      <li><a href="#">Agregar empleado nuevo</a></li>
+      <li><a href="#">Agregar motocicleta nueva</a></li>
+      <li><a href="#">Agregar cita nueva</a></li>
     </ul>
   </div>
 </div>
