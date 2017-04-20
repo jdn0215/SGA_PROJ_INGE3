@@ -59,7 +59,7 @@
                             </li>
 
                             <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcEmpleado" href="#Employee">
-                                <span class="glyphicon glyphicon-lock"></span>Empleados</a>
+                                <span class="glyphicon glyphicon-wrench"></span>Empleados</a>
                             </li>
 
                             <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCitas" href="#Citas">
