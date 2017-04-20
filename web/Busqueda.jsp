@@ -11,26 +11,7 @@
                
                 <!---opciones del combo box --->
   
-                
-                               
-        <nav class="navbar navbar-nav">
-                <div class="container-fluid">
-                    <ul id="navbar" class="nav navbar-nav">
-                         <li>
-                             <button id="opcionesDeBusqueda1" class="btn btnBusq btn-default" value="0">Buscar Clientes</button>      
-                        </li>
-                         <li>
-                             <button id="opcionesDeBusqueda2" class="btn btnBusq btn-default" value="0">Buscar Motocicletas</button>      
-                        </li>
-                         <li>
-                             <button id="opcionesDeBusqueda3" class="btn btnBusq btn-default" value="0">Buscar Buscar Empleados</button>      
-                        </li>
-                         <li>
-                             <button id="opcionesDeBusqueda4" class="btn btnBusq btn-default" value="0">Buscar Citas</button>      
-                        </li>
-                    </ul>
-                </div>
-        </nav>        
+                       
             <table style="width:85%" style="display: block;" >
                 <tbody >
                 <th>

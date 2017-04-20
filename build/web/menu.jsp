@@ -39,56 +39,92 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
 				</div>
 			</div>           
         </div>
-        
-        <div class="btn-group">
- 
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle"
-            data-toggle="dropdown">
-            Formularios
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Agregar cliente nuevo</a></li>
-      <li><a href="#">Agregar empleado nuevo</a></li>
-      <li><a href="#">Agregar motocicleta nueva</a></li>
-      <li><a href="#">Agregar cita nueva</a></li>
-    </ul>
-  </div>
-</div>
+
         
             <nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd; color:#fff ">
                 <div class="container-fluid">
                     <ul id="navbar" class="nav navbar-nav">
+                        
                         <li><a data-toggle="tab" class="grow OpcionIndex" id="opcAgenda" href="#Agenda">
                              <span class="glyphicon glyphicon-calendar"></span>Agenda</a>
-                            </li>
+                        </li>
                         
-                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcBusqueda" href="#Search">
-                                <span class="glyphicon glyphicon-search"></span>Búsqueda</a>
-                            </li>
                             
-                        <li>
-                            <a data-toggle="tab" class="grow OpcionIndex" id="formulariosBt">
-                                <span class="glyphicon glyphicon-list-alt"></span>Formularios</a>
+                            
+                        <li style="cursor:pointer">
+                            <a data-toggle="dropdown" class="grow OpcionIndex dropdown-toggle" id="">
+                             <span class="glyphicon glyphicon-search"></span>Búsquedas<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="background-color:#e3f2fd; font-size:1.1em;">
+                                <li>
+                                   <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Search">
+
+                                        <span class="glyphicon glyphicon-user"></span>&nbsp&nbspBuscar Clientes
+                                    </a>
+                                </li>
+                                <div class="divider" style="background-color: #34A7C1"></div>
+                                <li>
+                                    <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda2" href="#Search">
+
+                                        <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbspBuscar Motocicletas
+                                    </a>
+                                </li>
+                                <div class="divider " style="background-color: #34A7C1"></div>
+                                <li>
+                                   <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda3" href="#Search">
+                                        <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspBuscar Empleados
+                                    </a>
+                                </li>
+                                 <div class="divider" style="background-color: #34A7C1"></div>
+                                <li>
+                                    <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda4" href="#Search">
+                                        <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbspBuscar Citas
+                                    </a>
+                                </li>
+                          </ul>
                         </li>    
 
-                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCliente" href="#Clients">
-                                    <span class="glyphicon glyphicon-user"></span>Clientes</a>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                             <li>
+                            <a data-toggle="dropdown" class="grow OpcionIndex dropdown-toggle" id="formulariosBt">
+                             <span class="glyphicon glyphicon-list-alt"></span>Formularios<span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="background-color:#e3f2fd; font-size:1.1em;">
+                                <li>
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Clients">
+                                        <span class="glyphicon glyphicon-user"></span>&nbsp&nbspCliente nuevo
+                                    </a>
                                 </li>
+                                <div class="divider" style="background-color: #34A7C1"></div>
+                                <li>
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Moto">
+                                        <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbspMotocicleta nueva
+                                    </a>
+                                </li>
+                                <div class="divider " style="background-color: #34A7C1"></div>
+                                <li>
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Employee">
+                                        <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspEmpleado nuevo
+                                    </a>
+                                </li>
+                                 <div class="divider" style="background-color: #34A7C1"></div>
+                                <li>
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Citas">
+                                        <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbspCita nueva
+                                    </a>
+                                </li>
+                          </ul>
+                        </li>    
+    
+                            
+                   
 
-                                <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcMoto" href="#Moto">
-                                 <span class="glyphicon glyphicon-wrench"></span>Motocicletas</a>
-                            </li>
-
-                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcEmpleado" href="#Employee">
-                                <span class="glyphicon glyphicon-briefcase"></span>Empleados</a>
-                            </li>
-
-                            <li><a data-toggle="tab" class="grow OpcionIndex OpcDinamica" id="opcCitas" href="#Citas">
-                                 <span class="glyphicon glyphicon-th-list"></span>Citas</a>
-                            </li>
-
+                        
+                        
                         <li><a data-toggle="tab" id="botonresultados" href="#Results" style="display:none"></a> </li>
                         
                         

@@ -1,7 +1,7 @@
 /* global $id, DELETEEMPLEADO, HORASERVER, CLIENTEBUSCADO, $Proxy, cargarMotos, agenda, recuperarContrasenna */
 
 const events=()=>{
-    $(".OpcDinamica").hide();
+   // $(".OpcDinamica").hide();
     usuarioActual=retrieve("usuarioactual");
     getEmpleado(usuarioActual.id);
     indexEvents();
@@ -16,16 +16,8 @@ const events=()=>{
     });*/
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
-    $("#formulariosBt").click(()=>{
-        if($(".OpcDinamica").is(':hidden')){
-           $(".OpcDinamica").show('fast'); 
-           $($("#formulariosBt")[0].childNodes[2]).replaceWith("Ocultar Formularios");
-            if(!usuarioActual.isAdmin)
-                $("#opcEmpleado").hide();
-        }else{
-            $(".OpcDinamica").hide('fast');
-            $($("#formulariosBt")[0].childNodes[2]).replaceWith("Formularios");
-        }
+    $(".menuForm").click(e=>{
+        $(e.target.getAttribute("href")).click();
     });
     if(!usuarioActual.isAdmin){
         $("#buttonGuardarEmpleado").remove("#buttonGuardarEmpleado");
@@ -61,10 +53,12 @@ const indexEvents=()=>{
    
 };
 const BusquedaEvents=()=>{
-    $(".btnBusq").click(e=>{
+    $(".menuForm2").click(e=>{
+        $("#Search").click();
         $(".opcBusq").hide();
         $(".inputBusq").val("");
-        switch(e.target.id){
+        let key = "opcionesDe"+e.target.getAttribute("id");
+        switch(key){
             case "opcionesDeBusqueda1":
                 $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por la identificación del cliente o por el nombre."));
                 return $("#BCLIENTETR").show("fast");
