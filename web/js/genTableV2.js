@@ -181,7 +181,7 @@ const cellCitas=(dato,obj,idx)=>{
     switch(dato){
         case "estado":
             let e=obj[dato];
-            let text=(e===0?("Pendiente"):e===2?("En taller"):e===3?("Entregada al cliente"):"Cancelada");
+            let text=(e===0?("No ha entrado al taller"):e===2?("En taller"):e===3?("Entregada al cliente"):"Anulada");
             let estado="celda"+text;
             return createCell(createTdSpan(text,estado),null,"click",idx,false,estado);
         case "entrada":

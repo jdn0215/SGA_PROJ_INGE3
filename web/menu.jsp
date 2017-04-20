@@ -6,24 +6,7 @@
 <!--
 EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
 
-<div class="btn-group">
-  <button type="button" class="btn btn-default">Ver agenda</button>
-  <button type="button" class="btn btn-default">Busquedas</button>
- 
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle"
-            data-toggle="dropdown">
-            Formularios
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Agregar cliente nuevo</a></li>
-      <li><a href="#">Agregar empleado nuevo</a></li>
-      <li><a href="#">Agregar motocicleta nueva</a></li>
-      <li><a href="#">Agregar cita nueva</a></li>
-    </ul>
-  </div>
-</div>
+
 
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -56,6 +39,24 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
 				</div>
 			</div>           
         </div>
+        
+        <div class="btn-group">
+ 
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown">
+            Formularios
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Agregar cliente nuevo</a></li>
+      <li><a href="#">Agregar empleado nuevo</a></li>
+      <li><a href="#">Agregar motocicleta nueva</a></li>
+      <li><a href="#">Agregar cita nueva</a></li>
+    </ul>
+  </div>
+</div>
+        
             <nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd; color:#fff ">
                 <div class="container-fluid">
                     <ul id="navbar" class="nav navbar-nav">

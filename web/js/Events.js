@@ -34,22 +34,7 @@ const events=()=>{
         $("#buttonCitasModificar").remove("#buttonCitasModificar");
         
     }
-    $(".OpcDinamica").mouseover(e=>{
-        switch(e.target.id){
-            case "opcCliente": return $($("#opcCliente")[0].childNodes[2]).replaceWith("Registrar un nuevo cliente");
-            case "opcMoto": return $($("#opcMoto")[0].childNodes[2]).replaceWith("Registrar un nuevo motocicleta");
-            case "opcEmpleado": return $($("#opcEmpleado")[0].childNodes[2]).replaceWith("Registrar a un empleado");
-            case "opcCitas": return $($("#opcCitas")[0].childNodes[2]).replaceWith("Registrar una cita nueva");    
-        }
-    });
-    $(".OpcDinamica").mouseleave(e=>{
-        switch(e.target.id){
-            case "opcCliente": return $($("#opcCliente")[0].childNodes[2]).replaceWith("Clientes");
-            case "opcMoto": return $($("#opcMoto")[0].childNodes[2]).replaceWith("Motocicletas");
-            case "opcEmpleado": return $($("#opcEmpleado")[0].childNodes[2]).replaceWith("Empleados");
-            case "opcCitas": return $($("#opcCitas")[0].childNodes[2]).replaceWith("Citas");    
-        }
-    });
+
 };
 
 const calendarEvents=()=>{
@@ -195,11 +180,16 @@ const citasEvents=()=>{
         _div.className="form-group";
         _div.style="border:solid green 2px;background-color:rgba(100%,100%,100%,.3);";
     });
-    $("#citaPendiente").change(()=>_div=$id("divSalidaCita").className="noVisible");
-    $("#citaCancelada").change(()=>_div=$id("divSalidaCita").className="noVisible");
-    $("#EnProceso").change(()=>_div=$id("divSalidaCita").className="noVisible");
     
-
+    $(".opcEstado").change(()=>{
+        if($("#citaPendiente")[0].checked)
+            $("#asteriscoProforma").html("");
+        else $("#asteriscoProforma").html("*"); 
+        if($("#citaCumplida")[0].checked)
+            $("#divSalidaCita").show();
+        else $("#divSalidaCita").hide();
+    });
+    
 };
 const getEmpleado=(arg)=>{
     if(arg === null || arg === undefined){

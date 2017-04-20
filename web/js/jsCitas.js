@@ -440,10 +440,10 @@ const compararCita=(a,b)=>{
 };
 const textDateFormat=d=> moment(d).toISOString().split('.')[0].replace(' ',' ')
 const estadoTexto=estado=>
-                estado === 0 ? "cita Pendiente":
+                estado === 0 ? "No ha entrado al taller":
                 estado === 2 ? "Motocicleta en el Taller"    :
                 estado === 3 ? "Motocicleta entregada al Cliente" :
-                               "Cita Cancelada";
+                               "Cita Anulada";
 
 
 const buscaCitaAccion=()=>{

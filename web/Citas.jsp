@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                 <label> Garantia<obligatorio>*</obligatorio></label>
-                    <Select name="Ga" id="comboGarantia"><Option Selected value="Garantia">Garantia</Select>
+                    <Select name="Ga" id="comboGarantia"class="form-control" ><Option Selected value="Garantia">Garantia</Select>
                 </div>
                 <!--
                 EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
@@ -70,12 +70,12 @@
                 </div>
                 <-->
                 <div class="form-group">
-                    <label for="CTexto">Número de Proforma<obligatorio>*</obligatorio></label>
+                    <label for="CTexto">Número de Proforma<obligatorio id="asteriscoProforma"></obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "numeroOrdenCita">
                 </div>
                 <div class="form-group">
                 <label> Tipo de trabajo<obligatorio>*</obligatorio></label>
-                    <Select name="tt" id="comboTrabajo"><Option Selected value="Tipo de Trabajo">Tipo de trabajo</Select>
+                    <Select name="tt" id="comboTrabajo" class="form-control"><Option Selected value="Tipo de Trabajo">Tipo de trabajo</Select>
                 </div>
                 <!--
                 EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
@@ -103,13 +103,13 @@
                    <tr id="estadoCitaGrupo">
                         <th>
                            <label for="CTexto">Estado de la cita:&nbsp&nbsp</label>
-                   <GROUP>
-                            <input type ="radio" id = "citaPendiente" checked name="esatdoCita">&nbspPendiente&nbsp</input>
-                            <input type ="radio" id = "EnProceso"      name="esatdoCita">&nbspEn el taller&nbsp</input></br>
-                            <input type ="radio" id = "citaCumplida"  name="esatdoCita">&nbspEntregada al cliente&nbsp</input>
-                            <input type ="radio" id = "citaCancelada" name="esatdoCita">&nbspCancelada&nbsp</input>
+                   <div>
+                            <input type ="radio" id = "citaPendiente" checked name="esatdoCita" class="opcEstado">&nbspNo ha entrado al taller&nbsp</input>&nbsp|&nbsp
+                            <input type ="radio" id = "EnProceso"      name="esatdoCita" class="opcEstado">&nbspEn el taller&nbsp</input><br/>
+                            <input type ="radio" id = "citaCumplida"  name="esatdoCita"class="opcEstado">&nbspEntregada al cliente&nbsp</input>&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp
+                            <input type ="radio" id = "citaCancelada" name="esatdoCita" class="opcEstado">&nbspCita Anulada&nbsp</input>
                             
-                    </GROUP>        
+                    </div>        
                         </th>
                     </tr>
                 </table>

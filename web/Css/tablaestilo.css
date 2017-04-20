@@ -15,7 +15,7 @@
  .datagridtable tr:nth-child(even) {background-color: lightcyan;}
 .datagrid {text-align:center;margin: 0 auto; }
 .datagrid th{text-align:center;}
-.celdaPendiente{
+.celdaNo{
     background-color: rgba(251,255,97,.5);
 }
 .celdaEn{
@@ -24,6 +24,6 @@
 .celdaEntregada{
     background-color: rgba(88,250,130,.5); 
 }
-.celdaCancelada{
+.celdaAnulada{
     background-color: rgba(247,129,129,.5); 
 }
