@@ -5,7 +5,22 @@
 --%>
 <!--
 EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
-
+<div class="btn-group">
+  <button type="button" class="btn btn-default">1</button>
+  <button type="button" class="btn btn-default">2</button>
+ 
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown">
+      Botón Desplegable
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Enlace #1</a></li>
+      <li><a href="#">Enlace #2</a></li>
+    </ul>
+  </div>
+</div>
 
 -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
