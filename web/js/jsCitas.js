@@ -162,21 +162,10 @@ const mostrarTexto=(idx)=>{
     if(d===null)return;
     $("#texto"+idx).popover();
     d.oculto="false";
-    //let tiempo=0;
-   /* let intervalo=setInterval(()=>{
-       tiempo++;
-       if(tiempo>1){
-          let dd= $id("texto"+idx);
-          if(dd){
-              dd.click();
-              clearInterval(intervalo);
-          }
-      }
-    },1000);*/
 };
 const reconstruirCita=(cita)=>{
     if(!(cita instanceof Cita)) return ;
-    $("#opcCitas").click();
+    $("#Form4").click();
     modoUpdate=true;
     citaActual = cita;
     $(".citaDis").prop("disabled",true);
@@ -402,7 +391,7 @@ const eventoCasilla=e=>{
         flagEventoBarra=false;
     }else{
        fechaSeleccionada=e.target.getAttribute("date_date");
-       $("#opcCitas")[0].click();
+       $("#Form4")[0].click();
        buildDatos(fechaSeleccionada);
     }
 };
