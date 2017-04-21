@@ -50,7 +50,7 @@ const construirCita=(cita=null)=>{
             $("#clienteCita").val(),
             motosDelClienteBuscado[$id("motocito").selectedIndex].motor,
             recepcionistaActual,
-            $("#garantiaCita").val(),
+            $("#comboGarantia").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
@@ -64,7 +64,7 @@ const construirCita=(cita=null)=>{
             cita.cliente,
             cita.moto,
             cita.recepcionista,
-            $("#garantiaCita").val(),
+            $("#comboGarantia").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita")[0].selectedIndex === 0 ? cita.mecanico :  $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
@@ -183,7 +183,6 @@ const reconstruirCita=(cita)=>{
     $("#clienteCita").val(cut(cita.cliente));
     $("#motocito")[0].options[0].text = "Motor: "+cut(cita.moto);
     $("#proformaCita").val(cita.proforma);
-    $("#garantiaCita").val(cut(cita.garantia));
     if(cita.orden === 0){
         $("#numeroOrdenCita").val();
         $("#numeroOrdenCita").prop("disabled",false);
@@ -238,6 +237,8 @@ const reconstruirCita=(cita)=>{
          $("#buttonCitasModificar").hide();
          $("#motivosCita").hide();   
     }  
+    $("#comboGarantia").val(cut(cita.garantia.toUpperCase()));
+    $("#tipoCita").val(cut(cita.tipoDeTrabajo.toUpperCase()));
 };
 
 const disabled_enabled=e=>{
@@ -308,6 +309,17 @@ const clearCitas=()=>{
     disabled_enabled(false);  
     $("#motivosCita").show();
     $("#divSalidaCita").hide();
+    
+    $("#dataGarantia").empty();
+    $("#dataTipo").empty();
+    levantarRegistro(idg);
+    cargarOpciones(garantias,"dataGarantia");
+    levantarRegistro(idt);
+    cargarOpciones(tiposTrabajo,"dataTipo");
+    clearMensaje();   
+	
+    
+    
     clearMensaje();        
 };
 const findEmpleado=e=>{

@@ -7,6 +7,9 @@
 const store=(id, obj)=>{
     sessionStorage.setItem(id, JSON.stringify(obj,replacer));
 };
+const storeLocal=(id, obj)=>{
+    localStorage.setItem(id, JSON.stringify(obj,replacer));
+};
 const retrieveFromUrl=(url,callBack)=>{
     let AJAX_req = new XMLHttpRequest();
     AJAX_req.open( "GET", url, true );
@@ -24,6 +27,12 @@ const retrieveFromUrl=(url,callBack)=>{
 
 const retrieve=id=>{
   let json= sessionStorage.getItem(id);
+  if(json === null) return null;
+  else return JSON.parse(json,revive);
+};
+
+const retrieveLocal=id=>{
+  let json= localStorage.getItem(id);
   if(json === null) return null;
   else return JSON.parse(json,revive);
 };

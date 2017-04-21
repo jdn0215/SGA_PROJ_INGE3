@@ -28,10 +28,26 @@ const VALIDACIONES_CITAS = [
         ()=> $id("proformaCita").value!=="" && !isNaN($id("proformaCita").value)  
     ),
     
-    /*new Validacion(
+    new Validacion(
+        "comboGarantia","Especifique el tipo de Garantía  ",
+        ()=>{
+            let a = $id("comboGarantia").value;
+            if(a==="")return false;
+            addRegistro(idg,a);
+            return true;
+        }
+    ),
+    new Validacion(
         "tipoCita","Especifique el tipo de trabajo  ",
-        ()=> $id("tipoCita").value !== ""
-    ),*/
+        ()=>{
+            let a = $id("tipoCita").value;
+            if(a==="")return false;
+            addRegistro(idt,a);
+            return true;
+        }
+    ),  				
+	
+
     
     new Validacion(
         "numeroOrdenCita","- Número de orden no valido-  ",
