@@ -87,7 +87,7 @@ const getIdFrom=_=>
                     
 const reconstruir=c=>{
     clearClientes();
-    $id("opcCliente").click();
+    $id("Form1").click();
     addTitle("titutloCliente",c.nombre+"-"+c.id);
     var idCliente=c.id;
     id=Array.from(idCliente);

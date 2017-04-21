@@ -95,25 +95,25 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
                              <span class="glyphicon glyphicon-list-alt"></span>Formularios<span class="caret"></span></a>
                             <ul class="dropdown-menu" style="background-color:#e3f2fd; font-size:1.1em;">
                                 <li>
-                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Clients">
+                                     <a data-toggle="tab" class="grow OpcionIndex " id="Form1" href="#Clients">
                                         <span class="glyphicon glyphicon-user"></span>&nbsp&nbspCliente nuevo
                                     </a>
                                 </li>
                                 <div class="divider" style="background-color: #34A7C1"></div>
                                 <li>
-                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Moto">
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Form2" href="#Moto">
                                         <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbspMotocicleta nueva
                                     </a>
                                 </li>
                                 <div class="divider " style="background-color: #34A7C1"></div>
                                 <li>
-                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Employee">
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Form3" href="#Employee">
                                         <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspEmpleado nuevo
                                     </a>
                                 </li>
-                                 <div class="divider" style="background-color: #34A7C1"></div>
+                                 <div class="divider" id="divForm3"style="background-color: #34A7C1"></div>
                                 <li>
-                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Busqueda1" href="#Citas">
+                                     <a data-toggle="tab" class="grow OpcionIndex menuForm2" id="Form4" href="#Citas">
                                         <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbspCita nueva
                                     </a>
                                 </li>

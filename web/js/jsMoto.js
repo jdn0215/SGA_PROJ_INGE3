@@ -16,7 +16,7 @@ const reconstruirMoto=(m)=>{
     Objmoto=m;
     clearMoto();
     addTitle("tituloMoto2","INFORMACION DE MOTOCICLETA");
-    $id("opcMoto").click();
+    $id("Form2").click();
     if(cut(m.placa)==="")
              mensaje("MOTOCICLETA SIN PLACA, ACTUALIZAR!",1,1);
     $id("MtextCedula").value=cut(m.cliente);

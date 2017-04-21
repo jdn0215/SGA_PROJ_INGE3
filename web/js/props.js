@@ -291,8 +291,9 @@ const validacion=()=>{
              }else{
                  if(usuario.isAdmin!==res.isAdmin
                     ||usuario.empleado!==cut(res.empleado)
+                    &&(usuarioActual !== null
                     ||usuarioActual.isAdmin!==res.isAdmin
-                    ||usuarioActual.empleado!==cut(res.empleado)){
+                    ||usuarioActual.empleado!==cut(res.empleado))){
                         localStorage.setItem("legal",false);
                         document.location="index.jsp"; 
                     }

@@ -24,7 +24,8 @@ const events=()=>{
         $("#buttonUpDateEmpleado").remove("#buttonUpDateEmpleado");
         $("#buttonDeleteEmpleado").remove("#buttonDeleteEmpleado");
         $("#buttonCitasModificar").remove("#buttonCitasModificar");
-        
+        $("#Form3").hide();
+        $("#divForm3").hide();
     }
 
 };
