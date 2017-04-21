@@ -60,7 +60,10 @@
                 </div>
                 <div class="form-group">
                 <label> Garantia<obligatorio>*</obligatorio></label>
-                    <Select name="Ga" id="comboGarantia"class="form-control" ><Option Selected value="Garantia">Garantia</Select>
+                        <input id="comboGarantia" list="dataGarantia"  class="form-control">
+                        <datalist id="dataGarantia">
+                        </datalist>
+        
                 </div>
                 <!--
                 EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
@@ -73,10 +76,14 @@
                     <label for="CTexto">Número de Proforma<obligatorio id="asteriscoProforma"></obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "numeroOrdenCita">
                 </div>
-                <div class="form-group">
-                <label> Tipo de trabajo<obligatorio>*</obligatorio></label>
-                    <Select name="tt" id="comboTrabajo" class="form-control"><Option Selected value="Tipo de Trabajo">Tipo de trabajo</Select>
-                </div>
+                  <div class="form-group">
+                
+                <label> Tipo De Trabajo<obligatorio>*</obligatorio></label>
+                        <input id="tipoCita" list="dataTipo"  class="form-control">
+                        <datalist id="dataTipo">
+                        </datalist>    
+                    
+                </div>  
                 <!--
                 EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
                 <div class="form-group">

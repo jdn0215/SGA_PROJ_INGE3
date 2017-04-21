@@ -50,7 +50,7 @@ const construirCita=(cita=null)=>{
             $("#clienteCita").val(),
             motosDelClienteBuscado[$id("motocito").selectedIndex].motor,
             recepcionistaActual,
-            $("#garantiaCita").val(),
+            $("#comboGarantia").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
@@ -64,7 +64,7 @@ const construirCita=(cita=null)=>{
             cita.cliente,
             cita.moto,
             cita.recepcionista,
-            $("#garantiaCita").val(),
+            $("#comboGarantia").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita")[0].selectedIndex === 0 ? cita.mecanico :  $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
@@ -237,7 +237,9 @@ const reconstruirCita=(cita)=>{
         disabled_enabled(true);
          $("#buttonCitasModificar").hide();
          $("#motivosCita").hide();   
-    }  
+    }
+    $("#tipoCita").val(cut(cita.tipoDeTrabajo));
+    $("#comboGarantia").val(cut(cita.garantia));
 };
 
 const disabled_enabled=e=>{
@@ -308,6 +310,16 @@ const clearCitas=()=>{
     disabled_enabled(false);  
     $("#motivosCita").show();
     $("#divSalidaCita").hide();
+    
+    $("#dataGarantia").empty();
+    $("#dataTipo").empty();
+    
+    levantarRegistro(idg);
+    cargarOpciones(garantias,"dataGarantia");
+    levantarRegistro(idt);
+    cargarOpciones(tiposTrabajo,"dataTipo");
+    clearMensaje();   
+	
     clearMensaje();        
 };
 const findEmpleado=e=>{

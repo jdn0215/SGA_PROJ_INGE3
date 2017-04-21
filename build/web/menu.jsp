@@ -40,7 +40,7 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
 			</div>           
         </div>
         
-        <div class="btn-group">
+     <!--   <div class="btn-group">
  
   <div class="btn-group">
     <button type="button" class="btn btn-default dropdown-toggle"
@@ -55,7 +55,7 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
       <li><a href="#">Agregar cita nueva</a></li>
     </ul>
   </div>
-</div>
+</div>-->
         
             <nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd; color:#fff ">
                 <div class="container-fluid">
