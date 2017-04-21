@@ -291,8 +291,9 @@ const validacion=()=>{
              }else{
                  if(usuario.isAdmin!==res.isAdmin
                     ||usuario.empleado!==cut(res.empleado)
+                    &&(usuarioActual !== null
                     ||usuarioActual.isAdmin!==res.isAdmin
-                    ||usuarioActual.empleado!==cut(res.empleado)){
+                    ||usuarioActual.empleado!==cut(res.empleado))){
                         localStorage.setItem("legal",false);
                         document.location="index.jsp"; 
                     }
@@ -311,4 +312,54 @@ const fillString=(str,max,chr)=>{
     let aux=new Array(gap).fill(chr);
     return str+aux.reduce((a,e)=>a+e,"");
 };
-    
+
+
+
+const idg = "SGA_LOCALSTOR_G";
+const idt = "SGA_LOCALSTOR_T";
+let garantias = [];
+let tiposTrabajo=[];
+
+const levantarRegistro=que=>{
+    arr = retrieveLocal(que);
+    if(arr===null)arr=[];
+    if(arr.length===0){
+        switch(que){
+            case idg:arr=addRegistros("Facturado","De Fabrica","De Taller","De Repuestos","Reacondicionamiento","Regalía");break;
+            case idt:arr=addRegistros("fast service");break;
+        }
+    }
+    que===idg?garantias=arr:tiposTrabajo=arr;
+};
+const addRegistro=(donde,obj)=>{
+    obj = obj.toUpperCase();
+    let arr = donde===idg?garantias:donde===idt?tiposTrabajo:0;
+    if(arr===0)return;
+    if(!noExiste(arr,obj))return;
+    if(arr[obj]===undefined || arr[obj]===null){
+        arr[arr.length-1]=obj;
+        donde===idg?garantias=arr:tiposTrabajo=arr;
+        saveRegistros(donde);
+        levantarRegistro(donde);
+    }
+};
+const addRegistros=(...args)=>{
+    return args.reduce((a,e,i)=>(a[i]=e.toUpperCase(),a),[]);
+};
+
+const saveRegistros=(cuales)=>{
+    let arr = cuales===idg?garantias:cuales===idt?tiposTrabajo:0;
+    if(arr===0)return;
+    storeLocal(cuales,arr);
+};
+
+const noExiste=(arr,ob)=>arr.every(e=>e!==ob);
+
+const cargarOpciones=(arr,id)=>{
+    arr.forEach(e=>$("#"+id).append(crearOption(e)));
+};
+const crearOption=text=>{
+    let opt = document.createElement("option");
+    $(opt).append(document.createTextNode(text));
+    return opt;
+};

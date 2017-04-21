@@ -49,7 +49,7 @@ const crearTable=(arr,type)=>{
     CurrentHr=-1;
     if($id("tituloBusqueda").firstChild!==null)
           $id("tituloBusqueda").removeChild($id("tituloBusqueda").firstChild);
-    $id("tituloBusqueda").appendChild(document.createTextNode((type=== 4?agenda.diaEscogido+" - ":"")+arr.length+" Resultado"+(arr.length===1?"":"s")));
+    $id("tituloBusqueda").appendChild(document.createTextNode((type=== 4?agenda.diaEscogido+" ":"")+arr.length+" Resultado"+(arr.length===1?"":"s")));
     let _div=$id("resultados");
     if(_div.firstChild!==null)
         _div.removeChild(_div.firstChild);

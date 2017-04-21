@@ -60,46 +60,31 @@
                 </div>
                 <div class="form-group">
                 <label> Garantia<obligatorio>*</obligatorio></label>
-                    <Select name="Ga" id="comboGarantia"class="form-control" ><Option Selected value="Garantia">Garantia</Select>
+
+                        <input id="comboGarantia" list="dataGarantia"  class="form-control">
+                        <datalist id="dataGarantia">
+                        </datalist>
+        
+
                 </div>
-                <!--
-                EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
-                <div class="form-group">
-                    <label for="CTexto">Garantía:</label>
-                    <input type ="text" name="CTexto" class="form-control" id = "garantiaCita">
-                </div>
-                <-->
+
+                
                 <div class="form-group">
                     <label for="CTexto">Número de Proforma<obligatorio id="asteriscoProforma"></obligatorio></label>
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "numeroOrdenCita">
                 </div>
-                <div class="form-group">
-                <label> Tipo de trabajo<obligatorio>*</obligatorio></label>
-                    <Select name="tt" id="comboTrabajo" class="form-control"><Option Selected value="Tipo de Trabajo">Tipo de trabajo</Select>
-                </div>
+                  <div class="form-group">
+                
+                <label> Tipo De Trabajo<obligatorio>*</obligatorio></label>
+                        <input id="tipoCita" list="dataTipo"  class="form-control">
+                        <datalist id="dataTipo">
+                        </datalist>    
+                    
+                </div>  
                 <!--
-                EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
-                <div class="form-group">
-                    <label for="CTexto">Tipo de trabajo:<obligatorio>*</obligatorio></label>
-                    <input type ="text" name="CTexto" class="form-control" id = "tipoCita">
-                </div>
-                -->
+
                 <table>
-                    <!--- 
-                    <tr id="checkNotificaciones">
-                        <th>
-                           <label for="CTexto">Recibir notificaciones por correo:&nbsp</label>
-                        </th>
-                        <th>
-                            <div class="onoffswitch">
-                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                            <label class="onoffswitch-label" for="myonoffswitch">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                            </div>
-                        </th>
-                    </tr>--->
+
                    <tr id="estadoCitaGrupo">
                         <th>
                            <label for="CTexto">Estado de la cita:&nbsp&nbsp</label>

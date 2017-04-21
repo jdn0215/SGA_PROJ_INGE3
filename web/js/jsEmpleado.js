@@ -250,7 +250,7 @@ const reconstruirEmpleado=e=>{
             addTitle("empleadosTitulo",e.nombre+" ("+user.id+")");
         }else  addTitle("empleadosTitulo",e.nombre);
     });
-    $id("opcEmpleado").click();
+    $id("Form3").click();
     reconstructId(e.tipoId,e.idempleado);
     $id("A").checked=e.isAsesor;
     $id("JT").checked=e.isJefe;
