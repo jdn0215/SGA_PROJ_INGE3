@@ -13,7 +13,7 @@ class Agenda{
       $date();
       this.date=new Date(HORASERVER);
       this.date.setDate(1);
-      this.cambiarDeTabla(new Date(this.date));
+      //this.cambiarDeTabla(new Date(this.date));
       this.diaEscogido="";
   }
   reload(){

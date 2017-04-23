@@ -34,7 +34,7 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
 						<width = "80%" id="encabezado2"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
 						&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp SGA <small > Sistema de Gestión Automotriz</small>
                                                 <br/>
-                                                <h3 id="empleadoActual"></h3>
+                                                <h5 id="empleadoActual"></h5>
                                         </h1>
 				</div>
 			</div>           
