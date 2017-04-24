@@ -1,5 +1,7 @@
 .datagrid table {     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;    margin: 45px;     width: 480px; text-align: center;    border-collapse: collapse; }
+    font-size: 12px;    margin: 45px;     width: 100%; text-align: center;    border-collapse: collapse;
+    
+}
 
 .datagrid th {     font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
     border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; }
@@ -26,4 +28,19 @@
 }
 .celdaAnulada{
     background-color: rgba(247,129,129,.5); 
+}
+
+.scroll_table{
+     border: none;
+     border-collapse: collapse;
+}
+.scroll_table thead{
+
+}
+            
+.scroll_table tbody{
+    width: 100%;
+    position:relative;
+    max-height:500px;
+    overflow-y: scroll;
 }

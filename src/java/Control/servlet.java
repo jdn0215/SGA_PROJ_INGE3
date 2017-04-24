@@ -253,6 +253,12 @@ public class servlet extends HttpServlet {
                            json = gson.toJson(Modelo.buscacita(json));
                            out.write(json);
                            break;
+                       case "buscaCitaByCliente":
+                           json=request.getParameter("CLIENTE");
+                           cliente=gson.fromJson(json, Cliente.class);
+                           json=gson.toJson(Modelo.buscaCitaByCliente(cliente));
+                           out.write(json);
+                       break;
         }
                        
                             

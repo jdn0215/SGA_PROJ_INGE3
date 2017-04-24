@@ -232,7 +232,7 @@ const existeCliente=(T="tituloMotos",I="MtextCedula",C=1,F=null)=>{
         return;
     }
     var clienteEncontrado=false;
-   $Proxy.proxy($$("DATO",idCl,"TIPO",2),"busqueda","CLIENTE",fun=res=>{
+   $Proxy.proxy($$("DATO",idCl,"TIPO",2),"busqueda","CLIENTE",res=>{
         clienteEncontrado=res!==null&&res.length===1;
         if(clienteEncontrado){
           addTitle(T,res[0].nombre);
@@ -248,3 +248,23 @@ const existeCliente=(T="tituloMotos",I="MtextCedula",C=1,F=null)=>{
        }
     }); 
 };  
+
+const getHistorialC=cliente=>{
+    cliente.id=cut(cliente.id);
+    $Proxy.proxy($$("CLIENTE",cliente),"buscaCitaByCliente","CITA",res=>{
+        if(Array.isArray(res)){
+             $("#botonresultados").click();
+             crearTable(res,4);
+        }else $("#tituloBusqueda").html("Ocurrio algún problema durante la búsqueda, intente de nuevo");
+    });
+};
+
+const getAllMotos=cliente=>{
+    cliente.id=cut(cliente.id);
+    $Proxy.proxy($$("CLIENTE",cliente.id),"BMPC","MOTOS",res=>{
+        if(Array.isArray(res)){
+             $("#botonresultados").click();
+             crearTable(res,2);
+        }else $("#tituloBusqueda").html("Ocurrio algún problema durante la búsqueda, intente de nuevo");
+    });
+};

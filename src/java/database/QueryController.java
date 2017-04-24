@@ -86,6 +86,8 @@ public class QueryController {
                            c.getZona().getDistrito(),c.getId());
             case "FSC":
                 return String.format(query.query,c.getId());
+            case "buscaCitaByCliente":
+                return String.format(query.query,c.getId());
            default: return "";
     
         }

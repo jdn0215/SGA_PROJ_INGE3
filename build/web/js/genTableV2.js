@@ -2,9 +2,12 @@
 var auxtem;
 let resultadosClientes;
 let usuario=retrieve("usuarioactual");
-const attCL=["id","nombre","edad","correo","tel","tel2","ocupacion","nacimiento","zona","btn-update"];
-const HDRCL=["Identificación","Nombre","Edad","Correo electrónico","teléfono ","Celular","Ocupación","Fecha de Nacimiento","Residencia","Modificar registro"];
+const attCL=["id","nombre","edad","correo","tel","tel2","ocupacion","nacimiento","zona","btn-update","bt-H","bt-M"];
+const HDRCL=["Identificación","Nombre","Edad","Correo electrónico","teléfono ","Celular","Ocupación","Fecha de Nacimiento","Residencia","Modificar registro","Historial de Citas","Motocicletas"];
 const eventoTablaCliente=e=>reconstruir(resultadosClientes[e.target.idx]);
+const eventoHCliente=e=>getHistorialC(resultadosClientes[e.target.idx]);
+const eventoMotosCliente=e=>getAllMotos(resultadosClientes[e.target.idx]);
+
 
 let resultadosMotos;
 const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg","btn-update"];
@@ -54,7 +57,7 @@ const crearTable=(arr,type)=>{
     if(_div.firstChild!==null)
         _div.removeChild(_div.firstChild);
     let tabla=document.createElement("table");
-    tabla.setAttribute("class","datagrid");
+    tabla.setAttribute("class","datagrid scroll_table");
     tabla.appendChild(createHeader(labels(type)));
     tabla.appendChild(createBody(arr,atributos(type),type));
     _div.appendChild(tabla);
@@ -150,6 +153,10 @@ const cellCliente=(dato,obj,idx)=>{
             return createCell(obj.zona.zona,null,"click",idx,false);
         case "btn-update":
             return createCell("Modificar",eventoTablaCliente,"click",idx,false,"",true);
+        case "bt-H":
+            return createCell("Ver",eventoHCliente,"click",idx,false,"",true);
+        case "bt-M":
+            return createCell("Ver",eventoMotosCliente,"click",idx,false,"",true);
         default: return createCell(obj[dato],null,"click",idx,false);             
     }
 };
