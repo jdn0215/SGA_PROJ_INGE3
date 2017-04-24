@@ -49,12 +49,61 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
                              <span class="glyphicon glyphicon-calendar"></span>Agenda</a>
                             </li>
                         
-                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcBusqueda" href="#Search">
+                          
+                        <li><a data-toggle="tab" class="hide grow OpcionIndex dropdown-toggle" id="opcBusqueda" href="#Search">
                                 <span class="glyphicon glyphicon-search"></span>Búsqueda</a>
-                            </li>
-                            
+                        </li>
+                        
+                        
                         <li>
-                            <a data-toggle="tab" class="grow OpcionIndex" id="formulariosBt">
+                            <a class="grow OpcionIndex dropdown-toggle" id="MenuBusqueda" style="cursor:pointer" data-toggle="dropdown">
+                                <span class="glyphicon  glyphicon-search"></span>
+                                Búsquedas
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a id="opcionesDeBusqueda1" class="btnBusq" href="#">
+                                      <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbspClientes</a></li>
+                            <div class="divider" style="background-color:#819FF7"></div>  
+                            <li><a id="opcionesDeBusqueda2" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp&nbspMotocicletas</a></li>
+                            <div class="divider" style="background-color:#819FF7"></div>          
+                            <li><a id="opcionesDeBusqueda3" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbsp&nbspEmpleados</a></li>
+                            <div class="divider" style="background-color:#819FF7"></div>
+          
+                              <li><a id="opcionesDeBusqueda4" class="btnBusq"href="#">
+                                       <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspCitas</a></li>
+                            </ul>
+                        </li> 
+                        
+                       
+                         <li>
+                            <a class="grow OpcionIndex dropdown-toggle" id="MenuBusqueda" style="cursor:pointer" data-toggle="dropdown">
+                                <span class="glyphicon  glyphicon-list-alt"></span>
+                                Formularios
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a id="opcionesDeBusquedaa" class="btnBusq" href="#">
+                                      <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbspCliente nuevo</a></li>
+                            <div class="divider" style="background-color:#819FF7"></div>  
+                            <li><a id="opcionesDeBusquedab" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp&nbspMotocicleta nueva</a></li>
+                            <div class="divider" style="background-color:#819FF7"></div>          
+                            <li><a id="opcionesDeBusquedac" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbsp&nbspEmpleado nuevo</a></li>
+                            <div class="divider" id="dividerC"style="background-color:#819FF7"></div>
+          
+                              <li><a id="opcionesDeBusquedad" class="btnBusq"href="#">
+                                       <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspCita nueva</a></li>
+                            </ul>
+                        </li> 
+                        
+                        
+                        
+                        <li>
+                            <a data-toggle="tab" class="grow OpcionIndex hide" id="formulariosBt">
                                 <span class="glyphicon glyphicon-list-alt"></span>Formularios</a>
                         </li>    
 

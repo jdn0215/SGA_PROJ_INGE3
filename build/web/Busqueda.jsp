@@ -9,7 +9,7 @@
         <div class="row">
             <center>
                
-                <!---opciones del combo box --->
+                <!---opciones del 
   
                 
                                
@@ -30,7 +30,7 @@
                         </li>
                     </ul>
                 </div>
-        </nav>        
+        </nav>        combo box --->
             <table style="width:85%" style="display: block;" >
                 <tbody >
                 <th>

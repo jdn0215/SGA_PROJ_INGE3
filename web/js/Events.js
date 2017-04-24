@@ -10,10 +10,10 @@ const events=()=>{
     EmpleadosEvents();
     MotosEvents();
     citasEvents();
-    /*$( window ).bind( 'beforeunload',()=>{
+    $( window ).bind( 'beforeunload',()=>{
           logout();
         return false;
-    });*/
+    });
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
     $("#formulariosBt").click(()=>{
@@ -32,7 +32,8 @@ const events=()=>{
         $("#buttonUpDateEmpleado").remove("#buttonUpDateEmpleado");
         $("#buttonDeleteEmpleado").remove("#buttonDeleteEmpleado");
         $("#buttonCitasModificar").remove("#buttonCitasModificar");
-        
+        $("#opcionesDeBusquedac").remove("#opcionesDeBusquedac");
+        $("#dividerC").remove("#dividerC");
     }
 };
 
@@ -63,6 +64,7 @@ const BusquedaEvents=()=>{
     $(".btnBusq").click(e=>{
         $(".opcBusq").hide();
         $(".inputBusq").val("");
+         $("#opcBusqueda").click();
         switch(e.target.id){
             case "opcionesDeBusqueda1":
                 $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por la identificación del cliente o por el nombre."));
@@ -83,7 +85,11 @@ const BusquedaEvents=()=>{
     $("#buttonBuscarc").click(()=>buscarCliente());
     $("#buttonBuscarM").click(()=>buscarMoto());
     $("#buttonBuscaEmpleados").click(()=>buscarEmpleados());
-    $("#buttonBuscaCita").click(()=>buscaCitaAccion());    
+    $("#buttonBuscaCita").click(()=>buscaCitaAccion());
+    $("#opcionesDeBusquedaa").click(()=>$("#opcCliente").click());
+    $("#opcionesDeBusquedab").click(()=>$("#opcMoto").click());
+    $("#opcionesDeBusquedac").click(()=>$("#opcEmpleado").click());
+    $("#opcionesDeBusquedad").click(()=>$("#opcCitas").click());
 };
 const ClientesEvents=()=>{
     $("#CF").click(()=>cambioId());
