@@ -131,8 +131,8 @@ const buildEstado=_=>{
     if(validarEstado())
         return new Estado(
            Number($id("textKm").value),
-           $("alto").checked?3:$("medio").checked?2:1,
-           $("GasF").checked?5:$("Gas34").checked?4:$("Gas12").checked?3:$("Gas14").checked?2:1,
+           $id("alto").checked?3:$id("medio").checked?2:1,
+           $id("GasF").checked?5:$id("Gas34").checked?4:$id("Gas12").checked?3:$id("Gas14").checked?2:1,
            $id("textDannos").value!==""?$id("textDannos").value:"Sin anotaciones.",
            $id("textObservacion").value!==""? $id("textObservacion").value:"Sin observaciones",
            new Date(),
@@ -149,11 +149,13 @@ const cambioDeContextoMoto=(ctx)=>{
     if(ctx){
         $id("motoMain").className="noVisible";
         $id("motoEstado").className="";
+        limpiarEspaciosEstado();   
         addTitle("tituloMoto2",
             Objmoto===null?(cambioDeContextoMoto(false),mensaje("HA OCURRIDO UN ERROR<br/>pruebe volver al menu de busqueda de nuevo",1,1))
                     :"Cliente: "+cut(Objmoto.cliente)+" || "+
                             (cut(Objmoto.placa)!==""?"placa: "+cut(Objmoto.placa)
                             :"chasis: "+cut(Objmoto.chasis))
+                               
         );
         
     }else{
@@ -166,7 +168,7 @@ const cambioDeContextoMoto=(ctx)=>{
 const limpiarEspaciosEstado=()=>{
         $id("textDannos").value="";
         $id("textObservacion").value="";
-        $id("testKm").value="";
+        $id("textKm").value="";
         $id("GasF").checked=true;
         $id("alto").checked=true;
         
@@ -180,6 +182,7 @@ const addEstado=()=>{
     $Proxy.proxy($$("ESTADO",estado),"saveEstado","ESTADO",fun=res=>{
                 if(res!==0){
                     mensaje("Registro exitoso",1,0);
+                    
                 }else{
                     mensaje("HA OCURRIDO UN ERROR EN EL REGISTRO",1,2);
                 }
@@ -214,3 +217,19 @@ const valueGas=_=>$id("GasF").checked?5:$id("Gas34").checked?4:$id("Gas12").chec
 //5,4,3,2,1,-1    
 const valueAceite=_=>$id("alto").checked?3:$id("medio").checked?2:$id("bajo").checked?1:-1;
 //3,2,1,-1
+
+const addEstadoMoto=moto=>{
+    Objmoto = moto;
+    $id("opcMoto").click();
+    cambioDeContextoMoto(true);
+};
+
+const getAllEstados=moto=>{
+    moto.motor=cut(moto.motor);
+    $Proxy.proxy($$("MOTO",moto),"buscaEstadoByMotor","ESTADOS",res=>{
+        if(Array.isArray(res)){
+             $("#botonresultados").click();
+             crearTable(res,5);
+        }else $("#tituloBusqueda").html("Ocurrio algún problema durante la búsqueda, intente de nuevo");
+    });
+};

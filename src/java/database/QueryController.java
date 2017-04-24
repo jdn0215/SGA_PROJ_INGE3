@@ -113,6 +113,8 @@ public class QueryController {
                 return String.format(query.query,m.getChasis());
             case "BMPC":
                 return String.format(query.query,m.getCliente());
+            case "buscaEstadoByMotor":
+                return String.format(query.query, m.getMotor());
             default: return "";
         }
     }

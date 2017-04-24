@@ -32,6 +32,7 @@ public class ClassController {
             case "Mensaje": return toMensaje(rs);
             case "Cita": return toCita(rs);
             case "Gasto": return toGasto(rs);
+            case "Estado":return toEstado(rs);
             case "Observacion": return toObservacion(rs);
         }
         return null;

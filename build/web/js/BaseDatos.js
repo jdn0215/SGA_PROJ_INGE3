@@ -46,7 +46,6 @@ const revive=(k,v)=>{
         if (v instanceof Object && v._class ==='Empleado') return Empleado.from(v);
         if (v instanceof Object && v._class ==='Cita') return Cita.from(v);
         if (v instanceof Object && v._class ==='Observacion') return Observacion.from(v);
-        if (v instanceof Object && v._class ==='Gasto') return Gasto.from(v);
         return v;
         //metiendo al administrador
 };
@@ -60,7 +59,6 @@ const replacer=(k,v)=>{
         if (v instanceof Empleado) return Empleado.to(v);
         if (v instanceof Cita) return Cita.to(v);
         if (v instanceof Observacion) return Observacion.to(v);
-	if (v instanceof Gasto) return Gasto.to(v);
         return v;
 };
 

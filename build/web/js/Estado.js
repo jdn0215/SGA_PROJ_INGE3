@@ -9,7 +9,7 @@ class Estado{
     this.moto=moto;
   }  
   static from(p){
-      return new Estado(p.kilometraje,p.aceite,p.gas,p.danosPrevios,p.observaciones,p.fecha,p.moto);
+      return new Estado(p.kilometraje,p.aceite,p.gas,p.danosPrevios,p.observaciones,new Date(p.fecha),p.moto);
   }
   static to(p){
       return {

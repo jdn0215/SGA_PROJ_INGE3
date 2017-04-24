@@ -10,9 +10,12 @@ const eventoMotosCliente=e=>getAllMotos(resultadosClientes[e.target.idx]);
 
 
 let resultadosMotos;
-const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg","btn-update"];
-const HDRMT=["Cliente","Modelo","Año","Motor","Chasis","Placa","AVG","Modificar registro"];
+const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg","btn-update","bt-add","bt-ver"];
+const HDRMT=["Cliente","Modelo","Año","Motor","Chasis","Placa","AVG","Modificar registro","Añadir Registro","Historial de Registros"];
 const eventoTablaMoto=e=>reconstruirMoto(resultadosMotos[e.target.idx]);
+const eventoTablaMotoAddEstado=e=>addEstadoMoto(resultadosMotos[e.target.idx]);
+const eventoTablaMotoVerEstado=e=>getAllEstados(resultadosMotos[e.target.idx]);
+
 
 let resultadoEmpleados;
 const attEM=["idempleado","nombre","isJefe","isAsesor","correo","telefono","activo","btn-update"];
@@ -28,12 +31,17 @@ const eventoTablaCita=e=>buscaCita(e.target.idx);
 const eventoObservacionVer=e=>observacionesPopOver(e);
 
 
+const attET=["moto","kilometraje","aceite","gas","danosPrevios","observaciones","fecha"];
+const HDRET=["Motor","Kilometraje","Nivel de aceite","Nivel de gasolina","Daños Previos","Observaciones adicionales","Fecha del registro"];
+
+
 const atributos=type=>{
     switch(type){
         case 1 : return attCL;
         case 2 : return attMT;
         case 3 : return attEM;
         case 4 : return attCT;
+        case 5 : return attET;
         default: return null;
     }
 };
@@ -43,6 +51,7 @@ const labels=type=>{
         case 2 : return HDRMT;
         case 3 : return HDREM;
         case 4 : return HDRCT;
+        case 5 : return HDRET;
         default: return null;
     }
 };
@@ -137,6 +146,7 @@ const Cell=(dato,obj,type,idx)=>{
       case 2: return cellMoto(dato,obj,idx);
       case 3: return cellEmpleado(dato,obj,idx);
       case 4: return cellCitas(dato,obj,obj.proforma);
+      case 5: return cellEstado(dato,obj,idx);
       default:return createCell(dato);
   }//end switch1 
   return null;
@@ -167,7 +177,11 @@ const cellMoto=(dato,obj,idx)=>{
         case "placaavg":
             return createCell(obj[dato]===""?"-":obj[dato],null,"click",idx,false);
         case "btn-update":
-            return createCell("Modificar",eventoTablaMoto,"click",idx,false,"",true);    
+            return createCell("Modificar",eventoTablaMoto,"click",idx,false,"",true);
+        case "bt-add":
+            return createCell("Añadir",eventoTablaMotoAddEstado,"click",idx,false,"",true);
+        case "bt-ver":
+            return createCell("Ver",eventoTablaMotoVerEstado,"click",idx,false,"",true);
         default:return createCell(obj[dato],null,"click",idx,false);
     }
 };
@@ -204,7 +218,15 @@ const cellCitas=(dato,obj,idx)=>{
         default: return createCell(obj[dato],null,"click",idx,false);
     }
 };
-
+const cellEstado=(dato,obj,idx)=>{
+    switch(dato){
+        case "kilometraje":return createCell(obj[dato]+" Km",null,"click",idx,false);
+        case "aceite": return createCell(nvlAceite(obj[dato]),null,"click",idx,false);  
+        case "gas": return createCell(nvlGas(obj[dato]),null,"click",idx,false);
+        case "fecha": return createCell(DateMonthYear(obj[dato]),null,"click",idx,false);
+        default: return createCell(obj[dato],null,"click",idx,false);
+    }
+};
 const DateMonthYear=d=>
     d.getDate()+"-"+mes(d.getMonth())+"-"+d.getFullYear();
 
@@ -245,4 +267,22 @@ const updateBtn=(f,index,txt)=>{
    bt.innerHTML=txt;
    $(bt).click(e=>f(e));
    return bt;
+};
+
+
+const nvlAceite=i=>{
+  switch(i){
+      case 1:return "Bajo";
+      case 2:return "Medio";
+      default:return "Alto";
+  }  
+};
+const nvlGas=i=>{
+  switch(i){
+      case 1:return "Empty";
+      case 2:return "1/4";
+      case 3:return "1/2";
+      case 4:return "3/4";
+      default:return "Full";
+  }  
 };

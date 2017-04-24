@@ -230,9 +230,13 @@ public class Modelo {
         return _class.toCollection(rs,Observacion.class.getSimpleName());
     }
     
-     public static List<? extends Object> buscaCitaByCliente(Cliente c){
+    public static List<? extends Object> buscaCitaByCliente(Cliente c){
         ResultSet rs = db.executeQuery(query.buildQuery(c, Query.buscaCitaByCliente));
         return _class.toCollection(rs,Cita.class.getSimpleName());
     }
     
+    public static List<? extends Object> buscaEstadoByMotor(Moto c){
+        ResultSet rs = db.executeQuery(query.buildQuery(c, Query.buscaEstadoByMotor));
+        return _class.toCollection(rs,Estado.class.getSimpleName());
+    }
 }

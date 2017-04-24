@@ -53,7 +53,8 @@ public enum Query{
     buscaCitaObs("select * from buscaCitaObs(%d);"),
     upDateCita("select * from upDateCita(%d,'%s','%s','%s','%s','%s','%s','%s','%s','%s',%d);"),
     upDateCita2("select * from upDateCita(%d,'%s','%s','%s','%s','%s','%s','%s',null,'%s',%d);"),
-    buscaCitaByCliente("select * from buscaCitaByCliente('%s');");
+    buscaCitaByCliente("select * from buscaCitaByCliente('%s');"),
+    buscaEstadoByMotor("select * from buscaEstadoByMotor('%s');");
     public final String query;
     Query(String a){
         query=a;
