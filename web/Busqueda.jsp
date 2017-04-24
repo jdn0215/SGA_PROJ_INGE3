@@ -5,33 +5,21 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <div id="Search" class="tab-pane fade">
-        <div class="row">
-            <center>
-               
-                <!---opciones del 
   
-                
-                               
-        <nav class="navbar navbar-nav">
-                <div class="container-fluid">
-                    <ul id="navbar" class="nav navbar-nav">
-                         <li>
-                             <button id="opcionesDeBusqueda1" class="btn btnBusq btn-default" value="0">Buscar Clientes</button>      
-                        </li>
-                         <li>
-                             <button id="opcionesDeBusqueda2" class="btn btnBusq btn-default" value="0">Buscar Motocicletas</button>      
-                        </li>
-                         <li>
-                             <button id="opcionesDeBusqueda3" class="btn btnBusq btn-default" value="0">Buscar Buscar Empleados</button>      
-                        </li>
-                         <li>
-                             <button id="opcionesDeBusqueda4" class="btn btnBusq btn-default" value="0">Buscar Citas</button>      
-                        </li>
-                    </ul>
-                </div>
-        </nav>        combo box --->
+        <div class="row">
+               <button class="bt-help "
+          data-toggle="popover"
+          title="<div class='HDRPO'>Ayuda</div>"
+          data-content="<div class='txtPO'>En esta sección podrá realizar búsqueda de datos.<br/><br><br/>No se diferencia si es una mayúscula o una minúscula, por lo que puede escribir de cualquiera de las dos formas.<br/><br><br/>No es necesario escribir todo el criterio de búsqueda, ya que el sistema buscará las aproximaciones, de acuerdo a lo que usted digite.<br/><br><br/>Entre más especifico sea, mejores resultados obtendrá .<br/><button class='btn btn-danger cerrarPop'>Cerrar</button></div>"
+           data-placement="rigth"
+           data-trigger="click"
+         >?</button>
+            <center>
+
             <table style="width:85%" style="display: block;" >
+
                 <tbody >
                 <th>
                    <p id="aclaracionBusqueda"></p> 
@@ -72,6 +60,7 @@
             </table>
             </center>
             </div>
+                
                <div class="container">
                <!---alert alert-success  --->
                <div class="noVisible" id="_successB">

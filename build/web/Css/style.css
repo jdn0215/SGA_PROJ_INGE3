@@ -294,3 +294,22 @@ hr {
     font-weight:bolder;
     font-family:arial;
 }
+.bt-help{
+     width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  font-weight: bolder;
+  background-color:#ff0;
+}
+.txtPO{
+ text-align:justify;
+ 
+}
+.HDRPO{
+    font-weight: bolder;
+    text-align: center;
+}

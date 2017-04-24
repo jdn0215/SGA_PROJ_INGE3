@@ -35,6 +35,10 @@ const events=()=>{
         $("#opcionesDeBusquedac").remove("#opcionesDeBusquedac");
         $("#dividerC").remove("#dividerC");
     }
+    $(".bt-help").click(e=>{$(e.target).popover({html:true});
+                            $(e.target).popover("show");
+                            $(".cerrarPop").click(e=> $(".bt-help").popover("destroy"));
+                        });
 };
 
 const calendarEvents=()=>{

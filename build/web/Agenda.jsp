@@ -5,8 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div id="Agenda" class="tab-pane fade in active">
+
     <div id="tableAgenda" class="agenda">
+            <button class="bt-help "
+          data-toggle="popover"
+          title="<div class='HDRPO'>Ayuda</div>"
+          data-content="<div class='txtPO'>En esta sección podrá navegar entre los meses para crear citas.<br/><br><br/> Se puede observar a simple vista, toda la actividad del taller, guiándose por las casillas de colores y su respectivo significado.<br/><br><br/> Si hace click sobre un día especifico de esta agenda, será guiado al formulario de creación de citas.<br/><br><br/> Si hace click sobre la barra de colores de un día especifico podrá ver de manera detallada la actividad del día seleccionado.<br/><br><br/><button class='btn btn-danger cerrarPop'>Cerrar</button></div>"
+           data-placement="rigth"
+           data-trigger="click"
+         >?</button>
     <div class="container">
         <div class="row">
             <!-- End Column -->
@@ -14,6 +23,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="calendar fc fc-ltr">
+                            
                             <div style="display:block; tab-size:13px">
                                     <div class="fc_entradas fc_estado">Entradas al taller</div>
                                     <div class="fc_espera fc_estado">Motocicletas en el taller</div>

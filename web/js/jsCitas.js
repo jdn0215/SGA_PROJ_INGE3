@@ -473,14 +473,14 @@ const buscaCitaAccion=()=>{
 
 const observacionesPopOver=e=>{
     if(e.target.id==="btnVerObs"){
-       e.target.className="btn btn-warning";
+       e.target.className="btn btn-info";
        e.target.innerHTML="Ver";
        $("#btnVerObs").popover("destroy");
        $("#btnVerObs")[0].id="";
        return;
     }
     if($("#btnVerObs")[0] !== undefined){
-         $("#btnVerObs")[0].className="btn btn-warning";
+         $("#btnVerObs")[0].className="btn btn-info";
           $("#btnVerObs")[0].innerHTML="Ver";
         $("#btnVerObs").popover("destroy");
         $("#btnVerObs")[0].id="";

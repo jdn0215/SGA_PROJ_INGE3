@@ -121,7 +121,15 @@
                                     Datos de la cuenta
 
                             </h3>
-                           <input type ="checkbox" id = "Admin" value="Admin">Como administrador de la página</input><br/>
+                           <input type ="checkbox" id = "Admin" value="Admin">Permisos especiales</input>
+                                <button class="bt-help "
+                                    data-toggle="popover"
+                                    title="<div class='HDRPO'>Ayuda</div>"
+                                    data-content="<div class='txtPO'>Si le asigna estos permisos al usuario, este podrá:<br/>&nbsp&nbsp -Crear cuentas de usuario.<br/>&nbsp&nbsp -Registrar empleados.<br/>&nbsp&nbsp -Modificar empleados.<br/>&nbsp&nbsp -Eliminar empleados.<br/>&nbsp&nbsp -Modificar Citas.<br/><button class='btn btn-danger cerrarPop'>Cerrar</button></div>"
+                                     data-placement="right"
+                                     data-trigger="click"
+                                   >?</button> 
+                    
                     </div>
                     <div class="form-group">
                                     <label>Nombre de usuario<obligatorio>*</obligatorio></label>
