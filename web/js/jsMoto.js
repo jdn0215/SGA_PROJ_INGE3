@@ -233,3 +233,13 @@ const getAllEstados=moto=>{
         }else $("#tituloBusqueda").html("Ocurrio algún problema durante la búsqueda, intente de nuevo");
     });
 };
+
+const buscaCitaByMotor=moto=>{
+    moto.motor=cut(moto.motor);
+    $Proxy.proxy($$("MOTO",moto),"buscaCitaByMotor","CITAS",res=>{
+        if(Array.isArray(res)){
+             $("#botonresultados").click();
+             crearTable(res,4);
+        }else $("#tituloBusqueda").html("Ocurrio algún problema durante la búsqueda, intente de nuevo");
+    });
+};

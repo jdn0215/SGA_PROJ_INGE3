@@ -10,12 +10,12 @@ const eventoMotosCliente=e=>getAllMotos(resultadosClientes[e.target.idx]);
 
 
 let resultadosMotos;
-const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg","btn-update","bt-add","bt-ver"];
-const HDRMT=["Cliente","Modelo","Año","Motor","Chasis","Placa","AVG","Modificar registro","Añadir Registro","Historial de Registros"];
+const attMT=["cliente","modelo","anno","motor","chasis","placa","placaavg","btn-update","bt-add","bt-ver","bt-HC"];
+const HDRMT=["Cliente","Modelo","Año","Motor","Chasis","Placa","AVG","Modificar registro","Añadir Registro","Historial de Registros","Historial de Citas"];
 const eventoTablaMoto=e=>reconstruirMoto(resultadosMotos[e.target.idx]);
 const eventoTablaMotoAddEstado=e=>addEstadoMoto(resultadosMotos[e.target.idx]);
 const eventoTablaMotoVerEstado=e=>getAllEstados(resultadosMotos[e.target.idx]);
-
+const eventoTablaMotoHistorial=e=>buscaCitaByMotor(resultadosMotos[e.target.idx]);
 
 let resultadoEmpleados;
 const attEM=["idempleado","nombre","isJefe","isAsesor","correo","telefono","activo","btn-update"];
@@ -162,11 +162,11 @@ const cellCliente=(dato,obj,idx)=>{
         case "zona": 
             return createCell(obj.zona.zona,null,"click",idx,false);
         case "btn-update":
-            return createCell("Modificar",eventoTablaCliente,"click",idx,false,"",true);
+            return createCell(edit,eventoTablaCliente,"click",idx,false,"",true);
         case "bt-H":
-            return createCell("Ver",eventoHCliente,"click",idx,false,"",true);
+            return createCell(ver,eventoHCliente,"click",idx,false,"",true);
         case "bt-M":
-            return createCell("Ver",eventoMotosCliente,"click",idx,false,"",true);
+            return createCell(ver,eventoMotosCliente,"click",idx,false,"",true);
         default: return createCell(obj[dato],null,"click",idx,false);             
     }
 };
@@ -177,11 +177,13 @@ const cellMoto=(dato,obj,idx)=>{
         case "placaavg":
             return createCell(obj[dato]===""?"-":obj[dato],null,"click",idx,false);
         case "btn-update":
-            return createCell("Modificar",eventoTablaMoto,"click",idx,false,"",true);
+            return createCell(edit,eventoTablaMoto,"click",idx,false,"",true);
         case "bt-add":
-            return createCell("Añadir",eventoTablaMotoAddEstado,"click",idx,false,"",true);
+            return createCell(add,eventoTablaMotoAddEstado,"click",idx,false,"",true);
         case "bt-ver":
-            return createCell("Ver",eventoTablaMotoVerEstado,"click",idx,false,"",true);
+            return createCell(ver,eventoTablaMotoVerEstado,"click",idx,false,"",true);
+        case "bt-HC":
+            return createCell(ver,eventoTablaMotoHistorial,"click",idx,false,"",true);
         default:return createCell(obj[dato],null,"click",idx,false);
     }
 };
@@ -194,7 +196,7 @@ const cellEmpleado=(dato,obj,idx)=>{
         case "activo":
             return createCell(obj[dato]?imgCheck:imgEquis,null,"click",idx,false);
         case "btn-update":
-            return createCell(usuarioActual.isAdmin?"Modificar":"Ver",eventoTablaEmpleado,"click",idx,false,"",true);
+            return createCell(usuarioActual.isAdmin?edit:ver,eventoTablaEmpleado,"click",idx,false,"",true);
         default: return createCell(obj[dato],null,"click",idx,false);;
     }
 };
@@ -212,9 +214,9 @@ const cellCitas=(dato,obj,idx)=>{
         case "orden":
             return createCell(obj[dato]===0?"-":obj[dato],null,"click",idx,false);
          case "btn-update":
-            return createCell(usuarioActual.isAdmin?"Modificar":"Ver",eventoTablaCita,"click",idx,false,"",true);
+            return createCell(usuarioActual.isAdmin?edit:ver,eventoTablaCita,"click",idx,false,"",true);
           case "btn-ver":
-            return createCell("Ver",eventoObservacionVer,"click",idx,false,"",true);
+            return createCell(ver,eventoObservacionVer,"click",idx,false,"",true);
         default: return createCell(obj[dato],null,"click",idx,false);
     }
 };
@@ -231,7 +233,7 @@ const DateMonthYear=d=>
     d.getDate()+"-"+mes(d.getMonth())+"-"+d.getFullYear();
 
 const toText=(fecha)=>{
-   if(fecha == 'Invalid Date')
+   if(fecha == 'Invalid Date' || fecha===undefined)
        return "-";
   let h=fecha.getHours(),m=fecha.getMinutes();
   return DateMonthYear(fecha)+" "+(h>12?h-12:h)+":"+((m<10?"0":"")+m)+" "+(h>=12?"pm":"am");
@@ -261,7 +263,8 @@ const textEllipsis=(T,idx)=>{
 
 const updateBtn=(f,index,txt)=>{
    let bt = document.createElement("button");
-   bt.className="btn btn-warning";
+   bt.className="btn";
+   $(bt).addClass( txt===ver?"btn-info":txt===edit?"btn-warning":"btn-success");
    bt.id=index;
    bt.idx = index;
    bt.innerHTML=txt;
@@ -286,3 +289,7 @@ const nvlGas=i=>{
       default:return "Full";
   }  
 };
+
+const edit = "Editar";
+const add = "Añadir";
+const ver ="Ver";

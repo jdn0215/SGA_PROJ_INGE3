@@ -239,4 +239,10 @@ public class Modelo {
         ResultSet rs = db.executeQuery(query.buildQuery(c, Query.buscaEstadoByMotor));
         return _class.toCollection(rs,Estado.class.getSimpleName());
     }
+    
+    public static List<? extends Object> buscaCitaByMotor(Moto c){
+        ResultSet rs = db.executeQuery(query.buildQuery(c, Query.buscaCitaByMotor));
+        return _class.toCollection(rs,Cita.class.getSimpleName());
+    }
+    
 }
