@@ -227,12 +227,13 @@ const llenarMes=(mes="_mes",dia="_dia",topeBajo=0)=>{
     const cambioDeContexto=nuevo=>{
         $(".OpcDinamica").hide('fast');
         $($("#formulariosBt")[0].childNodes[2]).replaceWith("Formularios");
+        $("#Search").hide();
         switch(nuevo){
             case 1: return tituloPag("CLIENTES"),clearClientes();
             case 2: return tituloPag("MOTOCILETAS"),clearMoto();
             case 3: return tituloPag("EMPLEADOS"),clearEmpleados();
             case 4: return tituloPag("CITAS"),clearCitas();
-            case 5: return tituloPag("BÚSQUEDAS");
+            case 5: return tituloPag("BÚSQUEDAS"),$("#Search").show();
             case 6: return tituloPag("AGENDA"),agenda.reload();
             case 7: return tituloPag("REPORTES");
         }

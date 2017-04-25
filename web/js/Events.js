@@ -10,10 +10,10 @@ const events=()=>{
     EmpleadosEvents();
     MotosEvents();
     citasEvents();
-    $( window ).bind( 'beforeunload',()=>{
+    /*$( window ).bind( 'beforeunload',()=>{
           logout();
         return false;
-    });
+    });*/
     $("#popCancel").click(()=>{$id("pop").style="display:none";});
     calendarEvents();
     $("#formulariosBt").click(()=>{

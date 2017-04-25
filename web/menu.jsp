@@ -62,18 +62,18 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a id="opcionesDeBusqueda1" class="btnBusq" href="#">
-                                      <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbspClientes</a></li>
+                              <li><a id="opcionesDeBusqueda4" class="btnBusq" href="#">
+                                      <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbspCitas</a></li>
                             <div class="divider" style="background-color:#819FF7"></div>  
-                            <li><a id="opcionesDeBusqueda2" class="btnBusq"href="#">
-                                      <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp&nbspMotocicletas</a></li>
+                            <li><a id="opcionesDeBusqueda1" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp&nbspClientes</a></li>
                             <div class="divider" style="background-color:#819FF7"></div>          
-                            <li><a id="opcionesDeBusqueda3" class="btnBusq"href="#">
-                                      <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbsp&nbspEmpleados</a></li>
+                            <li><a id="opcionesDeBusqueda2" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbsp&nbspMotocicletas</a></li>
                             <div class="divider" style="background-color:#819FF7"></div>
           
-                              <li><a id="opcionesDeBusqueda4" class="btnBusq"href="#">
-                                       <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspCitas</a></li>
+                              <li><a id="opcionesDeBusqueda3" class="btnBusq"href="#">
+                                       <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspEmpleados</a></li>
                             </ul>
                         </li> 
                         
@@ -85,18 +85,18 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a id="opcionesDeBusquedaa" class="btnBusq" href="#">
-                                      <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbspCliente nuevo</a></li>
+                              <li><a id="opcionesDeBusquedad" class="btnBusq" href="#">
+                                      <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbspCita nueva</a></li>
                             <div class="divider" style="background-color:#819FF7"></div>  
-                            <li><a id="opcionesDeBusquedab" class="btnBusq"href="#">
-                                      <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp&nbspMotocicleta nueva</a></li>
+                            <li><a id="opcionesDeBusquedaa" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-wrench"></span>&nbsp&nbsp&nbspCliente nuevo</a></li>
                             <div class="divider" style="background-color:#819FF7"></div>          
-                            <li><a id="opcionesDeBusquedac" class="btnBusq"href="#">
-                                      <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbsp&nbspEmpleado nuevo</a></li>
+                            <li><a id="opcionesDeBusquedab" class="btnBusq"href="#">
+                                      <span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbsp&nbspMotocicleta nueva</a></li>
                             <div class="divider" id="dividerC"style="background-color:#819FF7"></div>
           
-                              <li><a id="opcionesDeBusquedad" class="btnBusq"href="#">
-                                       <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspCita nueva</a></li>
+                              <li><a id="opcionesDeBusquedac" class="btnBusq"href="#">
+                                       <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspEmpleado nuevo</a></li>
                             </ul>
                         </li> 
                         

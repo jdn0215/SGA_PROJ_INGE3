@@ -15,7 +15,7 @@
           data-content="<div class='txtPO'>En esta sección podrá realizar búsqueda de datos.<br/><br><br/>No se diferencia si es una mayúscula o una minúscula, por lo que puede escribir de cualquiera de las dos formas.<br/><br><br/>No es necesario escribir todo el criterio de búsqueda, ya que el sistema buscará las aproximaciones, de acuerdo a lo que usted digite.<br/><br><br/>Entre más especifico sea, mejores resultados obtendrá .<br/><button class='btn btn-danger cerrarPop'>Cerrar</button></div>"
            data-placement="rigth"
            data-trigger="click"
-         >?</button>
+         >  ?</button>
             <center>
 
             <table style="width:85%" style="display: block;" >
