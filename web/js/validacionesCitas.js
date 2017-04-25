@@ -27,16 +27,7 @@ const VALIDACIONES_CITAS = [
         "proformaCita"," -Número de proforma no valido- ",
         ()=> $id("proformaCita").value!=="" && !isNaN($id("proformaCita").value)  
     ),
-    
-    new Validacion(
-        "comboGarantia","Especifique el tipo de Garantía  ",
-        ()=>{
-            let a = $id("comboGarantia").value;
-            if(a==="")return false;
-            addRegistro(idg,a);
-            return true;
-        }
-    ),
+
     new Validacion(
         "tipoCita","Especifique el tipo de trabajo  ",
         ()=>{

@@ -50,7 +50,7 @@ const construirCita=(cita=null)=>{
             $("#clienteCita").val(),
             motosDelClienteBuscado[$id("motocito").selectedIndex].motor,
             recepcionistaActual,
-            $("#comboGarantia").val(),
+            $("#citaModelo").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
@@ -64,7 +64,7 @@ const construirCita=(cita=null)=>{
             cita.cliente,
             cita.moto,
             cita.recepcionista,
-            $("#comboGarantia").val(),
+            $("#citaModelo").val(),
             $("#tipoCita").val(),
             $("#EmpleadoCita")[0].selectedIndex === 0 ? cita.mecanico :  $("#EmpleadoCita").val().split('- ')[1],
             armarFecha(),
@@ -237,12 +237,12 @@ const reconstruirCita=(cita)=>{
          $("#buttonCitasModificar").hide();
          $("#motivosCita").hide();   
     }  
-    $("#comboGarantia").val(cut(cita.garantia.toUpperCase()));
+    $("#citaModelo").val(cut(cita.modelo.toUpperCase()));
     $("#tipoCita").val(cut(cita.tipoDeTrabajo.toUpperCase()));
 };
 
 const disabled_enabled=e=>{
-    $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#garantiaCita,#tipoCita,#EmpleadoCita,#motivosCita")
+    $(".tc1,.tc2,.tc3,#citaPendiente,#EnProceso,#citaCumplida,#citaCancelada,#tipoCita,#EmpleadoCita,#motivosCita")
                         .prop("disabled",e);
 };
 const reArmarFecha=(fecha,ano,mes,dia,hr,callback=null,cita=null)=>{
@@ -310,10 +310,8 @@ const clearCitas=()=>{
     $("#motivosCita").show();
     $("#divSalidaCita").hide();
     
-    $("#dataGarantia").empty();
+
     $("#dataTipo").empty();
-    levantarRegistro(idg);
-    cargarOpciones(garantias,"dataGarantia");
     levantarRegistro(idt);
     cargarOpciones(tiposTrabajo,"dataTipo");
     clearMensaje();   
@@ -339,6 +337,7 @@ const FF=()=>{
         motos.clear;  
         motos.length=1;
         motos.options[0].text="Ingrese la identificación del cliente";
+        $("#citaModelo").val("");
 };
 const cargarMotos=()=>{
     
@@ -363,7 +362,8 @@ const cargarMotos=()=>{
                                         :e.placaavg!==""? ((i+1)+". AVG: "+e.placaavg)
                                         :((i+1)+". Motor: "+e.motor);
                        motos.options[i].value=i;
-
+                       $("#citaModelo").val(res[0].modelo);
+                       $("#motocito").change(e=>$("#citaModelo").val(motosDelClienteBuscado[e.target.value].modelo) );
                    });
                }
            }
@@ -432,8 +432,6 @@ const eventoBarra=e=>{
 const compararCita=(a,b)=>{
   //let mj = "no se realizó cambio alguno."
   let mj="";
-  if(a.garantia !== b.garantia)
-      mj+= ("cambio de la ganatía de <<"+a.garantia+">> a <<"+b.garantia+">>\n");
   if(a.tipoDeTrabajo !== b.tipoDeTrabajo)
       mj+= ("cambio del tipo de trabajo de <<"+a.tipoDeTrabajo+">> a <<"+b.tipoDeTrabajo+">>\n");
   if(a.estado !== b.estado)

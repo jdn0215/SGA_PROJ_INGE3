@@ -1,7 +1,7 @@
 
 
 class Cita{
-   constructor(proforma=0,orden=0,cliente="",moto="",recepcionista="",garantia="",tipoDeTrabajo="",
+   constructor(proforma=0,orden=0,cliente="",moto="",recepcionista="",modelo="",tipoDeTrabajo="",
                 mecanico="",entrada=null,salida=null,prometida=null,estado=0){
        this.proforma=proforma;
        this.cliente=cliente;
@@ -10,7 +10,7 @@ class Cita{
        else this.orden=proforma;
        this.moto=moto;
        this.recepcionista=recepcionista;
-       this.garantia=garantia;
+       this.modelo=modelo;
        this.tipoDeTrabajo=tipoDeTrabajo;
        this.mecanico=mecanico;
        this.entrada=entrada;
@@ -21,7 +21,7 @@ class Cita{
        this.estado=estado;
    }
    static from(p){
-       return new Cita(p.proforma,p.orden,p.cliente,p.moto,p.recepcionista,p.garantia,p.tipoDeTrabajo,
+       return new Cita(p.proforma,p.orden,p.cliente,p.moto,p.recepcionista,p.modelo,p.tipoDeTrabajo,
                 p.mecanico,new Date(p.entrada),new Date(p.salida),new Date(p.prometida),p.estado);
    }
    static to(p){
@@ -32,7 +32,7 @@ class Cita{
         cliente :p.cliente,
         moto    :p.moto,
         recepcionista:p.recepcionista,
-        garantia:p.garantia,
+        modelo:p.modelo,
         tipoDeTrabajo:p.tipoDeTrabajo,
         mecanico :p.mecanico,
         entrada  :p.entrada,

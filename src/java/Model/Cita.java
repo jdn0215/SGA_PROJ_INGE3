@@ -17,13 +17,13 @@ public class Cita implements Serializable, Jsonable{
      //Pendiente(0),Cancelada(1),EnProceso(2),Entregada(3);
 
     int proforma,orden,estado;
-    String cliente,moto,recepcionista,garantia,tipoDeTrabajo,mecanico;
+    String cliente,moto,recepcionista,modelo,tipoDeTrabajo,mecanico;
     Date entrada,salida,prometida;
     public Cita(int p){
         this.proforma=this.orden=p;
     }
      public Cita(String p){
-        cliente=moto=recepcionista=garantia=tipoDeTrabajo=mecanico=p;
+        cliente=moto=recepcionista=modelo=tipoDeTrabajo=mecanico=p;
     
      }
 
@@ -37,13 +37,13 @@ public class Cita implements Serializable, Jsonable{
      
      
      
-    public Cita(int proforma, int orden, String cliente, String moto, String recepcionista, String garantia, String tipoDeTrabajo, String mecanico, Date entrada, Date salida, Date prometida, int estado) {
+    public Cita(int proforma, int orden, String cliente, String moto, String recepcionista, String modelo, String tipoDeTrabajo, String mecanico, Date entrada, Date salida, Date prometida, int estado) {
         this.proforma = proforma;
         this.orden = orden;
         this.cliente = cliente;
         this.moto = moto;
         this.recepcionista = recepcionista;
-        this.garantia = garantia;
+        this.modelo = modelo;
         this.tipoDeTrabajo = tipoDeTrabajo;
         this.mecanico = mecanico;
         this.entrada = entrada;
@@ -59,7 +59,7 @@ public class Cita implements Serializable, Jsonable{
         this.cliente = "";
         this.moto = "";
         this.recepcionista = "";
-        this.garantia = "";
+        this.modelo = "";
         this.tipoDeTrabajo = "";
         this.mecanico = "";
         this.entrada = null;
@@ -108,12 +108,12 @@ public class Cita implements Serializable, Jsonable{
         this.recepcionista = recepcionista;
     }
 
-    public String getGarantia() {
-        return garantia;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setGarantia(String garantia) {
-        this.garantia = garantia;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getTipoDeTrabajo() {

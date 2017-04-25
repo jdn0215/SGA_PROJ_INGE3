@@ -190,7 +190,7 @@ public class QueryController {
                 if(c.getSalida() == null)
                     return String.format(Query.crearCita2.query,
                         c.getProforma(),c.getCliente(),
-                        c.getMoto(),c.getRecepcionista(),c.getGarantia(),
+                        c.getMoto(),c.getRecepcionista(),c.getModelo(),
                         c.getOrden()==0?"null":String.valueOf(c.getOrden()),
                         c.getTipoDeTrabajo(),DATE_TIME(c.getEntrada()),
                         DATE_TIME(c.getPrometida()),c.getMecanico(),c.getEstado()
@@ -198,7 +198,7 @@ public class QueryController {
                 else 
                     return String.format(q.query,
                            c.getProforma(),c.getCliente(),
-                        c.getMoto(),c.getRecepcionista(),c.getGarantia(),
+                        c.getMoto(),c.getRecepcionista(),c.getModelo(),
                         c.getOrden()==0?"null":String.valueOf(c.getOrden()),
                         c.getTipoDeTrabajo(),DATE_TIME(c.getEntrada()),
                         DATE_TIME(c.getPrometida()),
@@ -220,13 +220,13 @@ public class QueryController {
             case "upDateCita":
                 if(c.getSalida() == null)
                     return String.format(Query.upDateCita2.query,c.getProforma(),c.getCliente(),
-                        c.getMoto(),c.getRecepcionista(),c.getGarantia(),
+                        c.getMoto(),c.getRecepcionista(),c.getModelo(),
                         c.getTipoDeTrabajo(),DATE_TIME(c.getEntrada()),
                         DATE_TIME(c.getPrometida()),c.getMecanico(),c.getEstado()
                        );
                 else 
                     return String.format(q.query,c.getProforma(),c.getCliente(),
-                        c.getMoto(),c.getRecepcionista(),c.getGarantia(),
+                        c.getMoto(),c.getRecepcionista(),c.getModelo(),
                         c.getTipoDeTrabajo(),DATE_TIME(c.getEntrada()),
                         DATE_TIME(c.getPrometida()),
                         DATE_TIME(c.getSalida()),c.getMecanico(),

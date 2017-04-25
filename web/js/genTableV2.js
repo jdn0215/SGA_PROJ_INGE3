@@ -25,8 +25,8 @@ const eventoTablaEmpleado=e=>{
 };
 
 let Arraycitas;
-const attCT=["proforma","orden","cliente","moto"       ,"garantia","tipoDeTrabajo" ,"mecanico","entrada"           ,"salida"           ,"prometida"      ,"estado","btn-ver" ,    "btn-update"];
-const HDRCT=["Orden","Proforma","Cliente","Motocicleta","Garantía","Tipo de Trabajo","Mecánico","Entrada al taller","Salida del Taller","Fecha prometida","Estado de la cita","Observaciones" ,usuario.isAdmin?"Modificar Registro":"Ver Registro"];
+const attCT=["proforma","orden","cliente","moto"       ,"modelo","tipoDeTrabajo" ,"mecanico","entrada"           ,"prometida"           ,"salida"      ,"estado","btn-ver" ,    "btn-update"];
+const HDRCT=["Orden","Proforma","Cliente","Motocicleta","Modelo","Tipo de Trabajo","Mecánico","Entrada al taller","Fecha prometida"     ,"Salida del Taller","Estado de la cita","Observaciones" ,usuario.isAdmin?"Modificar Registro":"Ver Registro"];
 const eventoTablaCita=e=>buscaCita(e.target.idx);
 const eventoObservacionVer=e=>observacionesPopOver(e);
 
@@ -58,6 +58,7 @@ const labels=type=>{
 
 
 const crearTable=(arr,type)=>{
+    $("#Search").hide();
     CurrentHr=-1;
     if($id("tituloBusqueda").firstChild!==null)
           $id("tituloBusqueda").removeChild($id("tituloBusqueda").firstChild);

@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="CTexto">Recepcionista quien crea la cita:<obligatorio>*</obligatorio></label>
+                    <label for="CTexto">Quien crea la cita:<obligatorio>*</obligatorio></label>
                     <input type ="text" name="CTexto" disabled class="form-control" id = "recepcionistaCita">
                 </div>
                 <div class="form-group">
@@ -59,11 +59,8 @@
                     <input type ="text" name="CTexto" class="form-control citaDis" id = "proformaCita">
                 </div>
                 <div class="form-group">
-                <label> Garantia<obligatorio>*</obligatorio></label>
-                        <input id="comboGarantia" list="dataGarantia"  class="form-control">
-                        <datalist id="dataGarantia">
-                        </datalist>
-        
+                <label> Modelo<obligatorio>*</obligatorio></label>
+                        <input id="citaModelo" disabled  class="form-control">        
                 </div>
                 <!--
                 EL ID CAMBIO PORQ AHORA ES UN COMBOBOX
