@@ -57,7 +57,8 @@ public enum Query{
     buscaEstadoByMotor("select * from buscaEstadoByMotor('%s');"),
     buscaCitaByMotor("select * from buscaCitaByMotor('%s');"),
     getUsers("select * from getUsers('%s') as U(\n" +
-            "a character(20),d character(30),b boolean,c character(20));");
+            "a character(20),d character(30),b boolean,c character(20));"),
+    setIsAdmin("select * from setIsAdmin('%s',%b);");
     public final String query;
     Query(String a){
         query=a;

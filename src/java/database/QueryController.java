@@ -156,6 +156,8 @@ public class QueryController {
                  return String.format(query.query, u.getId(),u.getMD5PSWRD());
              case "getUsers":
                  return String.format(query.query, u.getId());
+             case "setIsAdmin":
+                 return String.format(query.query, u.getId(),u.isIsAdmin());
             default: return "";
         }
     }

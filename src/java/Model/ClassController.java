@@ -151,6 +151,36 @@ public class ClassController {
             return new Usuario("no hay","",false,"");
         }
     }
+    
+    
+    
+    
+    public List<? extends Object >toUsuarios(ResultSet rs){
+        try {
+           List<Object>d=new ArrayList<>();
+            while(rs.next())
+                d.add(toUsuario2(rs));
+            return d;
+        } catch (SQLException ex) {
+            System.err.print(ex);
+        }
+        return null;
+    }
+    private Usuario toUsuario2(ResultSet rs) {
+        try{
+            return 
+            new Usuario(
+                 rs.getString(1),
+                 rs.getString(2),
+                 rs.getBoolean(3),
+                 rs.getString(4)
+            );
+        } catch (SQLException ex) {
+            return new Usuario("no hay","",false,"");
+        }
+    }
+    
+    
     private Cita toCita(ResultSet rs){
         try{
             String aux  = rs.getString(10);

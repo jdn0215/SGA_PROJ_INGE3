@@ -325,16 +325,25 @@ const buscaUsuarios=()=>{
 let usuarioCambio=null;
 let opcUCambio = -1;
 let checkCambio=null;
+let estado;
 const cambioDeAdmins=e=>{
     usuarioCambio=null;
     opc = -1;
     checkCambio=null;
     checkCambio=e.target;
-    let estado = e.target.checked;
+    estado = e.target.checked;
     opcUCambio = e.target.id;
+    usuariosEncontrados[opcUCambio].isAdmin = estado;
     usuarioCambio=usuariosEncontrados[opcUCambio];
-    usuarioCambio.isAdmin = estado;
     let mj,hdr;
+    if(!estado && !verificaSuficientes()){
+        checkCambio.checked = !estado;
+        alert("DEBE EXISTIR AL MENOS UN USUARIO ADMINISTRADOR ADEMÁS DE USTED.");
+        $("#popbuttonSubmit").hide();
+        popUp("IMPOSIBLE ELIMINAR A ESTE ADMINISTRADOR",()=>1,"La página debe tener al menos a 2 administradores");
+        return;
+    }
+    $("#popbuttonSubmit").show();
     if(estado){
         mj ="Si le asigna estos permisos al usuario, este podrá:<br/>&nbsp&nbsp -Crear cuentas de usuario.<br/>&nbsp&nbsp -Registrar empleados.<br/>&nbsp&nbsp -Modificar empleados.<br/>&nbsp&nbsp -Eliminar empleados.<br/>&nbsp&nbsp -Modificar Citas.";
         hdr ="CONFIRMACIÓN DE ASIGNACIÓN DE PERMISOS";
@@ -342,15 +351,15 @@ const cambioDeAdmins=e=>{
         mj ="Si le asigna estos permisos al usuario, este ya no podrá:<br/>&nbsp&nbsp -Crear cuentas de usuario.<br/>&nbsp&nbsp -Registrar empleados.<br/>&nbsp&nbsp -Modificar empleados.<br/>&nbsp&nbsp -Eliminar empleados.<br/>&nbsp&nbsp -Modificar Citas.";
         hdr ="CONFIRMACIÓN DE DENEGACIÓN DE PERMISOS";
     }
-    popUp("CAMBIO DE USUARIO",()=>{
-         $Proxy.proxy($$("getUsers",usuarioCambio),"getUsers","EMPLEADO",res=>{
+    popUp(hdr,()=>{
+         $Proxy.proxy($$("USUARIO",usuarioCambio),"setIsAdmin","EMPLEADO",res=>{
              
-        });
-        if(!popUpAux)
-            checkCambio.cheked = !checkCambio.cheked;
-            
+        });            
     },mj,()=>{
         if(!popUpAux)
-            checkCambio.cheked = !checkCambio.cheked;
+            checkCambio.checked = !estado;
     });
 };
+
+const verificaSuficientes=()=>
+    usuariosEncontrados.reduce((a,e)=>e.isAdmin?a+1:a,0)>= 1;

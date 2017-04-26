@@ -246,7 +246,11 @@ public class Modelo {
     }
      public static List<? extends Object> getUsers(Usuario u){
         ResultSet rs = db.executeQuery(query.buildQuery(u, Query.getUsers));
-        return _class.toCollection(rs,Usuario.class.getSimpleName());
+        return _class.toUsuarios(rs);///chanchada de ultima hora
     }
+     public static int setIsAdmin(Usuario u){
+         db.executeQuery(query.buildQuery(u, Query.setIsAdmin));
+         return 1;
+     }
     
 }

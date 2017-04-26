@@ -277,6 +277,12 @@ public class servlet extends HttpServlet {
                             json=gson.toJson(Modelo.getUsers(user));
                             out.write(json);
                         break; 
+                        case "setIsAdmin":
+                            json=request.getParameter("USUARIO");
+                            user=gson.fromJson(json, Usuario.class);
+                            json=gson.toJson(Modelo.setIsAdmin(user));
+                            out.write(json);
+                        break; 
                             
         }
                        
