@@ -55,7 +55,9 @@ public enum Query{
     upDateCita2("select * from upDateCita(%d,'%s','%s','%s','%s','%s','%s','%s',null,'%s',%d);"),
     buscaCitaByCliente("select * from buscaCitaByCliente('%s');"),
     buscaEstadoByMotor("select * from buscaEstadoByMotor('%s');"),
-    buscaCitaByMotor("select * from buscaCitaByMotor('%s');");
+    buscaCitaByMotor("select * from buscaCitaByMotor('%s');"),
+    getUsers("select * from getUsers('%s') as U(\n" +
+            "a character(20),d character(30),b boolean,c character(20));");
     public final String query;
     Query(String a){
         query=a;

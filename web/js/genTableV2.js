@@ -35,6 +35,11 @@ const attET=["moto","kilometraje","aceite","gas","danosPrevios","observaciones",
 const HDRET=["Motor","Kilometraje","Nivel de aceite","Nivel de gasolina","Daños Previos","Observaciones adicionales","Fecha del registro"];
 
 
+const attU=["id","empleado","pwsd","isAdmin"];
+const HDRU=["Usuario","Indetificación","Nombre","Administrador de la página"];
+const eventoUsuario=e=>cambioDeAdmins(e);
+
+
 const atributos=type=>{
     switch(type){
         case 1 : return attCL;
@@ -42,6 +47,7 @@ const atributos=type=>{
         case 3 : return attEM;
         case 4 : return attCT;
         case 5 : return attET;
+        case 6 : return attU;
         default: return null;
     }
 };
@@ -52,6 +58,7 @@ const labels=type=>{
         case 3 : return HDREM;
         case 4 : return HDRCT;
         case 5 : return HDRET;
+        case 6 : return HDRU;
         default: return null;
     }
 };
@@ -148,9 +155,32 @@ const Cell=(dato,obj,type,idx)=>{
       case 3: return cellEmpleado(dato,obj,idx);
       case 4: return cellCitas(dato,obj,obj.proforma);
       case 5: return cellEstado(dato,obj,idx);
+      case 6: return cellUsuario(dato,obj,idx);
       default:return createCell(dato);
   }//end switch1 
   return null;
+};
+
+const cellUsuario=(dato,obj,idx)=>{
+    switch(dato){
+        case "isAdmin":
+            return cellCheck(obj[dato],eventoUsuario,idx);
+        default:return createCell(obj[dato],null,"click",idx,false);
+    }
+};
+
+
+const cellCheck=(dato,eventom,idx)=>{
+    let cell=document.createElement("td");
+    let check = document.createElement("input");
+    check.setAttribute("type","checkbox");
+    check.setAttribute("data-toggle","modal");
+    check.setAttribute("data-target","#myModal")
+    check.id = idx;
+    check.checked=dato;
+    $(check).click(e=>eventom(e));
+    cell.appendChild(check);
+    return cell;
 };
 
 

@@ -74,6 +74,9 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
           
                               <li><a id="opcionesDeBusqueda3" class="btnBusq"href="#">
                                        <span class="glyphicon glyphicon-th-list"></span>&nbsp&nbsp&nbspEmpleados</a></li>
+                                 <div class="divider lastDivider" style="background-color:#819FF7"></div>   
+                              <li><a id="opcionesDeBusqueda5" class="btnBusq"href="#">
+                                       <span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbspUsuarios</a></li>   
                             </ul>
                         </li> 
                         

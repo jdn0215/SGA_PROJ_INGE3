@@ -34,6 +34,8 @@ const events=()=>{
         $("#buttonCitasModificar").remove("#buttonCitasModificar");
         $("#opcionesDeBusquedac").remove("#opcionesDeBusquedac");
         $("#dividerC").remove("#dividerC");
+        $(".lastDivider").remove(".lastDivider"); 
+        $("#opcionesDeBusqueda5").remove("#opcionesDeBusqueda5"); 
     }
     $(".bt-help").click(e=>{$(e.target).popover({html:true});
                             $(e.target).popover("show");
@@ -61,6 +63,7 @@ const indexEvents=()=>{
     $("#opcBusqueda").click(()=>cambioDeContexto(5));
     $("#opcReportes").click(()=>cambioDeContexto(7));
     $("#botonLogOut").click(()=>logout()); 
+    
     cambioDeContexto(6);
    
 };
@@ -80,8 +83,10 @@ const BusquedaEvents=()=>{
                   $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por la identificación del empleado o por el nombre."));
                  return $("#BEMPLEADOTR").show("fast");
             case "opcionesDeBusqueda4":
-                  $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por el número de proforma o de orden, la identificación del cliente, o el número de motor de la motocicleta."));
-                return $("#BCITATR").show("fast");
+                 return  $("#aclaracionBusqueda").html(document.createTextNode("Se puede realizar la búsqueda por el número de proforma o de orden, la identificación del cliente, o el número de motor de la motocicleta.")),$("#BCITATR").show("fast");
+             case "opcionesDeBusqueda5":
+                 return buscaUsuarios();
+                
         }
     });
     $(".opcBusq").hide();

@@ -1,4 +1,4 @@
-/* global $id, IDFORMAT, mailFormat, TELFORMAT, Proxy, passWordFormat, $Proxy, agenda */
+/* global $id, IDFORMAT, mailFormat, TELFORMAT, Proxy, passWordFormat, $Proxy, agenda, usuarioActual, popUpAux */
 
 var idEmpleado="";
 let ve;
@@ -310,4 +310,47 @@ const reconstructId=(t,id)=>{
             return $id("MtextID2").value=id;        
     }
     
+};
+let usuariosEncontrados;
+const buscaUsuarios=()=>{
+  $Proxy.proxy($$("USUARIO",usuarioActual),"getUsers","USUARIOS",res=>{
+        if(Array.isArray(res)){
+            $id("botonresultados").click();
+            usuariosEncontrados=res;
+            crearTable(usuariosEncontrados,6);
+        }
+  });
+};
+
+let usuarioCambio=null;
+let opcUCambio = -1;
+let checkCambio=null;
+const cambioDeAdmins=e=>{
+    usuarioCambio=null;
+    opc = -1;
+    checkCambio=null;
+    checkCambio=e.target;
+    let estado = e.target.checked;
+    opcUCambio = e.target.id;
+    usuarioCambio=usuariosEncontrados[opcUCambio];
+    usuarioCambio.isAdmin = estado;
+    let mj,hdr;
+    if(estado){
+        mj ="Si le asigna estos permisos al usuario, este podrá:<br/>&nbsp&nbsp -Crear cuentas de usuario.<br/>&nbsp&nbsp -Registrar empleados.<br/>&nbsp&nbsp -Modificar empleados.<br/>&nbsp&nbsp -Eliminar empleados.<br/>&nbsp&nbsp -Modificar Citas.";
+        hdr ="CONFIRMACIÓN DE ASIGNACIÓN DE PERMISOS";
+    }else{
+        mj ="Si le asigna estos permisos al usuario, este ya no podrá:<br/>&nbsp&nbsp -Crear cuentas de usuario.<br/>&nbsp&nbsp -Registrar empleados.<br/>&nbsp&nbsp -Modificar empleados.<br/>&nbsp&nbsp -Eliminar empleados.<br/>&nbsp&nbsp -Modificar Citas.";
+        hdr ="CONFIRMACIÓN DE DENEGACIÓN DE PERMISOS";
+    }
+    popUp("CAMBIO DE USUARIO",()=>{
+         $Proxy.proxy($$("getUsers",usuarioCambio),"getUsers","EMPLEADO",res=>{
+             
+        });
+        if(!popUpAux)
+            checkCambio.cheked = !checkCambio.cheked;
+            
+    },mj,()=>{
+        if(!popUpAux)
+            checkCambio.cheked = !checkCambio.cheked;
+    });
 };

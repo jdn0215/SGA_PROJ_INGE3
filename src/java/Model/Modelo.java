@@ -244,5 +244,9 @@ public class Modelo {
         ResultSet rs = db.executeQuery(query.buildQuery(c, Query.buscaCitaByMotor));
         return _class.toCollection(rs,Cita.class.getSimpleName());
     }
+     public static List<? extends Object> getUsers(Usuario u){
+        ResultSet rs = db.executeQuery(query.buildQuery(u, Query.getUsers));
+        return _class.toCollection(rs,Usuario.class.getSimpleName());
+    }
     
 }

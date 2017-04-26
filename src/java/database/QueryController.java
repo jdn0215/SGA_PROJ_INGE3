@@ -154,6 +154,8 @@ public class QueryController {
                 return String.format(query.query,u.getId());
              case "cambioPW":
                  return String.format(query.query, u.getId(),u.getMD5PSWRD());
+             case "getUsers":
+                 return String.format(query.query, u.getId());
             default: return "";
         }
     }

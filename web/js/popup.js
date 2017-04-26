@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 /* global $Proxy, $id */
-
-const popUp=(hdr,f,mj)=>{
+var popUpAux=false;
+const popUp=(hdr,f,mj,g=null)=>{
+    popUpAux=false;
     validacion();
      $id("popHDR").innerHTML=hdr;
     $id("popMj").innerHTML=mj;
+    if(g!==null)
+        $("#closepopup").click(e=>g(e));
     $("#popbuttonSubmit").click(()=>{
         validacion();
         let _id=document.getElementById("poptextUsuario").value;
@@ -16,6 +19,7 @@ const popUp=(hdr,f,mj)=>{
         let u=new Usuario(_id,_pwsd);
         $Proxy.proxy($$("USER",u),"login","USUARIO",res=>{
         if(res.id!=="no hay"){
+            popUpAux=true;
             f();
             $id("closepopup").click();
             validacion();
