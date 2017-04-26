@@ -49,7 +49,7 @@ Una vez enviado lo que se desea buscar, el sistema agrupa los resultados obtenid
 El sistema cuenta con formularios para la creación e ingreso de clientes, empleados, motocicletas y citas. 
 Los espacios que contienen un asterisco rojo(*), indica que son campos obligatorios y los datos no se guardaran hasta que estos estén correctos.
 <br/>
-Es importante aclarar que una motocicleta no puede ingresarse sin antes crear el cliente al cual estará asociada esa motocicleta. Es decir, para una atención al cliente más eficiente, los pasos a seguir son:
+Es importante aclarar que una motocicleta no puede ingresarse sin antes registrar el cliente al cual estará asociada esa motocicleta. Es decir, para una atención al cliente más eficiente, los pasos a seguir son:
 <br/>&nbsp&nbsp –Búsqueda del cliente en el sistema(preferiblemente por numero de cédula).
 <br/>&nbsp&nbsp –Si este se encuentra, buscar si la motocicleta está registrada en el sistema. Si alguno de los anteriores no está, se deben ingresar respetando el orden cliente > motocicleta.
 <br/>&nbsp&nbsp –Una vez que se verifican estos datos, se puede proceder a la creación o modificación de una cita.
