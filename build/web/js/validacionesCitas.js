@@ -24,7 +24,7 @@ const VALIDACIONES_CITAS = [
     ),
     
     new Validacion(
-        "proformaCita"," -Número de proforma no valido- ",
+        "proformaCita"," -Número de orden no valido- ",
         ()=> $id("proformaCita").value!=="" && !isNaN($id("proformaCita").value)  
     ),
 
@@ -41,7 +41,7 @@ const VALIDACIONES_CITAS = [
 
     
     new Validacion(
-        "numeroOrdenCita","- Número de orden no valido-  ",
+        "numeroOrdenCita","- Número de proforma no valido-  ",
         ()=> $id("citaPendiente").checked?true:$id("numeroOrdenCita").value!=="" && !isNaN($id("numeroOrdenCita").value)  
     ),
     

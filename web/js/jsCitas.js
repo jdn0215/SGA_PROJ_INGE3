@@ -187,7 +187,7 @@ const reconstruirCita=(cita)=>{
         $("#numeroOrdenCita").val();
         $("#numeroOrdenCita").prop("disabled",false);
     }else $("#numeroOrdenCita").val(cita.orden);
-    
+    $("#titutloCitas").html("Orden "+cita.orden);
     reArmarEstado(cita.estado);
     reArmarFecha(cita.entrada,"annoCita","_mesCitas","_diaCitas","minCita");
     reArmarFecha(cita.prometida,"annoCita2","_mesCitas2","_diaCitas2","minCita2",c=>{
@@ -285,6 +285,7 @@ const buscaCita=id=>{
 };
 const clearCitas=()=>{
     $id("tituloCitasCliente").innerHTML="";
+    $("#titutloCitas").html("Formulario de creación de citas");
     modoUpdate=false;
     citaActual = null;
     $id("citasReset1").click();//quitar el texto de los inputs
