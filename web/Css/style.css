@@ -313,3 +313,21 @@ hr {
     font-weight: bolder;
     text-align: center;
 }
+
+.help{
+    text-align:justify;
+    font-family:sans-serif;
+}
+.help h5{
+    text-align: center;
+    font-size:2.8em;
+    color:#000;
+}
+.help h3{
+    color:#34A7C1;
+    font-size:1.3em;
+}
+.help p{
+    font-size:1.2em;
+    font-family:sans-serif;
+}

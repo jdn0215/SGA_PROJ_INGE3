@@ -128,6 +128,9 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
 
                         <li><a data-toggle="tab" id="botonresultados" href="#Results" style="display:none"></a> </li>
                         
+                        <li><a data-toggle="tab" class="grow OpcionIndex" id="opcHelp" href="#Help">
+                             <span class="glyphicon glyphicon-question-sign"></span>Ayuda</a>
+                            </li>
                         
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -147,6 +150,7 @@ EJEMPLO MENU DESPLEGABLE - PROBAR!!!!
                         <jsp:include page="Citas.jsp"/>
                         <jsp:include page="Agenda.jsp"/>
                         <jsp:include page="popup.jsp"/>
+                        <jsp:include page="ayuda.jsp"/>
                         
 			<!--- #CERRAR SESION#--->
 
