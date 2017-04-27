@@ -8,19 +8,25 @@ class $Proxy{
         
     };
     static proxy(parametros=[]/*array*/,accion=""/*string*/,tipo=""/*string*/,callBack/*function*/){
+        console.log("Action: "+accion);
         let AJAX_req=new XMLHttpRequest();
-        let url="/SGA/servlet?action="+accion;
+        let url="servlet?action="+accion;
         AJAX_req.open("POST",url,true);
         AJAX_req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         AJAX_req.onreadystatechange = function(){
             if( AJAX_req.readyState === 4 && AJAX_req.status === 200 ){
                 let jsonText=AJAX_req.responseText;
+                console.log("Respuesta: "+jsonText);
                 let status = JSON.parse( jsonText,revive );
                 callBack(status);
             }
         };
         let prms=parametros.reduce((a,e)=>(a=a+"&"+e.arg+"="+JSON.stringify(e.value,replacer)),"CLASS="+tipo);
-        AJAX_req.send(prms); 
+        try{
+            AJAX_req.send(prms); 
+        }catch(e){
+            console.log("Exp: "+e.message);
+        }
     }
 
     

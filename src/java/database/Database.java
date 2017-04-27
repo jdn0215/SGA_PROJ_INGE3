@@ -37,6 +37,7 @@ public final class Database {
             usuario=(usuarioArg==null?p.get("USUARIO"):usuarioArg);
             clave=(claveArg==null?p.get("CLAVE"):claveArg);
             URL_conexion=p.get("PROTOCOLO")+"//"+ servidor+":"+p.get("PUERTO")+"/"+p.get("BASEDATOS")+"?user="+usuario+"&password="+clave;
+            System.err.print("URL DE CONEXION: "+URL_conexion);
             Class.forName(p.get("MANEJADOR_DB")).newInstance();
             return DriverManager.getConnection(URL_conexion);
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
