@@ -230,7 +230,7 @@ const llenarMes=(mes="_mes",dia="_dia",topeBajo=0)=>{
         $("#Search").hide();
         switch(nuevo){
             case 1: return tituloPag("CLIENTES"),clearClientes();
-            case 2: return tituloPag("MOTOCILETAS"),clearMoto();
+            case 2: return tituloPag("MOTOCICLETAS"),clearMoto();
             case 3: return tituloPag("EMPLEADOS"),clearEmpleados();
             case 4: return tituloPag("CITAS"),clearCitas();
             case 5: return tituloPag("BÚSQUEDAS"),$("#Search").show();

@@ -172,6 +172,9 @@ public class QueryController {
             case "FSEM": return String.format(query.query,e.getIdempleado());
             case "FSEA": return String.format(query.query);
             case "FDE" : return String.format(query.query,e.getIdempleado());
+            case "actualizaEmpleado": 
+                return String.format(query.query,e.getIdempleado(),e.getNombre(),e.IsJefe(),
+                        e.IsAsesor(),e.getCorreo(),e.getTelefono(),e.IsActivo());
             default: return "";
         }
     }

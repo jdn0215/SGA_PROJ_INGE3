@@ -130,6 +130,7 @@ const EmpleadosEvents=()=>{
     $("#buttonDeleteEmpleado").click(
         ()=>popUp("CONFIRMACIÓN DE SEGURIDAD",DELETEEMPLEADO,"SI ELIMINA AL EMPLEADO SE PERDERA CUALQUIER REGISTRO RELACIONADO CON EL (citas, registro de citas, usuarios), PROCURE UTILIZAR ESTA FUNCION SOLO SI EL EMPLEADO HA SIDO REGISTRADO DE FORMA INCORRECTA")
     );
+    $("#buttonUpDateEmpleado").click(e=>actualizaEmpleado());
 };
 const MotosEvents=()=>{
     $("#MtextCedula").keyup(()=>existeCliente());

@@ -78,6 +78,11 @@ public class Modelo {
         return db.executeQuery(query.buildQuery(m,Query.FUDM))==null?0:1;
     }
     
+    
+    public static int actualizaEmpleado(Empleado e){
+        return db.executeQuery(query.buildQuery(e,Query.actualizaEmpleado))==null?0:1;
+    }
+    
     public static List<? extends Object> searchClientes(String parameter){
         ResultSet rs= db.executeQuery(query.buildQuery(new Cliente(parameter),Query.FSC));
         return  _class.toCollection(rs,Cliente.class.getSimpleName());

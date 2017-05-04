@@ -85,7 +85,7 @@ const buildEmpleado=_=>{
            $id("A").checked,
            $id("textEmail2").value,
            $id("textCelular2").value,
-           true,
+           modoUpDateEmpleado?$("#empleadoActivo")[0].checked:true,
            $id("CF2").checked?1:$id("CJ2").checked?2:3
        );  
     }
@@ -103,6 +103,7 @@ const getIdFrom2=_=>
                     
 const clearEmpleados=_=>{
    clearMensaje();
+   modoUpDateEmpleado=false;
    addTitle("empleadosTitulo","Formulario para registro de empleados");
    $id('CF').checked=true;
    $id('textCedula12').value="";
@@ -236,7 +237,7 @@ const buscarEmpleados=()=>{
             mensaje("No hay resultados",3,1);
     });
 };
-
+let modoUpDateEmpleado=false;
 const reconstruirEmpleado=e=>{
     validacion();
     let logeado=retrieve("usuarioactual");
@@ -261,6 +262,7 @@ const reconstruirEmpleado=e=>{
     $id("activoCheck").className="form-group";
     $id("buttonGuardarEmpleado").className="noVisible";
     bloqueos(logeado);
+    modoUpDateEmpleado=true;
 };
 
 const crearLink=name=>{
@@ -363,3 +365,19 @@ const cambioDeAdmins=e=>{
 
 const verificaSuficientes=()=>
     usuariosEncontrados.reduce((a,e)=>e.isAdmin?a+1:a,0)>= 1;
+
+const actualizaEmpleado=()=>{
+  let emp = buildEmpleado();
+  if(emp === false)
+    return mensaje("Empleado no modificado "+ve.message,2,3);
+    $Proxy.proxy(
+            $$("arg0",emp),
+            "actualizaEmpleado","EMPLEADO",res=>{
+        if(res===1){
+            clearEmpleados();
+            mensaje("Empleado actualizado.",2,0);
+        }
+        else if(res===0) mensaje("Empleado no actualizado, por favor, intentelo de nuevo. ",2,3);
+        else mensaje("Empleado no actualizado, verifique la conexion",2,3);
+    });
+};

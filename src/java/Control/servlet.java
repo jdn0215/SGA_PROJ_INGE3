@@ -283,6 +283,12 @@ public class servlet extends HttpServlet {
                             json=gson.toJson(Modelo.setIsAdmin(user));
                             out.write(json);
                         break; 
+                        case "actualizaEmpleado":
+                            json=request.getParameter("arg0");
+                            emp=gson.fromJson(json, Empleado.class);
+                            json=gson.toJson(Modelo.actualizaEmpleado(emp));
+                            out.write(json);
+                            break;
                             
         }
                        
