@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment, usuarioAcual, usuarioActual, id */
+/* global $id, $Proxy, agenda, HORASERVER, VALIDACIONES_CITAS, borderOK, empleadoActual, Cita, moment, usuarioAcual, usuarioActual, id, idt, tiposTrabajo */
 let validadorCita;
 var CLIENTEBUSCADO=null;
 var motosDelClienteBuscado=[];
@@ -316,9 +316,7 @@ const clearCitas=()=>{
     levantarRegistro(idt);
     cargarOpciones(tiposTrabajo,"dataTipo");
     clearMensaje();   
-	
-    
-    
+
     clearMensaje();        
 };
 const findEmpleado=e=>{

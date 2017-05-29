@@ -70,14 +70,7 @@
                     <label>Profesión/Ocupación<obligatorio>*</obligatorio></label>
                     <input type="text" class="form-control" id="textProfesion" autocomplete></label>
             </div>
-            <div class="form-group">
-                <label> Residencia<obligatorio>*</obligatorio></label>
-                <Br/><GROUP>
-                    <Select name="Es" id="comboProv" ><Option Selected value="Provincia">Provincia</Select>
-                    <Select name="Es" id="comboCant" ><Option Selected value="Cantón">Cantón</Select>
-                    <Select name="Es" id="comboDist"><Option Selected value="Distrito">Distrito</Select>
-                </GROUP>
-            </div>
+
     </form>	
  </div>
         <div class="col-md-6">
@@ -86,7 +79,15 @@
                                 <p> &nbsp </p>
                         </div>
                         <div class="form-group">
-                                <label>Correo electrónico<obligatorio>*</obligatorio></label>
+                        <label> Residencia<obligatorio>*</obligatorio></label>
+                            <Br/><GROUP>
+                                <Select name="Es" id="comboProv" ><Option Selected value="Provincia">Provincia</Select>
+                                <Select name="Es" id="comboCant" ><Option Selected value="Cantón">Cantón</Select>
+                                <Select name="Es" id="comboDist"><Option Selected value="Distrito">Distrito</Select>
+                            </GROUP>
+                        </div>
+                        <div class="form-group">
+                                <label>Correo electrónico</label>
                                 <input type="email" class="form-control" id="textEmail">
                         </div>
                         <div class="form-group">
@@ -97,7 +98,7 @@
                                 <label>  Teléfono de habitación</label>
                                 <input type ="text" name="CTexto" class="form-control" id="textTelefono">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group hide">
                             <label>Fecha de nacimiento<obligatorio>*</obligatorio></label>
                             <Br/>
                             <GROUP>
@@ -106,7 +107,7 @@
                                 <input type="text"  maxlength=4  name="anno" placeholder="ej: 1994" id="anno" class="textoAnno">
                             </GROUP>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group hide">
                             <label> Edad<obligatorio>*</obligatorio></label>
                             <input type ="text" name="CTexto" placeholder="La edad será autocalculada"class="form-control" id="textEdad" disabled>
                         </div>

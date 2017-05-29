@@ -2,8 +2,8 @@
 var auxtem;
 let resultadosClientes;
 let usuario=retrieve("usuarioactual");
-const attCL=["id","nombre","edad","correo","tel","tel2","ocupacion","nacimiento","zona","btn-update","bt-H","bt-M"];
-const HDRCL=["Identificación","Nombre","Edad","Correo electrónico","teléfono ","Celular","Ocupación","Fecha de Nacimiento","Residencia","Modificar registro","Historial de Citas","Motocicletas"];
+const attCL=["id","nombre",/*"edad",*/"correo","tel","tel2","ocupacion",/*"nacimiento",*/"zona","btn-update","bt-H","bt-M"];
+const HDRCL=["Identificación","Nombre",/*"Edad",*/"Correo electrónico","teléfono ","Celular","Ocupación",/*"Fecha de Nacimiento",*/"Residencia","Modificar registro","Historial de Citas","Motocicletas"];
 const eventoTablaCliente=e=>reconstruir(resultadosClientes[e.target.idx]);
 const eventoHCliente=e=>getHistorialC(resultadosClientes[e.target.idx]);
 const eventoMotosCliente=e=>getAllMotos(resultadosClientes[e.target.idx]);

@@ -23,14 +23,14 @@ const VALIDACIONES_CLIENTES = [
         ()=> $id("CF").checked ? true : (idCliente.length!==0&&idCliente.length<31)
     ),
 
-    new Validacion(
+    /*new Validacion(
         "textEdad","Edad no válida||",
         ()=>edadFormat.test($id("textEdad").value) && $id("textEdad").value>17 && $id("textEdad").value<100
-    ),
+    ),*/
 
     new Validacion(
         "textEmail","Correo no válido||",
-        ()=>mailFormat.test($id("textEmail").value) && $id("textEmail").value.length<41
+        ()=>mailFormat.test($id("textEmail").value) && $id("textEmail").value.length<61
     ),
 
     new Validacion(
@@ -48,13 +48,13 @@ const VALIDACIONES_CLIENTES = [
         ()=> $id("textProfesion").value!=="" && $id("textProfesion").value.length<41
     ),
 
-    new Validacion(
+    /*new Validacion(
         "_mes","-Ingrese el mes de nacimiento" ,()=>$id("_mes").selectedIndex!==0
     ),
 
     new Validacion(
         "_dia"," -Día de nacimiento",()=>$id("_dia").selectedIndex!==0
-    ),
+    ),*/
 
     new Validacion(
         "comboProv"," -Provincia",()=>$id("comboProv").selectedIndex!==0
@@ -66,9 +66,9 @@ const VALIDACIONES_CLIENTES = [
     
     new Validacion(
         "comboDist"," -Distrito",()=>$id("comboDist").selectedIndex!==0
-    ),
+    )/*,
     
     new Validacion(
         "anno"," - Año de nacimiento",()=>annoFormat.test($id("anno").value)
-    )
+    )*/
 ];

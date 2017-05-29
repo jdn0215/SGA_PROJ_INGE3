@@ -20,7 +20,7 @@ var mj="";
 //const usuarioactualogin=retrieve("usuarioactual");
 const IDFORMAT=/^([1-7])[-]([0-9]{4})[-]([0-9]{4})$/;
 const TELFORMAT=/^([0-9]{8,15})$/;
-const mailFormat=/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
+const mailFormat=/^.*$/;
 const edadFormat=/^[0-9]{2}$/;
 const DOUBLE=/^([0-9]*)([.]([0-9]*))?$/;
 const annoFormat=/^[1-2][9|0][0-9]{2}$/;
@@ -29,7 +29,7 @@ const passWordFormat=/^[A-Za-z\d]{8,15}/;
 const mes=m=>m===0?"Enr":m===1?"Fbr":m===2?"Mrz":m===3?"Abr":m===4?"May":m===5?"Jun"
             :m===6?"Jul":m===7?"Ags":m===8?"Sep":m===9?"Oct":m===10?"Nov":"Dic";
 
-
+            
 /*$('.form-js-label').find('input').on('input', function (e) {
   $(e.currentTarget).attr('data-empty', !e.currentTarget.value);
 });*/
@@ -333,15 +333,11 @@ const levantarRegistro=que=>{
 };
 const addRegistro=(donde,obj)=>{
     obj = obj.toUpperCase();
-    let arr = donde===idg?garantias:donde===idt?tiposTrabajo:0;
-    if(arr===0)return;
-    if(!noExiste(arr,obj))return;
-    if(arr[obj]===undefined || arr[obj]===null){
-        arr[arr.length-1]=obj;
-        donde===idg?garantias=arr:tiposTrabajo=arr;
-        saveRegistros(donde);
-        levantarRegistro(donde);
-    }
+    if(!noExiste(tiposTrabajo,obj))return;
+        tiposTrabajo[tiposTrabajo.length]=obj;
+        saveRegistros(idt);
+        levantarRegistro(idt);
+    
 };
 const addRegistros=(...args)=>{
     return args.reduce((a,e,i)=>(a[i]=e.toUpperCase(),a),[]);

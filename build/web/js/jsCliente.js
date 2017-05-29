@@ -23,12 +23,12 @@ const buildCliente=_=>{
            idCliente,
            (($id("CF").checked===true?1:$id("CJ").checked===true?2:3)),//tipoid 0=fisica y 1=otra
            $id("textNombre").value,
-           $id("textEdad").value,
+           0,
            $id("textEmail").value,
            $id("textTelefono").value,
            $id("textCelular").value,
            $id("textProfesion").value,
-           new Date($id("anno").value,$id("_mes").selectedIndex-1,$id("_dia").selectedIndex),
+           new Date(),
            $id("comboProv").selectedIndex,$id("comboCant").selectedIndex,$id("comboDist").selectedIndex
        );  
     }
@@ -119,11 +119,11 @@ const reconstruir=c=>{
     $id("textTelefono").value=cut(c.tel);
     $id("textCelular").value=cut(c.tel2);
     $id("textProfesion").value=cut(c.ocupacion);
-    $id("anno").value=c.nacimiento.getFullYear();
-    $id("_mes").selectedIndex=c.nacimiento.getMonth()+1;
-    llenarDia(); 
-    $id("_dia").selectedIndex=c.nacimiento.getDate();
-    calcEdad();
+    //$id("anno").value=c.nacimiento.getFullYear();
+    //$id("_mes").selectedIndex=c.nacimiento.getMonth()+1;
+    //llenarDia(); 
+    //$id("_dia").selectedIndex=c.nacimiento.getDate();
+    //calcEdad();
     $id("comboProv").selectedIndex=c.zona.provincia;
     getCantones_(c.zona.canton,c.zona.distrito);
     $id("buttonClientesHistorial").className="btn btn-warning btn-lg active";

@@ -27,7 +27,10 @@ const VALIDACIONES_EMPLEADOS=[
     ),
     new Validacion(
      "textEmail2"," -Correo electronico no valido- ",
-     ()=>  mailFormat.test($id("textEmail2").value) && $("#textEmail2").val().length<=30  
+     ()=> {
+        let x =  /^.*[@].*[.].*$/; 
+        return x.test($id("textEmail2").value) && $("#textEmail2").val().length<=60; 
+     } 
     )
     
 ];

@@ -21,7 +21,7 @@ public enum Query{
      FSE("select * from FSE('%s');"),
      FSC("select * from FSC('%%%s%%') as C(\n" +
             "  a character(30),b smallint,c character(50),\n" +
-            "  d integer,e character(40),f character(15) ,\n" +
+            "  d integer,e varchar(60),f character(15) ,\n" +
             "  g character(15),h character(40),i date,\n" +
             "  j integer,k integer, l integer,m character varying\n" +
         ");"),
@@ -36,7 +36,7 @@ public enum Query{
     FMJ1("select * from FMJ1('%s','%s','%s','%s','%s');"),
     FMJ2("select * from FMJ2(%d,%b);"),
     FMJ3("select * from FMJ3();"),
-    FMJ4("select * from FMJ4();"),
+    FMJ4("select * from FMJ4();"),  
       FT("select * from FT()"),
     BMPC("select * from BMPC('%s');"),
     FSEA("select * from FSEA();"),
